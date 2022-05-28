@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -19,7 +21,7 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5, right: 25, left: 25),
+      padding: const EdgeInsets.only(top: 5, right: 25, left: 25, bottom: 25),
       child: InkWell(
         onTap: () {},
         child: Row(
@@ -28,9 +30,11 @@ class CustomListTile extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0, right: 15),
+                  padding: const EdgeInsets.only(right: 15, bottom: 25),
                   child: CachedNetworkImage(
-                    placeholder: (context, url) => const CircularProgressIndicator(),
+                    placeholder: (context, url) => const CustomProgressIndicator(
+                      progressIndicatorColor: blackColor,
+                    ),
                     imageUrl: userImageUrl,
                     imageBuilder: (context, imageProvider) => Container(
                       width: 75,
@@ -51,26 +55,33 @@ class CustomListTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       CustomText(
-                        text: "Emir yorulmaz",
+                        text: "User Name",
                         minFontSize: 18,
                         maxFontSize: 20,
                         textPadding: EdgeInsets.only(),
+                        textStyle: TextStyle(fontWeight: FontWeight.w500),
                       ),
                       CustomText(
                         text: "my status lorem ipsum",
                         minFontSize: 18,
                         maxFontSize: 20,
-                        textPadding: EdgeInsets.only(),
+                        textPadding: EdgeInsets.only(bottom: 35, top: 5),
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-            IconButton(
-              icon: const Icon(CupertinoIcons.circle_filled),
-              iconSize: 15,
-              onPressed: () {},
+            Padding(
+              padding: const EdgeInsets.only(bottom: 25),
+              child: IconButton(
+                icon: const Icon(
+                  CupertinoIcons.circle_filled,
+                  color: offlineStatusRedColor,
+                ),
+                iconSize: 12,
+                onPressed: () {},
+              ),
             )
           ],
         ),
