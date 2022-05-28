@@ -40,6 +40,12 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signOut() async {
+    emit(
+      state.copyWith(isInProgress: true),
+    );
     await _authService.signOut();
+    emit(
+      state.copyWith(isInProgress: false),
+    );
   }
 }

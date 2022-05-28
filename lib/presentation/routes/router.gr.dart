@@ -11,10 +11,11 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:flutter/cupertino.dart' as _i8;
 import 'package:flutter/material.dart' as _i7;
 
 import '../../application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart'
-    as _i8;
+    as _i9;
 import '../pages/home/home_page_navigator.dart' as _i3;
 import '../pages/home/widgets/home_page_body.dart' as _i4;
 import '../pages/landing/landing_page.dart' as _i5;
@@ -77,7 +78,7 @@ class SignInRoute extends _i6.PageRouteInfo<void> {
 class SignInVerificationRoute
     extends _i6.PageRouteInfo<SignInVerificationRouteArgs> {
   SignInVerificationRoute(
-      {_i7.Key? key, required _i8.PhoneNumberSignInState state})
+      {_i8.Key? key, required _i9.PhoneNumberSignInState state})
       : super(SignInVerificationRoute.name,
             path: '/sign-in-verification-page',
             args: SignInVerificationRouteArgs(key: key, state: state));
@@ -88,9 +89,9 @@ class SignInVerificationRoute
 class SignInVerificationRouteArgs {
   const SignInVerificationRouteArgs({this.key, required this.state});
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
-  final _i8.PhoneNumberSignInState state;
+  final _i9.PhoneNumberSignInState state;
 
   @override
   String toString() {
@@ -101,7 +102,7 @@ class SignInVerificationRouteArgs {
 /// generated route for
 /// [_i3.HomePageNavigator]
 class HomeRouteNavigator extends _i6.PageRouteInfo<HomeRouteNavigatorArgs> {
-  HomeRouteNavigator({_i7.Key? key})
+  HomeRouteNavigator({_i8.Key? key})
       : super(HomeRouteNavigator.name,
             path: '/home-page-navigator',
             args: HomeRouteNavigatorArgs(key: key));
@@ -112,7 +113,7 @@ class HomeRouteNavigator extends _i6.PageRouteInfo<HomeRouteNavigatorArgs> {
 class HomeRouteNavigatorArgs {
   const HomeRouteNavigatorArgs({this.key});
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   @override
   String toString() {
