@@ -7,8 +7,8 @@ class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      itemCount: 6,
+      padding: const EdgeInsets.only(top: 65),
+      itemCount: 15,
       itemBuilder: (context, index) {
         return const CustomListTile(
           userImageUrl: "https://picsum.photos/200/300",

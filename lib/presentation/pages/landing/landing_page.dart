@@ -2,7 +2,7 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_dating_app/application/auth/auth_cubit.dart';
-import 'package:social_dating_app/presentation/pages/home/home_page.dart';
+import 'package:social_dating_app/presentation/pages/home/home_page_navigator.dart';
 import 'package:social_dating_app/presentation/pages/sign_in/sign_in_page.dart';
 
 class LandingPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class LandingPage extends StatelessWidget {
       onGeneratePages: (authState, pages) {
         if (authState.isUserLoggedIn) {
           return [
-            HomePage.page(),
+            HomePageNavigator.page(),
           ];
         } else {
           return [
