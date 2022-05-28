@@ -26,6 +26,7 @@ class CustomText extends StatelessWidget {
         minFontSize: minFontSize,
         maxFontSize: maxFontSize,
         style: textStyle,
+        textAlign: TextAlign.center,
       ),
     );
   }

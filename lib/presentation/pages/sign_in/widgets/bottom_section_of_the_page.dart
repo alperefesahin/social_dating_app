@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/sign_in/constants/texts.dart';
 import 'package:social_dating_app/presentation/pages/sign_in/widgets/phone_number_sign_in_section.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
@@ -38,11 +39,12 @@ class BottomSectionOfThePage extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 30, left: 30),
                       child: Row(
                         children: const [
-                          AutoSizeText(
-                            personalInformationText,
+                          CustomText(
+                            text: personalInformationText,
                             minFontSize: 20,
                             maxFontSize: 25,
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            textPadding: EdgeInsets.only(),
+                            textStyle: TextStyle(fontWeight: FontWeight.w600),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 10),
@@ -52,15 +54,11 @@ class BottomSectionOfThePage extends StatelessWidget {
                       ),
                     ),
                     const PhoneNumberSignInSection(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 45),
-                      child: AutoSizeText(
-                        smsInformationMessage,
-                        minFontSize: 15,
-                        maxFontSize: 20,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: customGreyColor),
-                      ),
+                    const CustomText(
+                      text: smsInformationMessage,
+                      minFontSize: 15,
+                      maxFontSize: 20,
+                      textPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 45),
                     ),
                     InkWell(
                       onTap: () {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/constants/texts.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
@@ -41,13 +42,14 @@ class _VerificationConfirmButtonState extends State<VerificationConfirmButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: AutoSizeText(
-                confirmText,
-                minFontSize: 25,
-                maxFontSize: 30,
-                style: TextStyle(color: whiteColor, fontWeight: FontWeight.w600),
+            const CustomText(
+              text: confirmText,
+              minFontSize: 25,
+              maxFontSize: 30,
+              textPadding: EdgeInsets.only(left: 20),
+              textStyle: TextStyle(
+                color: whiteColor,
+                fontWeight: FontWeight.w600,
               ),
             ),
             Container(

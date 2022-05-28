@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/constants/texts.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/widgets/resend_code_button.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/widgets/verification_confirm_button.dart';
@@ -43,15 +44,16 @@ class VerificationPageBody extends StatelessWidget {
                                     color: whiteColor,
                                   ),
                                 ),
-                                AutoSizeText(
-                                  confirmationText,
+                                CustomText(
+                                  text: confirmationText,
                                   minFontSize: 30,
                                   maxFontSize: 35,
-                                  style: TextStyle(
+                                  textPadding: EdgeInsets.only(),
+                                  textStyle: TextStyle(
                                     color: whiteColor,
                                     fontWeight: FontWeight.w600,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),

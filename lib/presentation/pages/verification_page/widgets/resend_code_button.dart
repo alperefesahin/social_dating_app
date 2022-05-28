@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/constants/texts.dart';
 
 class ResendCodeButton extends StatelessWidget {
@@ -18,13 +19,12 @@ class ResendCodeButton extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Row(
             children: const [
-              AutoSizeText(
-                resendCodeText,
+              CustomText(
+                text: resendCodeText,
                 minFontSize: 15,
                 maxFontSize: 20,
-                style: TextStyle(
-                  color: confirmationTextColor,
-                ),
+                textStyle: TextStyle(color: confirmationTextColor),
+                textPadding: EdgeInsets.only(),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 15),
