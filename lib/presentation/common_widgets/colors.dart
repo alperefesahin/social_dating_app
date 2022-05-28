@@ -11,3 +11,4 @@ const Color offlineStatusRedColor = Color.fromRGBO(184, 50, 41, 1);
 const Color whiteColor = Colors.white;
 const Color blackColor = Colors.black;
 const Color transparentColor = Colors.transparent;
+const Color greyColor = Colors.grey;

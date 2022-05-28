@@ -4,6 +4,8 @@ import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_app_bar.dart';
 import 'package:social_dating_app/presentation/pages/home/constants/texts.dart';
+import 'package:social_dating_app/presentation/pages/home/widgets/bottom_nav_bar.dart';
+import 'package:social_dating_app/presentation/pages/home/widgets/custom_float_action_button.dart';
 import 'package:social_dating_app/presentation/pages/home/widgets/home_page_body.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,6 +17,9 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         return Scaffold(
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: const CustomFloatActionButton(),
+          bottomNavigationBar: const BottomNavBar(),
           appBar: CustomAppBar(
             appBarTitle: homePageTitle,
             appBarAction: Icons.exit_to_app,
