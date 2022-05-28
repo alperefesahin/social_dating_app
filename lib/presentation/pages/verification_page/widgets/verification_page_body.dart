@@ -36,7 +36,10 @@ class VerificationPageBody extends StatelessWidget {
                             child: Row(
                               children: const [
                                 Padding(
-                                  padding: EdgeInsets.only(right: 20, top: 5),
+                                  padding: EdgeInsets.only(
+                                    right: 20,
+                                    top: 5,
+                                  ),
                                   child: Icon(
                                     Icons.check_rounded,
                                     size: 25,
@@ -64,7 +67,11 @@ class VerificationPageBody extends StatelessWidget {
                             ),
                             child: Row(
                               children: [
-                                const Icon(Icons.vibration, size: 50, color: whiteColor),
+                                const Icon(
+                                  Icons.vibration,
+                                  size: 50,
+                                  color: whiteColor,
+                                ),
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 25),

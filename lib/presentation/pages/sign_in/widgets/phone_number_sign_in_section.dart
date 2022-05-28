@@ -24,10 +24,16 @@ class _PhoneNumberSignInSectionState extends State<PhoneNumberSignInSection> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+      padding: const EdgeInsets.only(
+        left: 30,
+        right: 30,
+        top: 30,
+      ),
       child: InternationalPhoneNumberInput(
         onInputChanged: (PhoneNumber phoneNumber) {
-          context.read<PhoneNumberSignInCubit>().phoneNumberChanged(phoneNumber: phoneNumber.phoneNumber!);
+          context.read<PhoneNumberSignInCubit>().phoneNumberChanged(
+                phoneNumber: phoneNumber.phoneNumber!,
+              );
         },
         onInputValidated: (bool isPhoneNumberInputValidated) {
           context
@@ -36,9 +42,15 @@ class _PhoneNumberSignInSectionState extends State<PhoneNumberSignInSection> {
         },
         inputDecoration: const InputDecoration(
           hintText: phoneNumberText,
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: customIndigoColor)),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: customIndigoColor,
+            ),
+          ),
         ),
-        selectorConfig: const SelectorConfig(selectorType: PhoneInputSelectorType.DIALOG),
+        selectorConfig: const SelectorConfig(
+          selectorType: PhoneInputSelectorType.DIALOG,
+        ),
         autoValidateMode: AutovalidateMode.onUserInteraction,
         initialValue: initialPhone,
         formatInput: false,

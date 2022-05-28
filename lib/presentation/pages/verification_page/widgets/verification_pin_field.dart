@@ -31,21 +31,28 @@ class VerificationPinField extends StatelessWidget {
             appContext: context,
             length: 6,
             onChanged: (String smsCode) {
-              context.read<PhoneNumberSignInCubit>().smsCodeChanged(smsCode: smsCode);
+              context.read<PhoneNumberSignInCubit>().smsCodeChanged(
+                    smsCode: smsCode,
+                  );
             },
             textStyle: const TextStyle(color: whiteColor),
             keyboardType: TextInputType.phone,
             hintCharacter: "-",
             hintStyle: const TextStyle(color: whiteColor),
             pinTheme: PinTheme(
-                fieldOuterPadding: const EdgeInsets.only(left: 5, right: 5, top: 8),
-                shape: PinCodeFieldShape.box,
-                borderRadius: BorderRadius.circular(5),
-                fieldHeight: 60,
-                fieldWidth: 45,
-                inactiveColor: customIndigoBackgroundColor,
-                activeColor: customIndigoBackgroundColor,
-                selectedColor: customIndigoBackgroundColor),
+              fieldOuterPadding: const EdgeInsets.only(
+                left: 5,
+                right: 5,
+                top: 8,
+              ),
+              shape: PinCodeFieldShape.box,
+              borderRadius: BorderRadius.circular(5),
+              fieldHeight: 60,
+              fieldWidth: 45,
+              inactiveColor: customIndigoBackgroundColor,
+              activeColor: customIndigoBackgroundColor,
+              selectedColor: customIndigoBackgroundColor,
+            ),
           ),
         ],
       ),

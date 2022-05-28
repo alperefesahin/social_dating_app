@@ -15,16 +15,17 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         return Scaffold(
-            appBar: CustomAppBar(
-              appBarTitle: homePageTitle,
-              appBarAction: Icons.exit_to_app,
-              actionsOnPressed: () {
-                context.read<AuthCubit>().signOut();
-              },
-              appBarBackgroundColor: customIndigoColor,
-              appBarIconColor: whiteColor,
-            ),
-            body: const HomePageBody());
+          appBar: CustomAppBar(
+            appBarTitle: homePageTitle,
+            appBarAction: Icons.exit_to_app,
+            actionsOnPressed: () {
+              context.read<AuthCubit>().signOut();
+            },
+            appBarBackgroundColor: customIndigoColor,
+            appBarIconColor: whiteColor,
+          ),
+          body: const HomePageBody(),
+        );
       },
     );
   }

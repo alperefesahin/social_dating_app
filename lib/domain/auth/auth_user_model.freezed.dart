@@ -100,9 +100,8 @@ class __$$_AuthUserModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AuthUserModel extends _AuthUserModel {
-  const _$_AuthUserModel({required this.id, required this.phoneNumber})
-      : super._();
+class _$_AuthUserModel implements _AuthUserModel {
+  const _$_AuthUserModel({required this.id, required this.phoneNumber});
 
   @override
   final String id;
@@ -136,11 +135,10 @@ class _$_AuthUserModel extends _AuthUserModel {
       __$$_AuthUserModelCopyWithImpl<_$_AuthUserModel>(this, _$identity);
 }
 
-abstract class _AuthUserModel extends AuthUserModel {
+abstract class _AuthUserModel implements AuthUserModel {
   const factory _AuthUserModel(
       {required final String id,
       required final String phoneNumber}) = _$_AuthUserModel;
-  const _AuthUserModel._() : super._();
 
   @override
   String get id => throw _privateConstructorUsedError;

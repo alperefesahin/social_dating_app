@@ -10,7 +10,6 @@ class PhoneNumberSignInState with _$PhoneNumberSignInState {
     required bool isPhoneNumberInputValidated,
     AuthFailure? failureMessage,
   }) = _PhoneNumberSignInState;
-  const PhoneNumberSignInState._();
 
   factory PhoneNumberSignInState.initial() => const PhoneNumberSignInState(
         phoneNumber: "",

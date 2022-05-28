@@ -108,9 +108,8 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AuthState extends _AuthState {
-  const _$_AuthState({required this.userModel, required this.isUserLoggedIn})
-      : super._();
+class _$_AuthState implements _AuthState {
+  const _$_AuthState({required this.userModel, required this.isUserLoggedIn});
 
   @override
   final AuthUserModel userModel;
@@ -144,11 +143,10 @@ class _$_AuthState extends _AuthState {
       __$$_AuthStateCopyWithImpl<_$_AuthState>(this, _$identity);
 }
 
-abstract class _AuthState extends AuthState {
+abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required final AuthUserModel userModel,
       required final bool isUserLoggedIn}) = _$_AuthState;
-  const _AuthState._() : super._();
 
   @override
   AuthUserModel get userModel => throw _privateConstructorUsedError;

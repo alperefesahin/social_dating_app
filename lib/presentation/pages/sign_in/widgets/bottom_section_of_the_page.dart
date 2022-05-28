@@ -44,11 +44,16 @@ class BottomSectionOfThePage extends StatelessWidget {
                             minFontSize: 20,
                             maxFontSize: 25,
                             textPadding: EdgeInsets.only(),
-                            textStyle: TextStyle(fontWeight: FontWeight.w600),
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Icon(Icons.arrow_forward_ios, size: 15),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 15,
+                            ),
                           ),
                         ],
                       ),
@@ -58,7 +63,10 @@ class BottomSectionOfThePage extends StatelessWidget {
                       text: smsInformationMessage,
                       minFontSize: 15,
                       maxFontSize: 20,
-                      textPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 45),
+                      textPadding: EdgeInsets.symmetric(
+                        horizontal: 25,
+                        vertical: 45,
+                      ),
                     ),
                     InkWell(
                       onTap: () {
@@ -76,7 +84,9 @@ class BottomSectionOfThePage extends StatelessWidget {
                         height: 85,
                         decoration: BoxDecoration(
                           color: customIndigoColor,
-                          borderRadius: const BorderRadius.all(Radius.circular(60)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(60),
+                          ),
                           boxShadow: [
                             BoxShadow(
                               color: customIndigoColor.withOpacity(0.5),
@@ -86,7 +96,11 @@ class BottomSectionOfThePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: const Icon(Icons.arrow_forward, size: 40, color: whiteColor),
+                        child: const Icon(
+                          Icons.arrow_forward,
+                          size: 40,
+                          color: whiteColor,
+                        ),
                       ),
                     )
                   ],

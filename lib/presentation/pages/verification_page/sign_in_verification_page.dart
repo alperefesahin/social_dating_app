@@ -17,6 +17,7 @@ class SignInVerificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final phoneNumber = state.phoneNumber;
+
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: CustomAppBar(
@@ -27,10 +28,15 @@ class SignInVerificationPage extends StatelessWidget {
         appBarTitle: verificationText,
         appBarAction: Icons.lock,
         appBarLeading: Icons.arrow_back_ios,
-        appBarTitleTextStyle: const TextStyle(color: blackColor, fontWeight: FontWeight.w500),
+        appBarTitleTextStyle: const TextStyle(
+          color: blackColor,
+          fontWeight: FontWeight.w500,
+        ),
         appBarIconColor: blackColor,
       ),
-      body: VerificationPageBody(phoneNumber: phoneNumber),
+      body: VerificationPageBody(
+        phoneNumber: phoneNumber,
+      ),
     );
   }
 }

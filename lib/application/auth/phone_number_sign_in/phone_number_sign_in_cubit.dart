@@ -20,7 +20,9 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
     );
   }
 
-  void updateNextButtonStatus({required bool isPhoneNumberInputValidated}) {
+  void updateNextButtonStatus({
+    required bool isPhoneNumberInputValidated,
+  }) {
     emit(
       state.copyWith(
         isPhoneNumberInputValidated: isPhoneNumberInputValidated,
@@ -28,7 +30,9 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
     );
   }
 
-  void smsCodeChanged({required String smsCode}) {
+  void smsCodeChanged({
+    required String smsCode,
+  }) {
     emit(
       state.copyWith(
         smsCode: smsCode,
@@ -80,7 +84,9 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
     }
   }
 
-  void signInWithPhoneNumber({required String phoneNumber}) {
+  void signInWithPhoneNumber({
+    required String phoneNumber,
+  }) {
     emit(state.copyWith(isInProgress: true));
     _authService.verifyPhoneNumber(
       phoneNumber: phoneNumber,
@@ -104,13 +110,17 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
           result = const AuthFailure.serverError();
         }
 
-        emit(state.copyWith(failureMessage: result, isInProgress: false));
+        emit(
+          state.copyWith(failureMessage: result, isInProgress: false),
+        );
       },
       codeAutoRetrievalTimeout: (String verificationId) {
-        emit(state.copyWith(
-          failureMessage: const AuthFailure.smsTimeout(),
-          isInProgress: false,
-        ));
+        emit(
+          state.copyWith(
+            failureMessage: const AuthFailure.smsTimeout(),
+            isInProgress: false,
+          ),
+        );
       },
     );
   }

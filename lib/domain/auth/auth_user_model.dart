@@ -9,8 +9,6 @@ class AuthUserModel with _$AuthUserModel {
     required String phoneNumber,
   }) = _AuthUserModel;
 
-  const AuthUserModel._();
-
   factory AuthUserModel.empty() => const AuthUserModel(
         id: '',
         phoneNumber: '',

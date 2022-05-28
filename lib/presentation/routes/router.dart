@@ -9,11 +9,22 @@ import 'package:social_dating_app/presentation/pages/verification_page/sign_in_v
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SignInPage),
-    AutoRoute(page: SignInVerificationPage),
-    AutoRoute(page: HomePage),
-    AutoRoute(page: HomePageBody),
-    AutoRoute(page: LandingPage, initial: true),
+    AutoRoute(
+      page: SignInPage,
+    ),
+    AutoRoute(
+      page: SignInVerificationPage,
+    ),
+    AutoRoute(
+      page: HomePage,
+    ),
+    AutoRoute(
+      page: HomePageBody,
+    ),
+    AutoRoute(
+      page: LandingPage,
+      initial: true,
+    ),
   ],
 )
 class $AppRouter {}

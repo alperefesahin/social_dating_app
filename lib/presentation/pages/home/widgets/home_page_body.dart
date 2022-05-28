@@ -7,15 +7,16 @@ class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          return const CustomListTile(
-            userImageUrl: "https://picsum.photos/200/300",
-            userStatus: "userStatus",
-            userName: "userName",
-            podcastOwnersName: "podcastOwnersName",
-          );
-        });
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      itemCount: 4,
+      itemBuilder: (context, index) {
+        return const CustomListTile(
+          userImageUrl: "https://picsum.photos/200/300",
+          userStatus: "userStatus",
+          userName: "userName",
+          podcastOwnersName: "podcastOwnersName",
+        );
+      },
+    );
   }
 }

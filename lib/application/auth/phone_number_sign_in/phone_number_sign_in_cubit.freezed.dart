@@ -173,15 +173,14 @@ class __$$_PhoneNumberSignInStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PhoneNumberSignInState extends _PhoneNumberSignInState {
+class _$_PhoneNumberSignInState implements _PhoneNumberSignInState {
   const _$_PhoneNumberSignInState(
       {required this.phoneNumber,
       required this.smsCode,
       required this.verificationId,
       required this.isInProgress,
       required this.isPhoneNumberInputValidated,
-      this.failureMessage})
-      : super._();
+      this.failureMessage});
 
   @override
   final String phoneNumber;
@@ -237,7 +236,7 @@ class _$_PhoneNumberSignInState extends _PhoneNumberSignInState {
           this, _$identity);
 }
 
-abstract class _PhoneNumberSignInState extends PhoneNumberSignInState {
+abstract class _PhoneNumberSignInState implements PhoneNumberSignInState {
   const factory _PhoneNumberSignInState(
       {required final String phoneNumber,
       required final String smsCode,
@@ -245,7 +244,6 @@ abstract class _PhoneNumberSignInState extends PhoneNumberSignInState {
       required final bool isInProgress,
       required final bool isPhoneNumberInputValidated,
       final AuthFailure? failureMessage}) = _$_PhoneNumberSignInState;
-  const _PhoneNumberSignInState._() : super._();
 
   @override
   String get phoneNumber => throw _privateConstructorUsedError;

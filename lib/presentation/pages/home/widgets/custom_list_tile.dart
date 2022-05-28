@@ -13,6 +13,7 @@ class CustomListTile extends StatelessWidget {
     required this.userName,
     required this.podcastOwnersName,
   }) : super(key: key);
+
   final String userImageUrl;
   final String userStatus;
   final String userName;
@@ -21,7 +22,12 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5, right: 25, left: 25, bottom: 25),
+      padding: const EdgeInsets.only(
+        top: 5,
+        right: 25,
+        left: 25,
+        bottom: 25,
+      ),
       child: InkWell(
         onTap: () {},
         child: Row(
@@ -40,7 +46,9 @@ class CustomListTile extends StatelessWidget {
                       width: 75,
                       height: 75,
                       decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(60)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(60),
+                          ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
                             image: imageProvider,
