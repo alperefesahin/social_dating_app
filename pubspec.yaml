@@ -29,16 +29,28 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  auto_size_text: ^3.0.0
+  intl_phone_number_input: ^0.7.0+2
+  auto_route: ^4.0.1
+  flow_builder: ^0.0.8
+  wave: ^0.2.0
+  pin_code_fields: ^7.4.0
+  bot_toast: ^4.0.2
+  progress_indicators: ^1.0.0
   cupertino_icons: ^1.0.2
+
+  flutter_bloc: ^8.0.1
+  freezed_annotation: ^2.0.3
+  
+  firebase_core: ^1.17.0
+  firebase_auth: ^3.3.18
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  build_runner: ^2.1.11
+  freezed: ^2.0.3+1
+  auto_route_generator: ^4.0.0
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
