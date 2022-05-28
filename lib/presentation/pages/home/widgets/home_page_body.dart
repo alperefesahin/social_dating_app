@@ -7,7 +7,7 @@ class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.only(top: 65),
+      padding: const EdgeInsets.only(top: 75),
       itemCount: 15,
       itemBuilder: (context, index) {
         return const CustomListTile(
