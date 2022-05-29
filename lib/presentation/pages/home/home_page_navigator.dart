@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/pages/home/constants/pages.dart';
 import 'package:social_dating_app/presentation/pages/home/widgets/custom_float_action_button.dart';
 
@@ -24,34 +25,40 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
-        return Scaffold(
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: const CustomFloatActionButton(),
-          bottomNavigationBar: AnimatedBottomNavigationBar(
-            activeIndex: widget.activeIndex,
-            inactiveColor: greyColor,
-            activeColor: customIndigoColor,
-            iconSize: 30,
-            elevation: 75,
-            notchMargin: 15,
-            gapLocation: GapLocation.center,
-            notchSmoothness: NotchSmoothness.softEdge,
-            leftCornerRadius: 32,
-            rightCornerRadius: 32,
-            icons: const [
-              Icons.home,
-              CupertinoIcons.search,
-              CupertinoIcons.bubble_left,
-              CupertinoIcons.profile_circled,
-            ],
-            onTap: (int value) {
-              setState(() {
-                widget.activeIndex = value;
-              });
-            },
-          ),
-          body: pages[widget.activeIndex],
-        );
+        return state.isInProgress
+            ? const Scaffold(
+                body: CustomProgressIndicator(
+                  progressIndicatorColor: blackColor,
+                ),
+              )
+            : Scaffold(
+                floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+                floatingActionButton: const CustomFloatActionButton(),
+                bottomNavigationBar: AnimatedBottomNavigationBar(
+                  activeIndex: widget.activeIndex,
+                  inactiveColor: greyColor,
+                  activeColor: customIndigoColor,
+                  iconSize: 30,
+                  elevation: 75,
+                  notchMargin: 15,
+                  gapLocation: GapLocation.center,
+                  notchSmoothness: NotchSmoothness.softEdge,
+                  leftCornerRadius: 32,
+                  rightCornerRadius: 32,
+                  icons: const [
+                    Icons.home,
+                    CupertinoIcons.search,
+                    CupertinoIcons.bubble_left,
+                    CupertinoIcons.profile_circled,
+                  ],
+                  onTap: (int value) {
+                    setState(() {
+                      widget.activeIndex = value;
+                    });
+                  },
+                ),
+                body: pages[widget.activeIndex],
+              );
       },
     );
   }

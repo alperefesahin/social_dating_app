@@ -1,6 +1,7 @@
 import 'dart:async';
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:social_dating_app/domain/auth/auth_failure.dart';
@@ -11,6 +12,7 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
   PhoneNumberSignInCubit() : super(PhoneNumberSignInState.initial());
 
   final _authService = FirebaseAuth.instance;
+  final _firestore = FirebaseFirestore.instance;
 
   void phoneNumberChanged({required String phoneNumber}) {
     emit(
@@ -59,12 +61,23 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
         smsCode: state.smsCode,
       );
       await _authService.signInWithCredential(credential).then(
-            (value) => emit(
-              state.copyWith(
-                isInProgress: false,
-              ),
+        (UserCredential userCredential) {
+          final user = userCredential.user;
+          final uid = user!.uid;
+
+          _firestore.collection("users").doc(uid).set(
+            {
+              "userPhone": user.phoneNumber,
+            },
+            SetOptions(merge: true),
+          );
+          emit(
+            state.copyWith(
+              isInProgress: false,
             ),
           );
+        },
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == "session-expired") {
         emit(
@@ -95,10 +108,12 @@ class PhoneNumberSignInCubit extends Cubit<PhoneNumberSignInState> {
         await _authService.signInWithCredential(credential);
       },
       codeSent: (String verificationId, int? resendToken) async {
-        emit(state.copyWith(
-          verificationId: verificationId,
-          isInProgress: false,
-        ));
+        emit(
+          state.copyWith(
+            verificationId: verificationId,
+            isInProgress: false,
+          ),
+        );
       },
       verificationFailed: (FirebaseAuthException e) {
         late final AuthFailure result;
