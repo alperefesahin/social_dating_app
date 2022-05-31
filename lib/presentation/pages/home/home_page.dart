@@ -6,8 +6,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomePageBody(),
-    );
+    return /* state.userLocation.latOfCurrentLocation == null || state.userLocation.longOfCurrentLocation == null
+            ? const CustomProgressIndicator(
+                progressIndicatorColor: blackColor,
+              )
+            :  */
+        const HomePageBody();
   }
 }

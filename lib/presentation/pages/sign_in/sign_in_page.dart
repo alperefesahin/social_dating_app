@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,24 +18,28 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PhoneNumberSignInCubit, PhoneNumberSignInState>(
       builder: (context, state) {
+        print(state);
         return state.isInProgress
             ? BlocListener<PhoneNumberSignInCubit, PhoneNumberSignInState>(
-                listenWhen: (p, c) => p.failureMessage != c.failureMessage,
+                listenWhen: (p, c) => p.failureMessageOption != c.failureMessageOption,
                 listener: (context, state) {
-                  if (state.failureMessage == null) {
-                  } else if (state.failureMessage != null) {
-                    BotToast.showText(
-                      text: state.failureMessage!.when(
-                        serverError: () => "Server Error",
-                        tooManyRequests: () => "Too Many Requests",
-                        deviceNotSupported: () => "Device Not Supported",
-                        smsTimeout: () => "Sms Timeout",
-                        sessionExpired: () => "Session Expired",
-                        invalidVerificationCode: () => "Invalid Verification Code",
-                      ),
-                    );
-                    context.read<PhoneNumberSignInCubit>().reset();
-                  }
+                  state.failureMessageOption.fold(
+                    () {},
+                    (authFailure) {
+                      BotToast.showText(
+                        text: authFailure.when(
+                          serverError: () => "Server Error",
+                          tooManyRequests: () => "Too Many Requests",
+                          deviceNotSupported: () => "Device Not Supported",
+                          smsTimeout: () => "Sms Timeout",
+                          sessionExpired: () => "Session Expired",
+                          invalidVerificationCode: () => "Invalid Verification Code",
+                        ),
+                      );
+                      context.read<PhoneNumberSignInCubit>().reset();
+                      AutoRouter.of(context).popUntilRoot();
+                    },
+                  );
                 },
                 child: const Scaffold(
                   body: CustomProgressIndicator(

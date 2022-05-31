@@ -1,3 +1,4 @@
+// ignore_for_file: no_logic_in_create_state
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,14 +7,18 @@ import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/pages/sign_in/constants/texts.dart';
 
 class PhoneNumberSignInSection extends StatefulWidget {
-  const PhoneNumberSignInSection({Key? key}) : super(key: key);
+  const PhoneNumberSignInSection({Key? key, required this.state}) : super(key: key);
 
+  final PhoneNumberSignInState state;
   @override
-  State<PhoneNumberSignInSection> createState() => _PhoneNumberSignInSectionState();
+  State<PhoneNumberSignInSection> createState() => _PhoneNumberSignInSectionState(state);
 }
 
 class _PhoneNumberSignInSectionState extends State<PhoneNumberSignInSection> {
+  final PhoneNumberSignInState state;
   final PhoneNumber initialPhone = PhoneNumber(isoCode: "TR");
+
+  _PhoneNumberSignInSectionState(this.state);
 
   @override
   void didChangeDependencies() {

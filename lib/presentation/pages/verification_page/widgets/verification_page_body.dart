@@ -103,7 +103,7 @@ class VerificationPageBody extends StatelessWidget {
                               ],
                             ),
                           ),
-                          VerificationPinField(state: state),
+                          const VerificationPinField(),
                           const ResendCodeButton(),
                           VerificationConfirmButton(state: state)
                         ],

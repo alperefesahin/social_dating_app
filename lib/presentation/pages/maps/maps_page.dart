@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/application/maps/maps_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
@@ -11,32 +12,23 @@ class MapsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider(
-        create: (context) => MapsCubit()..getCurrentPositionWithUserPermission(),
-        child: Builder(
-          builder: (context) {
-            return BlocBuilder<MapsCubit, MapsState>(
-              builder: (context, state) {
-                print(state.permission.toString() + "213123123");
-                return state.permission == LocationPermission.denied
-                    ? const Center(
-                        child: Text("data",style: TextStyle(fontSize: 50),),
-                      )
-                    : state.isInProgress
-                        ? const CustomProgressIndicator(
-                            progressIndicatorColor: blackColor,
-                          )
-                        : Scaffold(
-                            body: MapsPageBody(
-                              mapsState: state,
-                            ),
-                          );
-              },
-            );
-          },
-        ),
-      ),
+    return BlocBuilder<MapsCubit, MapsState>(
+      builder: (context, state) {
+        return state.permission == LocationPermission.denied
+            ? const Center(
+                child: Text(
+                  "data",
+                  style: TextStyle(fontSize: 50),
+                ),
+              )
+            : state.isInProgress
+                ? const CustomProgressIndicator(
+                    progressIndicatorColor: blackColor,
+                  )
+                : MapsPageBody(
+                    mapsState: state,
+                  );
+      },
     );
   }
 }

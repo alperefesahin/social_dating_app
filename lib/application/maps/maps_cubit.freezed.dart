@@ -16,46 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MapsState {
-  Position? get currentPosition => throw _privateConstructorUsedError;
   LocationPermission? get permission => throw _privateConstructorUsedError;
   bool get isInProgress => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Position? currentPosition,
-            LocationPermission? permission, bool isInProgress)
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Position? currentPosition, LocationPermission? permission,
-            bool isInProgress)?
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Position? currentPosition, LocationPermission? permission,
-            bool isInProgress)?
-        initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  UserLocationModel get userLocation => throw _privateConstructorUsedError;
+  List<dynamic> get usersWithInTenKilometers =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -68,9 +32,12 @@ abstract class $MapsStateCopyWith<$Res> {
   factory $MapsStateCopyWith(MapsState value, $Res Function(MapsState) then) =
       _$MapsStateCopyWithImpl<$Res>;
   $Res call(
-      {Position? currentPosition,
-      LocationPermission? permission,
-      bool isInProgress});
+      {LocationPermission? permission,
+      bool isInProgress,
+      UserLocationModel userLocation,
+      List<dynamic> usersWithInTenKilometers});
+
+  $UserLocationModelCopyWith<$Res> get userLocation;
 }
 
 /// @nodoc
@@ -83,15 +50,12 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? currentPosition = freezed,
     Object? permission = freezed,
     Object? isInProgress = freezed,
+    Object? userLocation = freezed,
+    Object? usersWithInTenKilometers = freezed,
   }) {
     return _then(_value.copyWith(
-      currentPosition: currentPosition == freezed
-          ? _value.currentPosition
-          : currentPosition // ignore: cast_nullable_to_non_nullable
-              as Position?,
       permission: permission == freezed
           ? _value.permission
           : permission // ignore: cast_nullable_to_non_nullable
@@ -100,7 +64,22 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
           ? _value.isInProgress
           : isInProgress // ignore: cast_nullable_to_non_nullable
               as bool,
+      userLocation: userLocation == freezed
+          ? _value.userLocation
+          : userLocation // ignore: cast_nullable_to_non_nullable
+              as UserLocationModel,
+      usersWithInTenKilometers: usersWithInTenKilometers == freezed
+          ? _value.usersWithInTenKilometers
+          : usersWithInTenKilometers // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
+  }
+
+  @override
+  $UserLocationModelCopyWith<$Res> get userLocation {
+    return $UserLocationModelCopyWith<$Res>(_value.userLocation, (value) {
+      return _then(_value.copyWith(userLocation: value));
+    });
   }
 }
 
@@ -111,9 +90,13 @@ abstract class _$$_InitialCopyWith<$Res> implements $MapsStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Position? currentPosition,
-      LocationPermission? permission,
-      bool isInProgress});
+      {LocationPermission? permission,
+      bool isInProgress,
+      UserLocationModel userLocation,
+      List<dynamic> usersWithInTenKilometers});
+
+  @override
+  $UserLocationModelCopyWith<$Res> get userLocation;
 }
 
 /// @nodoc
@@ -127,15 +110,12 @@ class __$$_InitialCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currentPosition = freezed,
     Object? permission = freezed,
     Object? isInProgress = freezed,
+    Object? userLocation = freezed,
+    Object? usersWithInTenKilometers = freezed,
   }) {
     return _then(_$_Initial(
-      currentPosition: currentPosition == freezed
-          ? _value.currentPosition
-          : currentPosition // ignore: cast_nullable_to_non_nullable
-              as Position?,
       permission: permission == freezed
           ? _value.permission
           : permission // ignore: cast_nullable_to_non_nullable
@@ -144,31 +124,45 @@ class __$$_InitialCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
           ? _value.isInProgress
           : isInProgress // ignore: cast_nullable_to_non_nullable
               as bool,
+      userLocation: userLocation == freezed
+          ? _value.userLocation
+          : userLocation // ignore: cast_nullable_to_non_nullable
+              as UserLocationModel,
+      usersWithInTenKilometers: usersWithInTenKilometers == freezed
+          ? _value._usersWithInTenKilometers
+          : usersWithInTenKilometers // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial extends _Initial {
   const _$_Initial(
-      {this.currentPosition = null,
-      this.permission = LocationPermission.denied,
-      this.isInProgress = false});
+      {required this.permission,
+      required this.isInProgress,
+      required this.userLocation,
+      required final List<dynamic> usersWithInTenKilometers})
+      : _usersWithInTenKilometers = usersWithInTenKilometers,
+        super._();
 
   @override
-  @JsonKey()
-  final Position? currentPosition;
-  @override
-  @JsonKey()
   final LocationPermission? permission;
   @override
-  @JsonKey()
   final bool isInProgress;
+  @override
+  final UserLocationModel userLocation;
+  final List<dynamic> _usersWithInTenKilometers;
+  @override
+  List<dynamic> get usersWithInTenKilometers {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_usersWithInTenKilometers);
+  }
 
   @override
   String toString() {
-    return 'MapsState.initial(currentPosition: $currentPosition, permission: $permission, isInProgress: $isInProgress)';
+    return 'MapsState(permission: $permission, isInProgress: $isInProgress, userLocation: $userLocation, usersWithInTenKilometers: $usersWithInTenKilometers)';
   }
 
   @override
@@ -177,100 +171,46 @@ class _$_Initial implements _Initial {
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
             const DeepCollectionEquality()
-                .equals(other.currentPosition, currentPosition) &&
-            const DeepCollectionEquality()
                 .equals(other.permission, permission) &&
             const DeepCollectionEquality()
-                .equals(other.isInProgress, isInProgress));
+                .equals(other.isInProgress, isInProgress) &&
+            const DeepCollectionEquality()
+                .equals(other.userLocation, userLocation) &&
+            const DeepCollectionEquality().equals(
+                other._usersWithInTenKilometers, _usersWithInTenKilometers));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(currentPosition),
       const DeepCollectionEquality().hash(permission),
-      const DeepCollectionEquality().hash(isInProgress));
+      const DeepCollectionEquality().hash(isInProgress),
+      const DeepCollectionEquality().hash(userLocation),
+      const DeepCollectionEquality().hash(_usersWithInTenKilometers));
 
   @JsonKey(ignore: true)
   @override
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
       __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Position? currentPosition,
-            LocationPermission? permission, bool isInProgress)
-        initial,
-  }) {
-    return initial(currentPosition, permission, isInProgress);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Position? currentPosition, LocationPermission? permission,
-            bool isInProgress)?
-        initial,
-  }) {
-    return initial?.call(currentPosition, permission, isInProgress);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Position? currentPosition, LocationPermission? permission,
-            bool isInProgress)?
-        initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(currentPosition, permission, isInProgress);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _Initial implements MapsState {
+abstract class _Initial extends MapsState {
   const factory _Initial(
-      {final Position? currentPosition,
-      final LocationPermission? permission,
-      final bool isInProgress}) = _$_Initial;
+      {required final LocationPermission? permission,
+      required final bool isInProgress,
+      required final UserLocationModel userLocation,
+      required final List<dynamic> usersWithInTenKilometers}) = _$_Initial;
+  const _Initial._() : super._();
 
-  @override
-  Position? get currentPosition => throw _privateConstructorUsedError;
   @override
   LocationPermission? get permission => throw _privateConstructorUsedError;
   @override
   bool get isInProgress => throw _privateConstructorUsedError;
+  @override
+  UserLocationModel get userLocation => throw _privateConstructorUsedError;
+  @override
+  List<dynamic> get usersWithInTenKilometers =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

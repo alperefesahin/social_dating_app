@@ -5,9 +5,8 @@ import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_nu
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 
 class VerificationPinField extends StatelessWidget {
-  const VerificationPinField({Key? key, required this.state}) : super(key: key);
+  const VerificationPinField({Key? key}) : super(key: key);
 
-  final PhoneNumberSignInState state;
   @override
   Widget build(BuildContext context) {
     return Padding(

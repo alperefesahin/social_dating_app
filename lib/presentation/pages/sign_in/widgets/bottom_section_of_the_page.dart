@@ -10,10 +10,9 @@ import 'package:social_dating_app/presentation/pages/sign_in/widgets/phone_numbe
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
 class BottomSectionOfThePage extends StatelessWidget {
-  const BottomSectionOfThePage({Key? key, required this.size, required this.state}) : super(key: key);
+  const BottomSectionOfThePage({Key? key, required this.size}) : super(key: key);
 
   final Size size;
-  final PhoneNumberSignInState state;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,9 @@ class BottomSectionOfThePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const PhoneNumberSignInSection(),
+                    PhoneNumberSignInSection(
+                      state: state,
+                    ),
                     const CustomText(
                       text: smsInformationMessage,
                       minFontSize: 15,
@@ -71,9 +72,7 @@ class BottomSectionOfThePage extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         if (state.isPhoneNumberInputValidated) {
-                          context.read<PhoneNumberSignInCubit>().signInWithPhoneNumber(
-                                phoneNumber: state.phoneNumber,
-                              );
+                          context.read<PhoneNumberSignInCubit>().signInWithPhoneNumber();
                           AutoRouter.of(context).navigate(
                             SignInVerificationRoute(state: state),
                           );

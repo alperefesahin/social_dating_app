@@ -7,7 +7,7 @@ import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/constants/texts.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
-class VerificationConfirmButton extends StatefulWidget {
+class VerificationConfirmButton extends StatelessWidget {
   const VerificationConfirmButton({
     Key? key,
     required this.state,
@@ -15,16 +15,13 @@ class VerificationConfirmButton extends StatefulWidget {
   final PhoneNumberSignInState state;
 
   @override
-  State<VerificationConfirmButton> createState() => _VerificationConfirmButtonState();
-}
-
-class _VerificationConfirmButtonState extends State<VerificationConfirmButton> {
-  @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.read<PhoneNumberSignInCubit>().verifySmsCode();
-        AutoRouter.of(context).navigate(const LandingRoute());
+        if (state.smsCode.isNotEmpty) {
+          context.read<PhoneNumberSignInCubit>().verifySmsCode();
+          AutoRouter.of(context).navigate(const LandingRoute());
+        }
       },
       splashColor: transparentColor,
       highlightColor: transparentColor,

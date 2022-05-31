@@ -10,6 +10,8 @@ class MapsPageBody extends StatelessWidget {
   final MapsState mapsState;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text("mappp"),
+    );
   }
 }

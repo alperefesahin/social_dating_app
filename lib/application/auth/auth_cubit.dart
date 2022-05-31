@@ -1,18 +1,22 @@
+// ignore_for_file: depend_on_referenced_packages
 import 'dart:async';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:social_dating_app/domain/auth/auth_user_model.dart';
+import 'package:social_dating_app/domain/auth/i_auth_service.dart';
+import 'package:social_dating_app/injection.dart';
 part 'auth_state.dart';
 part 'auth_cubit.freezed.dart';
 
+@LazySingleton()
 class AuthCubit extends Cubit<AuthState> {
-  final _authService = FirebaseAuth.instance;
-  late StreamSubscription? _authUserSubscription;
+  late final IAuthService _authService;
+  late StreamSubscription<AuthUserModel>? _authUserSubscription;
 
   AuthCubit() : super(AuthState.empty()) {
-    _authUserSubscription = _authService.authStateChanges().listen(_listenAuthStateChangesStream);
+    _authService = getIt<IAuthService>();
+    _authUserSubscription = _authService.authStateChanges.listen(_listenAuthStateChangesStream);
   }
 
   @override
@@ -21,31 +25,19 @@ class AuthCubit extends Cubit<AuthState> {
     super.close();
   }
 
-  Future<void> _listenAuthStateChangesStream(User? authUser) async {
-    if (authUser == null) {
+  Future<void> _listenAuthStateChangesStream(AuthUserModel authUser) async {
+    if (AuthUserModel.empty() == authUser) {
       emit(
-        state.copyWith(
-          userModel: AuthUserModel.empty(),
-          isUserLoggedIn: false,
-        ),
+        state.copyWith(userModel: authUser, isUserLoggedIn: false),
       );
     } else {
       emit(
-        state.copyWith(
-          userModel: AuthUserModel(id: authUser.uid, phoneNumber: authUser.phoneNumber!),
-          isUserLoggedIn: true,
-        ),
+        state.copyWith(userModel: authUser, isUserLoggedIn: true),
       );
     }
   }
 
   Future<void> signOut() async {
-    emit(
-      state.copyWith(isInProgress: true),
-    );
-    await _authService.signOut();
-    emit(
-      state.copyWith(isInProgress: false),
-    );
+    _authService.signOut();
   }
 }
