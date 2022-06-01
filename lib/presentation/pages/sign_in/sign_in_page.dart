@@ -18,7 +18,6 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PhoneNumberSignInCubit, PhoneNumberSignInState>(
       builder: (context, state) {
-        print(state);
         return state.isInProgress
             ? BlocListener<PhoneNumberSignInCubit, PhoneNumberSignInState>(
                 listenWhen: (p, c) => p.failureMessageOption != c.failureMessageOption,

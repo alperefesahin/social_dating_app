@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/application/maps/maps_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';

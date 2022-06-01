@@ -10,18 +10,21 @@ import 'package:social_dating_app/presentation/pages/home/widgets/custom_list_ti
 class HomePageBody extends StatelessWidget {
   const HomePageBody({
     Key? key,
-   /*  required this.mapsState, */
+    required this.mapsState,
+    required this.authState,
   }) : super(key: key);
 
-/*   final MapsState mapsState; */
+  final MapsState mapsState;
+  final AuthState authState;
+
   @override
   Widget build(BuildContext context) {
-   /*  final currentUid = context.read<AuthState>().userModel.id;
-    //! bunu kaldırınca duxelıyor sorun?
-    final firestoreStream =
-        FirebaseFirestore.instance.collection('users').where("uid", isNotEqualTo: currentUid).snapshots(); */
+    final currentUid = authState.userModel.id;
 
-    return Text("data");/* StreamBuilder<QuerySnapshot>(
+    final firestoreStream =
+        FirebaseFirestore.instance.collection('users').where("uid", isNotEqualTo: currentUid).snapshots();
+
+    return StreamBuilder<QuerySnapshot>(
       stream: firestoreStream,
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting || snapshot.connectionState == ConnectionState.none) {
@@ -38,8 +41,10 @@ class HomePageBody extends StatelessWidget {
 
           context.read<MapsCubit>().filterUsersWithRespectToDistance(users: users);
           final usersWithInTenKilometers = mapsState.usersWithInTenKilometers;
-          return usersWithInTenKilometers.length == 0
-              ? Center(child: Text("there is no user"))
+          return usersWithInTenKilometers.isEmpty
+              ? const Center(
+                  child: Text("there is no user"),
+                )
               : ListView.builder(
                   padding: const EdgeInsets.only(top: 75),
                   itemCount: usersWithInTenKilometers.length,
@@ -57,6 +62,6 @@ class HomePageBody extends StatelessWidget {
           progressIndicatorColor: blackColor,
         );
       },
-    ); */
+    );
   }
 }
