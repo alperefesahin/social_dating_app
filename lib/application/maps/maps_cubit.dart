@@ -3,11 +3,13 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:injectable/injectable.dart';
 import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/domain/location/user_location_model.dart';
 part 'maps_cubit.freezed.dart';
 part 'maps_state.dart';
 
+@Injectable()
 class MapsCubit extends Cubit<MapsState> {
   MapsCubit(this.authCubit) : super(MapsState.empty());
 

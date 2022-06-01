@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
-import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
 class LandingPage extends StatefulWidget {
@@ -32,18 +31,24 @@ class LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
-      listenWhen: (p, c) => p.isUserLoggedIn != c.isUserLoggedIn && c.isUserLoggedIn,
-      listener: (context, state) {
-        final bool isUserLoggedIn = state.isUserLoggedIn;
+    return WillPopScope(
+      onWillPop: () => Future<bool>.value(false),
+      child: BlocListener<AuthCubit, AuthState>(
+        listenWhen: (p, c) => p.isUserLoggedIn != c.isUserLoggedIn && c.isUserLoggedIn,
+        listener: (context, state) {
+          final bool isUserLoggedIn = state.isUserLoggedIn;
 
-        if (isUserLoggedIn) {
-          AutoRouter.of(context).replace(const HomeRouteNavigator());
-        } else {
-          AutoRouter.of(context).replace(const SignInRoute());
-        }
-      },
-      child: const Scaffold(body: CustomProgressIndicator(progressIndicatorColor: blackColor)),
+          if (isUserLoggedIn) {
+            AutoRouter.of(context).replace(const HomeRouteNavigator());
+          } else {
+            AutoRouter.of(context).replace(const SignInRoute());
+          }
+        },
+        child: const Scaffold(
+            body: CircularProgressIndicator(
+          color: blackColor,
+        )),
+      ),
     );
   }
 }

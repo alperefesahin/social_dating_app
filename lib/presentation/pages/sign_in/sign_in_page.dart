@@ -16,46 +16,49 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PhoneNumberSignInCubit, PhoneNumberSignInState>(
-      builder: (context, state) {
-        return state.isInProgress
-            ? BlocListener<PhoneNumberSignInCubit, PhoneNumberSignInState>(
-                listenWhen: (p, c) => p.failureMessageOption != c.failureMessageOption,
-                listener: (context, state) {
-                  state.failureMessageOption.fold(
-                    () {},
-                    (authFailure) {
-                      BotToast.showText(
-                        text: authFailure.when(
-                          serverError: () => "Server Error",
-                          tooManyRequests: () => "Too Many Requests",
-                          deviceNotSupported: () => "Device Not Supported",
-                          smsTimeout: () => "Sms Timeout",
-                          sessionExpired: () => "Session Expired",
-                          invalidVerificationCode: () => "Invalid Verification Code",
-                        ),
-                      );
-                      context.read<PhoneNumberSignInCubit>().reset();
-                      AutoRouter.of(context).popUntilRoot();
-                    },
+    return WillPopScope(
+      onWillPop: () => Future<bool>.value(false),
+      child: BlocBuilder<PhoneNumberSignInCubit, PhoneNumberSignInState>(
+        builder: (context, state) {
+          return BlocListener<PhoneNumberSignInCubit, PhoneNumberSignInState>(
+            listenWhen: (p, c) => p.failureMessageOption != c.failureMessageOption,
+            listener: (context, state) {
+              state.failureMessageOption.fold(
+                () {},
+                (authFailure) {
+                  BotToast.showText(
+                    text: authFailure.when(
+                      serverError: () => "Server Error",
+                      tooManyRequests: () => "Too Many Requests",
+                      deviceNotSupported: () => "Device Not Supported",
+                      smsTimeout: () => "Sms Timeout",
+                      sessionExpired: () => "Session Expired",
+                      invalidVerificationCode: () => "Invalid Verification Code",
+                    ),
                   );
+                  context.read<PhoneNumberSignInCubit>().reset();
+                  AutoRouter.of(context).popUntilRoot();
                 },
-                child: const Scaffold(
-                  body: CustomProgressIndicator(
-                    progressIndicatorColor: blackColor,
-                  ),
-                ),
-              )
-            : Scaffold(
-                appBar: CustomAppBar(
-                  appBarIconColor: whiteColor,
-                  appBarBackgroundColor: customIndigoColor,
-                  appBarTitle: signInText,
-                  appBarAction: CupertinoIcons.line_horizontal_3_decrease,
-                ),
-                body: const SignInPageBody(),
               );
-      },
+            },
+            child: state.isInProgress
+                ? const Scaffold(
+                    body: CustomProgressIndicator(
+                      progressIndicatorColor: blackColor,
+                    ),
+                  )
+                : Scaffold(
+                    appBar: CustomAppBar(
+                      appBarIconColor: whiteColor,
+                      appBarBackgroundColor: customIndigoColor,
+                      appBarTitle: signInText,
+                      appBarAction: CupertinoIcons.line_horizontal_3_decrease,
+                    ),
+                    body: const SignInPageBody(),
+                  ),
+          );
+        },
+      ),
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
-import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -37,8 +36,8 @@ class CustomListTile extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 15, bottom: 25),
                   child: CachedNetworkImage(
-                    placeholder: (context, url) => const CustomProgressIndicator(
-                      progressIndicatorColor: blackColor,
+                    placeholder: (context, url) => const CircularProgressIndicator(
+                      color: blackColor,
                     ),
                     imageUrl: userImageUrl,
                     imageBuilder: (context, imageProvider) => Container(

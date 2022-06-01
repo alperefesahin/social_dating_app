@@ -31,6 +31,10 @@ class HomePageBody extends StatelessWidget {
           return const CustomProgressIndicator(
             progressIndicatorColor: blackColor,
           );
+        } else if (!snapshot.hasData) {
+          return const CustomProgressIndicator(
+            progressIndicatorColor: blackColor,
+          );
         } else if (snapshot.hasData) {
           final usersDatas = snapshot.data.docs;
           final List users = [];

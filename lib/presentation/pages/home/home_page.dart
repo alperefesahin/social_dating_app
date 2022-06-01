@@ -13,26 +13,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authCubit = getIt<AuthCubit>();
-    return BlocProvider(
-      create: (context) => MapsCubit(authCubit)..getCurrentPositionWithUserPermission(),
-      child: Builder(builder: (context) {
-        return BlocBuilder<MapsCubit, MapsState>(
-          builder: (context, state) {
-            final authState = authCubit.state;
-            final isUserLocationKnown =
-                state.userLocation.latOfCurrentLocation == null || state.userLocation.longOfCurrentLocation == null;
 
-            return isUserLocationKnown
-                ? const CustomProgressIndicator(
-                    progressIndicatorColor: blackColor,
-                  )
-                : HomePageBody(
-                    authState: authState,
-                    mapsState: state,
-                  );
-          },
-        );
-      }),
+    return BlocBuilder<MapsCubit, MapsState>(
+      builder: (context, state) {
+        final authState = authCubit.state;
+        final isUserLocationKnown =
+            state.userLocation.latOfCurrentLocation == null || state.userLocation.longOfCurrentLocation == null;
+
+        return isUserLocationKnown
+            ? const CustomProgressIndicator(
+                progressIndicatorColor: blackColor,
+              )
+            : HomePageBody(
+                authState: authState,
+                mapsState: state,
+              );
+      },
     );
   }
 }
