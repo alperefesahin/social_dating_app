@@ -8,7 +8,7 @@ import 'package:social_dating_app/presentation/common_widgets/custom_progress_in
 import 'package:social_dating_app/presentation/pages/home/widgets/custom_list_tile.dart';
 
 class HomePageBody extends StatelessWidget {
-  const HomePageBody({
+  HomePageBody({
     Key? key,
     required this.mapsState,
     required this.authState,
@@ -16,7 +16,7 @@ class HomePageBody extends StatelessWidget {
 
   final MapsState mapsState;
   final AuthState authState;
-
+  final Set users = {};
   @override
   Widget build(BuildContext context) {
     final currentUid = authState.userModel.id;
@@ -37,7 +37,6 @@ class HomePageBody extends StatelessWidget {
           );
         } else if (snapshot.hasData) {
           final usersDatas = snapshot.data.docs;
-          final List users = [];
 
           for (var userDatas in usersDatas) {
             users.add(userDatas);
@@ -45,6 +44,8 @@ class HomePageBody extends StatelessWidget {
 
           context.read<MapsCubit>().filterUsersWithRespectToDistance(users: users);
           final usersWithInTenKilometers = mapsState.usersWithInTenKilometers;
+
+          print(mapsState.usersWithInTenKilometers.map((e) => e));
           return usersWithInTenKilometers.isEmpty
               ? const Center(
                   child: Text("there is no user"),

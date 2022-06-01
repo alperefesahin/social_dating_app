@@ -19,7 +19,7 @@ mixin _$MapsState {
   LocationPermission? get permission => throw _privateConstructorUsedError;
   bool get isInProgress => throw _privateConstructorUsedError;
   UserLocationModel get userLocation => throw _privateConstructorUsedError;
-  List<dynamic> get usersWithInTenKilometers =>
+  Set<dynamic> get usersWithInTenKilometers =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $MapsStateCopyWith<$Res> {
       {LocationPermission? permission,
       bool isInProgress,
       UserLocationModel userLocation,
-      List<dynamic> usersWithInTenKilometers});
+      Set<dynamic> usersWithInTenKilometers});
 
   $UserLocationModelCopyWith<$Res> get userLocation;
 }
@@ -71,7 +71,7 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
       usersWithInTenKilometers: usersWithInTenKilometers == freezed
           ? _value.usersWithInTenKilometers
           : usersWithInTenKilometers // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as Set<dynamic>,
     ));
   }
 
@@ -93,7 +93,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $MapsStateCopyWith<$Res> {
       {LocationPermission? permission,
       bool isInProgress,
       UserLocationModel userLocation,
-      List<dynamic> usersWithInTenKilometers});
+      Set<dynamic> usersWithInTenKilometers});
 
   @override
   $UserLocationModelCopyWith<$Res> get userLocation;
@@ -131,7 +131,7 @@ class __$$_InitialCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
       usersWithInTenKilometers: usersWithInTenKilometers == freezed
           ? _value._usersWithInTenKilometers
           : usersWithInTenKilometers // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as Set<dynamic>,
     ));
   }
 }
@@ -143,7 +143,7 @@ class _$_Initial extends _Initial {
       {required this.permission,
       required this.isInProgress,
       required this.userLocation,
-      required final List<dynamic> usersWithInTenKilometers})
+      required final Set<dynamic> usersWithInTenKilometers})
       : _usersWithInTenKilometers = usersWithInTenKilometers,
         super._();
 
@@ -153,11 +153,11 @@ class _$_Initial extends _Initial {
   final bool isInProgress;
   @override
   final UserLocationModel userLocation;
-  final List<dynamic> _usersWithInTenKilometers;
+  final Set<dynamic> _usersWithInTenKilometers;
   @override
-  List<dynamic> get usersWithInTenKilometers {
+  Set<dynamic> get usersWithInTenKilometers {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_usersWithInTenKilometers);
+    return EqualUnmodifiableSetView(_usersWithInTenKilometers);
   }
 
   @override
@@ -199,7 +199,7 @@ abstract class _Initial extends MapsState {
       {required final LocationPermission? permission,
       required final bool isInProgress,
       required final UserLocationModel userLocation,
-      required final List<dynamic> usersWithInTenKilometers}) = _$_Initial;
+      required final Set<dynamic> usersWithInTenKilometers}) = _$_Initial;
   const _Initial._() : super._();
 
   @override
@@ -209,7 +209,7 @@ abstract class _Initial extends MapsState {
   @override
   UserLocationModel get userLocation => throw _privateConstructorUsedError;
   @override
-  List<dynamic> get usersWithInTenKilometers =>
+  Set<dynamic> get usersWithInTenKilometers =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

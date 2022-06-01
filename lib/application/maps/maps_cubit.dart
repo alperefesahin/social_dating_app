@@ -15,7 +15,7 @@ class MapsCubit extends Cubit<MapsState> {
 
   final AuthCubit authCubit;
   final _firestore = FirebaseFirestore.instance;
-  final List usersWithInTenKilometers = [];
+  final Set usersWithInTenKilometers = {};
 
   double calculateDistanceBetweenUsersAndCurrentUser(double otherUserLocationLat, double otherUserLocationLong) {
     double? currentUserLat = state.userLocation.latOfCurrentLocation;
@@ -29,15 +29,17 @@ class MapsCubit extends Cubit<MapsState> {
   }
 
   void filterUsersWithRespectToDistance({
-    required List users,
+    required Set users,
   }) async {
     for (var i = 0; i < users.length; i++) {
-      final otherUserLocationLat = users[i]["latitude"];
-      final otherUserLocationLong = users[i]["longitude"];
+      final otherUserLocationLat = users.elementAt(i)["latitude"];
+      final otherUserLocationLong = users.elementAt(i)["longitude"];
       final distance = calculateDistanceBetweenUsersAndCurrentUser(otherUserLocationLat, otherUserLocationLong);
 
       if (distance <= 10000) {
-        usersWithInTenKilometers.add(users[i]);
+        if (!usersWithInTenKilometers.contains(users.elementAt(i))) {
+          usersWithInTenKilometers.add(users.elementAt(i)["uid"]);
+        }
       } else {}
     }
 

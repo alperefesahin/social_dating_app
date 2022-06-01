@@ -6,7 +6,7 @@ class MapsState with _$MapsState {
     required LocationPermission? permission,
     required bool isInProgress,
     required UserLocationModel userLocation,
-    required List usersWithInTenKilometers,
+    required Set usersWithInTenKilometers,
   }) = _Initial;
 
   const MapsState._();
@@ -15,6 +15,6 @@ class MapsState with _$MapsState {
         userLocation: UserLocationModel.empty(),
         permission: LocationPermission.denied,
         isInProgress: false,
-        usersWithInTenKilometers: [],
+        usersWithInTenKilometers: {},
       );
 }
