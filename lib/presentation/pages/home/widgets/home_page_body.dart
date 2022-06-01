@@ -39,13 +39,14 @@ class HomePageBody extends StatelessWidget {
           final usersDatas = snapshot.data.docs;
 
           for (var userDatas in usersDatas) {
-            users.add(userDatas);
+            if (userDatas["latitude"] == null || userDatas["longitude"] == null) {
+            } else {
+              users.add(userDatas);
+            }
           }
-
           context.read<MapsCubit>().filterUsersWithRespectToDistance(users: users);
           final usersWithInTenKilometers = mapsState.usersWithInTenKilometers;
 
-          print(mapsState.usersWithInTenKilometers.map((e) => e));
           return usersWithInTenKilometers.isEmpty
               ? const Center(
                   child: Text("there is no user"),

@@ -32,11 +32,11 @@ class MapsCubit extends Cubit<MapsState> {
     required Set users,
   }) async {
     for (var i = 0; i < users.length; i++) {
-      final otherUserLocationLat = users.elementAt(i)["latitude"];
-      final otherUserLocationLong = users.elementAt(i)["longitude"];
+      final double otherUserLocationLat = users.elementAt(i)["latitude"];
+      final double otherUserLocationLong = users.elementAt(i)["longitude"];
       final distance = calculateDistanceBetweenUsersAndCurrentUser(otherUserLocationLat, otherUserLocationLong);
 
-      if (distance <= 10000) {
+      if (distance <= 1000) {
         if (!usersWithInTenKilometers.contains(users.elementAt(i))) {
           usersWithInTenKilometers.add(users.elementAt(i)["uid"]);
         }
