@@ -5,6 +5,8 @@ import 'package:social_dating_app/application/auth/auth_cubit.dart';
 import 'package:social_dating_app/application/maps/maps_cubit.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
+import 'package:social_dating_app/presentation/pages/home/constants/texts.dart';
 import 'package:social_dating_app/presentation/pages/home/widgets/custom_list_tile.dart';
 
 class HomePageBody extends StatelessWidget {
@@ -49,17 +51,44 @@ class HomePageBody extends StatelessWidget {
 
           return usersWithInTenKilometers.isEmpty
               ? const Center(
-                  child: Text("there is no user"),
+                  child: CustomText(
+                    textPadding: EdgeInsets.only(),
+                    text: thereIsNoUser,
+                    minFontSize: 25,
+                    maxFontSize: 30,
+                  ),
                 )
               : ListView.builder(
                   padding: const EdgeInsets.only(top: 75),
                   itemCount: usersWithInTenKilometers.length,
                   itemBuilder: (context, index) {
-                    return const CustomListTile(
-                      userImageUrl: "https://picsum.photos/200/300",
-                      userStatus: "userStatus",
-                      userName: "userName",
-                      podcastOwnersName: "podcastOwnersName",
+                    final userId = usersWithInTenKilometers.elementAt(index);
+                    final users = FirebaseFirestore.instance
+                        .collection("users")
+                        .doc(userId)
+                        .get()
+                        .then((value) => value)
+                        .then((value) => value.data());
+
+                    return FutureBuilder(
+                      future: users,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final convertUserDataToMap =
+                              Map<String, dynamic>.from(snapshot.data as Map<dynamic, dynamic>);
+                          final List userDataList = convertUserDataToMap.values.toList();
+                          final userId = userDataList[0];
+                          final userLong = userDataList[1];
+
+                          return CustomListTile(
+                            userImageUrl: "https://picsum.photos/200/300",
+                            userStatus: userLong.toString(),
+                            userName: userId.toString(),
+                          );
+                        }
+
+                        return Container();
+                      },
                     );
                   },
                 );

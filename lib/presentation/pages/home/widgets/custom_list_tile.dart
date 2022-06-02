@@ -10,13 +10,11 @@ class CustomListTile extends StatelessWidget {
     required this.userImageUrl,
     required this.userStatus,
     required this.userName,
-    required this.podcastOwnersName,
   }) : super(key: key);
 
   final String userImageUrl;
   final String userStatus;
   final String userName;
-  final String podcastOwnersName;
 
   @override
   Widget build(BuildContext context) {
@@ -54,27 +52,24 @@ class CustomListTile extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      CustomText(
-                        text: "User Name",
-                        minFontSize: 18,
-                        maxFontSize: 20,
-                        textPadding: EdgeInsets.only(),
-                        textStyle: TextStyle(fontWeight: FontWeight.w500),
-                      ),
-                      CustomText(
-                        text: "my status lorem ipsum",
-                        minFontSize: 18,
-                        maxFontSize: 20,
-                        textPadding: EdgeInsets.only(bottom: 35, top: 5),
-                      ),
-                    ],
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(
+                      text: userName,
+                      minFontSize: 18,
+                      maxFontSize: 20,
+                      textPadding: const EdgeInsets.only(),
+                      textStyle: const TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                    CustomText(
+                      text: userStatus,
+                      minFontSize: 18,
+                      maxFontSize: 20,
+                      textPadding: const EdgeInsets.only(bottom: 35, top: 5),
+                    ),
+                  ],
                 ),
               ],
             ),

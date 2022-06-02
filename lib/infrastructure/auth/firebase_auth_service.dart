@@ -88,6 +88,8 @@ class FirebaseAuthService implements IAuthService {
             {
               "userPhone": user.phoneNumber,
               "uid": user.uid,
+              "latitude": null,
+              "longitude": null,
             },
             SetOptions(merge: true),
           );
