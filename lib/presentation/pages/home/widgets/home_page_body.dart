@@ -77,13 +77,15 @@ class HomePageBody extends StatelessWidget {
                           final convertUserDataToMap =
                               Map<String, dynamic>.from(snapshot.data as Map<dynamic, dynamic>);
                           final List userDataList = convertUserDataToMap.values.toList();
-                          final userId = userDataList[0];
-                          final userLong = userDataList[1];
+
+                          final userName = userDataList[0];
+                          final userStatus = userDataList[1];
+                          final userProfileImg = userDataList[3];
 
                           return CustomListTile(
-                            userImageUrl: "https://picsum.photos/200/300",
-                            userStatus: userLong.toString(),
-                            userName: userId.toString(),
+                            userImageUrl: userProfileImg,
+                            userStatus: userStatus,
+                            userName: userName,
                           );
                         }
 

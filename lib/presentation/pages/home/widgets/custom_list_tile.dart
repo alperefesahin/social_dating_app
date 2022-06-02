@@ -58,8 +58,8 @@ class CustomListTile extends StatelessWidget {
                   children: [
                     CustomText(
                       text: userName,
-                      minFontSize: 18,
-                      maxFontSize: 20,
+                      minFontSize: 20,
+                      maxFontSize: 22,
                       textPadding: const EdgeInsets.only(),
                       textStyle: const TextStyle(fontWeight: FontWeight.w500),
                     ),
