@@ -17,12 +17,19 @@ class MapsCubit extends Cubit<MapsState> {
   final _firestore = FirebaseFirestore.instance;
   final Set usersWithInTenKilometers = {};
 
-  double calculateDistanceBetweenUsersAndCurrentUser(double otherUserLocationLat, double otherUserLocationLong) {
+  double calculateDistanceBetweenUsersAndCurrentUser(
+    double otherUserLocationLat,
+    double otherUserLocationLong,
+  ) {
     double? currentUserLat = state.userLocation.latOfCurrentLocation;
     double? currentUserLong = state.userLocation.longOfCurrentLocation;
 
-    final distance =
-        Geolocator.distanceBetween(currentUserLat!, currentUserLong!, otherUserLocationLat, otherUserLocationLong);
+    final distance = Geolocator.distanceBetween(
+      currentUserLat!,
+      currentUserLong!,
+      otherUserLocationLat,
+      otherUserLocationLong,
+    );
     final double distanceInTenKilometers = distance / 10000;
 
     return distanceInTenKilometers;
@@ -34,7 +41,10 @@ class MapsCubit extends Cubit<MapsState> {
     for (var i = 0; i < users.length; i++) {
       final double otherUserLocationLat = users.elementAt(i)["latitude"];
       final double otherUserLocationLong = users.elementAt(i)["longitude"];
-      final distance = calculateDistanceBetweenUsersAndCurrentUser(otherUserLocationLat, otherUserLocationLong);
+      final distance = calculateDistanceBetweenUsersAndCurrentUser(
+        otherUserLocationLat,
+        otherUserLocationLong,
+      );
 
       if (distance <= 1000) {
         if (!usersWithInTenKilometers.contains(users.elementAt(i))) {
