@@ -26,7 +26,7 @@ class BottomSectionOfThePage extends ConsumerWidget {
           left: 25,
           bottom: 25,
         ),
-        height: 83.h,
+        height: 85.h,
         width: 100.h,
         child: Card(
           color: whiteColor,
