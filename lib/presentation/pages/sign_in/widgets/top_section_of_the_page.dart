@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 
-List<Widget> topSectionOfThePage({required Size size}) {
+List<Widget> topSectionOfThePage() {
   return [
     Container(
-      width: size.width,
-      height: size.height / 2.5,
+      width: 100.w,
+      height: 38.h,
       decoration: const BoxDecoration(
         color: customIndigoColor,
         borderRadius: BorderRadius.only(

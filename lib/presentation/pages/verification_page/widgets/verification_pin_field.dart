@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/application/phone_sign_in/phone_sign_in_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/providers/auth/phone_sign_in_state_provider.dart';
@@ -16,8 +17,8 @@ class VerificationPinField extends ConsumerWidget {
         alignment: Alignment.center,
         children: [
           Container(
-            width: MediaQuery.of(context).size.width / 1.15,
-            height: MediaQuery.of(context).size.height / 9,
+            width: 88.w,
+            height: 10.h,
             decoration: BoxDecoration(
               border: Border.all(color: whiteColor, width: 2),
               borderRadius: const BorderRadius.all(
@@ -41,14 +42,14 @@ class VerificationPinField extends ConsumerWidget {
             hintStyle: const TextStyle(color: whiteColor),
             pinTheme: PinTheme(
               fieldOuterPadding: const EdgeInsets.only(
-                left: 5,
-                right: 5,
+                left: 8,
+                right: 8,
                 top: 8,
               ),
               shape: PinCodeFieldShape.box,
               borderRadius: BorderRadius.circular(5),
-              fieldHeight: 60,
-              fieldWidth: 45,
+              fieldHeight: 7.h,
+              fieldWidth: 10.w,
               inactiveColor: customIndigoBackgroundColor,
               activeColor: customIndigoBackgroundColor,
               selectedColor: customIndigoBackgroundColor,

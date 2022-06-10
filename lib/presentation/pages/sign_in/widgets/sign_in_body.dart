@@ -7,13 +7,11 @@ class SignInPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Stack(
       alignment: Alignment.topCenter,
       children: [
-        ...topSectionOfThePage(size: size),
-        BottomSectionOfThePage(size: size),
+        ...topSectionOfThePage(),
+        const BottomSectionOfThePage(),
       ],
     );
   }
