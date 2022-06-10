@@ -18,7 +18,6 @@ class BottomSectionOfThePage extends ConsumerWidget {
     final isPhoneNumberInputValidated =
         ref.watch(phoneSignInStateProvider.select((state) => state.isPhoneNumberInputValidated));
     return SingleChildScrollView(
-    
       child: Container(
         padding: EdgeInsets.only(
           top: 32.h,

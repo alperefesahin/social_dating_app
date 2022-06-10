@@ -9,7 +9,7 @@ class UserLocationModel with _$UserLocationModel {
     required double? longOfCurrentLocation,
   }) = _UserLocationModel;
   const UserLocationModel._();
-  
+
   factory UserLocationModel.empty() => const UserLocationModel(
         latOfCurrentLocation: null,
         longOfCurrentLocation: null,
