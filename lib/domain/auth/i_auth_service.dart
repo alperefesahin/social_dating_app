@@ -1,9 +1,11 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:social_dating_app/domain/auth/auth_failure.dart';
-import 'package:social_dating_app/domain/auth/auth_user_model.dart';
 
 abstract class IAuthService {
-  Stream<AuthUserModel> get authStateChanges;
+  Stream<User?> get authStateChanges;
   Future<void> signOut();
   Stream<Either<AuthFailure, String>> signInWithPhoneNumber({
     required String phoneNumber,
@@ -13,4 +15,5 @@ abstract class IAuthService {
     required String smsCode,
     required String verificationId,
   });
+  User? getCurrentUser();
 }

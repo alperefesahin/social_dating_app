@@ -34,3 +34,6 @@ firebase_options.dart
 firebase_app_id_file.json
 # Plugins (already resolved through pubspec.yaml)
 .flutter-plugins
+android/app/src/main/AndroidManifest.xml
+ios/Podfile.lock
+ios/Runner/AppDelegate.swift

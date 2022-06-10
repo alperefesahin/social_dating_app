@@ -1,53 +1,56 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_dating_app/application/auth/auth_cubit.dart';
-import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:social_dating_app/application/phone_sign_in/phone_sign_in_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_app_bar.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/constants/texts.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/widgets/verification_page_body.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
+import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
+import 'package:social_dating_app/providers/auth/phone_sign_in_state_provider.dart';
 
-class SignInVerificationPage extends StatelessWidget {
+class SignInVerificationPage extends ConsumerWidget {
   const SignInVerificationPage({
     Key? key,
-    required this.state,
   }) : super(key: key);
 
-  final PhoneNumberSignInState state;
-
   @override
-  Widget build(BuildContext context) {
-    final phoneNumber = state.phoneNumber;
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<bool>(
+      authStateProvider.select((value) => value.isUserSignedIn),
+      (p, c) {
+        if (c) {
+          AutoRouter.of(context).replace(const HomeRouteNavigator());
+        } else if (!c) {
+          AutoRouter.of(context).replace(const SignInRoute());
+        }
+      },
+    );
+
+    final phoneNumber = ref.read(phoneSignInStateProvider).phoneNumber;
 
     return WillPopScope(
       onWillPop: () => Future<bool>.value(false),
-      child: BlocListener<AuthCubit, AuthState>(
-        listenWhen: (p, c) => p.isUserLoggedIn != c.isUserLoggedIn && c.isUserLoggedIn,
-        listener: (context, state) {
-          AutoRouter.of(context).replace(const HomeRouteNavigator());
-        },
-        child: Scaffold(
-          backgroundColor: whiteColor,
-          appBar: CustomAppBar(
-            leadingOnPressed: () {
-              context.read<PhoneNumberSignInCubit>().reset();
-              AutoRouter.of(context).popUntilRoot();
-            },
-            appBarBackgroundColor: whiteColor,
-            appBarTitle: verificationText,
-            appBarAction: Icons.lock,
-            appBarLeading: Icons.arrow_back_ios,
-            appBarTitleTextStyle: const TextStyle(
-              color: blackColor,
-              fontWeight: FontWeight.w500,
-            ),
-            appBarIconColor: blackColor,
+      child: Scaffold(
+        backgroundColor: whiteColor,
+        appBar: CustomAppBar(
+          leadingOnPressed: () {
+            ref.read(phoneSignInStateProvider.notifier).mapEventsToState(const Reset());
+            AutoRouter.of(context).popUntilRoot();
+          },
+          appBarBackgroundColor: whiteColor,
+          appBarTitle: verificationText,
+          appBarAction: Icons.lock,
+          appBarLeading: Icons.arrow_back_ios,
+          appBarTitleTextStyle: const TextStyle(
+            color: blackColor,
+            fontWeight: FontWeight.w500,
           ),
-          body: VerificationPageBody(
-            phoneNumber: phoneNumber,
-          ),
+          appBarIconColor: blackColor,
+        ),
+        body: VerificationPageBody(
+          phoneNumber: phoneNumber,
         ),
       ),
     );

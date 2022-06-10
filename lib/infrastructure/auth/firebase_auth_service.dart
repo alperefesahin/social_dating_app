@@ -2,34 +2,26 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:injectable/injectable.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:social_dating_app/domain/auth/auth_failure.dart';
-import 'package:social_dating_app/domain/auth/auth_user_model.dart';
 import 'package:social_dating_app/domain/auth/i_auth_service.dart';
+import 'package:social_dating_app/providers/firebase/firebase_provider.dart';
 
-@LazySingleton(as: IAuthService)
 class FirebaseAuthService implements IAuthService {
-  FirebaseAuthService(this._firebaseAuth, this._firestore);
-  final FirebaseAuth _firebaseAuth;
-  final FirebaseFirestore _firestore;
+  FirebaseAuthService(this._read);
+
+  final Reader _read;
 
   @override
-  Stream<AuthUserModel> get authStateChanges {
-    return _firebaseAuth.authStateChanges().map(
-      (User? user) {
-        if (user == null) {
-          return AuthUserModel.empty();
-        } else {
-          return AuthUserModel(id: user.uid, phoneNumber: user.phoneNumber!);
-        }
-      },
-    );
-  }
+  Stream<User?> get authStateChanges => _read(firebaseAuthProvider).authStateChanges();
 
   @override
   Future<void> signOut() async {
-    await _firebaseAuth.signOut();
+    await _read(firebaseAuthProvider).signOut();
   }
+
+  @override
+  User? getCurrentUser() => _read(firebaseAuthProvider).currentUser;
 
   @override
   Stream<Either<AuthFailure, String>> signInWithPhoneNumber({
@@ -38,32 +30,34 @@ class FirebaseAuthService implements IAuthService {
   }) async* {
     final StreamController<Either<AuthFailure, String>> streamController =
         StreamController<Either<AuthFailure, String>>();
+    final firebaseAuth = _read(firebaseAuthProvider);
 
-    await _firebaseAuth.verifyPhoneNumber(
-        timeout: timeout,
-        phoneNumber: phoneNumber,
-        verificationCompleted: (PhoneAuthCredential credential) async {
-          //! Android Only!!!
-          await _firebaseAuth.signInWithCredential(credential);
-        },
-        codeSent: (String verificationId, int? resendToken) async {
-          // Wait for the user to enter the SMS code
-          streamController.add(right(verificationId));
-        },
-        codeAutoRetrievalTimeout: (String verificationId) {
-          streamController.add(left(const AuthFailure.smsTimeout()));
-        },
-        verificationFailed: (FirebaseAuthException e) {
-          late final Either<AuthFailure, String> result;
-          if (e.code == 'too-many-requests') {
-            result = left(const AuthFailure.tooManyRequests());
-          } else if (e.code == 'app-not-authorized') {
-            result = left(const AuthFailure.deviceNotSupported());
-          } else {
-            result = left(const AuthFailure.serverError());
-          }
-          streamController.add(result);
-        });
+    await firebaseAuth.verifyPhoneNumber(
+      timeout: timeout,
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        //! Android Only!!!
+        await firebaseAuth.signInWithCredential(credential);
+      },
+      codeSent: (String verificationId, int? resendToken) async {
+        // Wait for the user to enter the SMS code
+        streamController.add(right(verificationId));
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        streamController.add(left(const AuthFailure.smsTimeout()));
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        late final Either<AuthFailure, String> result;
+        if (e.code == 'too-many-requests') {
+          result = left(const AuthFailure.tooManyRequests());
+        } else if (e.code == 'app-not-authorized') {
+          result = left(const AuthFailure.deviceNotSupported());
+        } else {
+          result = left(const AuthFailure.serverError());
+        }
+        streamController.add(result);
+      },
+    );
 
     yield* streamController.stream;
   }
@@ -74,17 +68,19 @@ class FirebaseAuthService implements IAuthService {
     required String verificationId,
   }) async {
     try {
+      final firebaseAuth = _read(firebaseAuthProvider);
+      final firestore = _read(firestoreProvider);
       final PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
         verificationId: verificationId,
         smsCode: smsCode,
       );
 
-      await _firebaseAuth.signInWithCredential(phoneAuthCredential).then(
+      await firebaseAuth.signInWithCredential(phoneAuthCredential).then(
         (UserCredential userCredential) {
           final user = userCredential.user;
           final uid = user!.uid;
 
-          _firestore.collection("users").doc(uid).set(
+          firestore.collection("users").doc(uid).set(
             {
               "userPhone": user.phoneNumber,
               "uid": user.uid,

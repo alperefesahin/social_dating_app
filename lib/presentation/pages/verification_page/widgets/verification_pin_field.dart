@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
+import 'package:social_dating_app/application/phone_sign_in/phone_sign_in_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/providers/auth/phone_sign_in_state_provider.dart';
 
-class VerificationPinField extends StatelessWidget {
+class VerificationPinField extends ConsumerWidget {
   const VerificationPinField({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.only(top: 40),
       child: Stack(
@@ -30,8 +31,8 @@ class VerificationPinField extends StatelessWidget {
             appContext: context,
             length: 6,
             onChanged: (String smsCode) {
-              context.read<PhoneNumberSignInCubit>().smsCodeChanged(
-                    smsCode: smsCode,
+              ref.read(phoneSignInStateProvider.notifier).mapEventsToState(
+                    SmsCodeChanged(smsCode: smsCode),
                   );
             },
             textStyle: const TextStyle(color: whiteColor),

@@ -1,26 +1,29 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_dating_app/application/auth/auth_cubit.dart';
-import 'package:social_dating_app/presentation/common_widgets/colors.dart';
-import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
-class LandingPage extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:social_dating_app/application/auth/auth_state.dart';
+import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
+import 'package:social_dating_app/presentation/routes/router.gr.dart';
+import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
+
+class LandingPage extends ConsumerStatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
   @override
-  LandingPageState createState() => LandingPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _LandingPageState();
 }
 
-class LandingPageState extends State<LandingPage> {
+class _LandingPageState extends ConsumerState<LandingPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        final bool isUserLoggedIn = context.read<AuthCubit>().state.isUserLoggedIn;
-        if (isUserLoggedIn) {
+        final user = ref.read(authStateProvider.notifier).appInit();
+        if (user == null) {
           AutoRouter.of(context).replace(const HomeRouteNavigator());
-        } else if (!isUserLoggedIn) {
+        } else {
           AutoRouter.of(context).replace(const SignInRoute());
         }
       },
@@ -31,24 +34,18 @@ class LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => Future<bool>.value(false),
-      child: BlocListener<AuthCubit, AuthState>(
-        listenWhen: (p, c) => p.isUserLoggedIn != c.isUserLoggedIn && c.isUserLoggedIn,
-        listener: (context, state) {
-          final bool isUserLoggedIn = state.isUserLoggedIn;
-
-          if (isUserLoggedIn) {
-            AutoRouter.of(context).replace(const HomeRouteNavigator());
-          } else {
-            AutoRouter.of(context).replace(const SignInRoute());
-          }
-        },
-        child: const Scaffold(
-            body: CircularProgressIndicator(
-          color: blackColor,
-        )),
-      ),
+    ref.listen<AuthState>(
+      authStateProvider,
+      (p, c) {
+        if (c.isUserSignedIn) {
+          AutoRouter.of(context).replace(const HomeRouteNavigator());
+        } else if (!c.isUserSignedIn) {
+          AutoRouter.of(context).replace(const SignInRoute());
+        }
+      },
+    );
+    return const Scaffold(
+      body: CustomProgressIndicator(progressIndicatorColor: blackColor),
     );
   }
 }

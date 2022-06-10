@@ -1,30 +1,23 @@
 // ignore_for_file: no_logic_in_create_state
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
+import 'package:social_dating_app/application/phone_sign_in/phone_sign_in_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/pages/sign_in/constants/texts.dart';
+import 'package:social_dating_app/providers/auth/phone_sign_in_state_provider.dart';
 
-class PhoneNumberSignInSection extends StatefulWidget {
-  const PhoneNumberSignInSection({Key? key, required this.state}) : super(key: key);
+class PhoneNumberSignInSection extends ConsumerStatefulWidget {
+  const PhoneNumberSignInSection({Key? key}) : super(key: key);
 
-  final PhoneNumberSignInState state;
   @override
-  State<PhoneNumberSignInSection> createState() => _PhoneNumberSignInSectionState(state);
+  ConsumerState<ConsumerStatefulWidget> createState() => _PhoneNumberSignInSectionState();
 }
 
-class _PhoneNumberSignInSectionState extends State<PhoneNumberSignInSection> {
-  final PhoneNumberSignInState state;
+class _PhoneNumberSignInSectionState extends ConsumerState<PhoneNumberSignInSection> {
   final PhoneNumber initialPhone = PhoneNumber(isoCode: "TR");
 
-  _PhoneNumberSignInSectionState(this.state);
-
-  @override
-  void didChangeDependencies() {
-    context.read<PhoneNumberSignInCubit>().phoneNumberChanged(phoneNumber: initialPhone.phoneNumber ?? "");
-    super.didChangeDependencies();
-  }
+  _PhoneNumberSignInSectionState();
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +29,14 @@ class _PhoneNumberSignInSectionState extends State<PhoneNumberSignInSection> {
       ),
       child: InternationalPhoneNumberInput(
         onInputChanged: (PhoneNumber phoneNumber) {
-          context.read<PhoneNumberSignInCubit>().phoneNumberChanged(
-                phoneNumber: phoneNumber.phoneNumber!,
+          ref.read(phoneSignInStateProvider.notifier).mapEventsToState(
+                PhoneNumberChanged(phoneNumber: phoneNumber.phoneNumber!),
               );
         },
         onInputValidated: (bool isPhoneNumberInputValidated) {
-          context
-              .read<PhoneNumberSignInCubit>()
-              .updateNextButtonStatus(isPhoneNumberInputValidated: isPhoneNumberInputValidated);
+          ref.read(phoneSignInStateProvider.notifier).mapEventsToState(
+                UpdateNextButtonStatus(isPhoneNumberInputValidated: isPhoneNumberInputValidated),
+              );
         },
         inputDecoration: const InputDecoration(
           hintText: phoneNumberText,

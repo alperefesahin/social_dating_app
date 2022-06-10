@@ -1,26 +1,25 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_dating_app/application/auth/phone_number_sign_in/phone_number_sign_in_cubit.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:social_dating_app/application/phone_sign_in/phone_sign_in_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/verification_page/constants/texts.dart';
-import 'package:social_dating_app/presentation/routes/router.gr.dart';
+import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
+import 'package:social_dating_app/providers/auth/phone_sign_in_state_provider.dart';
 
-class VerificationConfirmButton extends StatelessWidget {
+class VerificationConfirmButton extends ConsumerWidget {
   const VerificationConfirmButton({
     Key? key,
-    required this.state,
   }) : super(key: key);
-  final PhoneNumberSignInState state;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final smsCode = ref.watch(phoneSignInStateProvider).smsCode;
+    
     return InkWell(
       onTap: () {
-        if (state.smsCode.isNotEmpty) {
-          context.read<PhoneNumberSignInCubit>().verifySmsCode();
-          AutoRouter.of(context).navigate(const LandingRoute());
+        if (smsCode.isNotEmpty) {
+          ref.read(phoneSignInStateProvider.notifier).mapEventsToState(const VerifySmsCode());
         }
       },
       splashColor: transparentColor,

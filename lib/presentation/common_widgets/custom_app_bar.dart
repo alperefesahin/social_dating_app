@@ -31,6 +31,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: appBarBackgroundColor,
       toolbarHeight: 80,
+      centerTitle: true,
       elevation: 0,
       title: AutoSizeText(
         appBarTitle,
