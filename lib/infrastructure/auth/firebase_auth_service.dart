@@ -24,15 +24,17 @@ class FirebaseAuthService implements IAuthService {
   User? getCurrentUser() => _read(firebaseAuthProvider).currentUser;
 
   @override
-  Stream<Either<AuthFailure, String>> signInWithPhoneNumber({
+  Stream<Either<AuthFailure, Tuple2<String, int?>>> signInWithPhoneNumber({
     required String phoneNumber,
     required Duration timeout,
+    required int? resendToken,
   }) async* {
-    final StreamController<Either<AuthFailure, String>> streamController =
-        StreamController<Either<AuthFailure, String>>();
+    final StreamController<Either<AuthFailure, Tuple2<String, int?>>> streamController =
+        StreamController<Either<AuthFailure, Tuple2<String, int?>>>();
     final firebaseAuth = _read(firebaseAuthProvider);
 
     await firebaseAuth.verifyPhoneNumber(
+      forceResendingToken: resendToken,
       timeout: timeout,
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
@@ -41,13 +43,14 @@ class FirebaseAuthService implements IAuthService {
       },
       codeSent: (String verificationId, int? resendToken) async {
         // Wait for the user to enter the SMS code
-        streamController.add(right(verificationId));
+
+        streamController.add(right(tuple2(verificationId, resendToken)));
       },
       codeAutoRetrievalTimeout: (String verificationId) {
-        streamController.add(left(const AuthFailure.smsTimeout()));
+        /* streamController.add(left(const AuthFailure.smsTimeout())); */
       },
       verificationFailed: (FirebaseAuthException e) {
-        late final Either<AuthFailure, String> result;
+        late final Either<AuthFailure, Tuple2<String, int?>> result;
         if (e.code == 'too-many-requests') {
           result = left(const AuthFailure.tooManyRequests());
         } else if (e.code == 'app-not-authorized') {

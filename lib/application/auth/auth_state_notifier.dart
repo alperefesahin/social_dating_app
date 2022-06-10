@@ -44,12 +44,8 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
   }
 
   Future<void> signOut() async {
-    try {
-      await _read(authRepositoryProvider).signOut();
-      state = state.copyWith(isUserSignedIn: false);
-    } catch (e) {
-      print(e);
-    }
+    await _read(authRepositoryProvider).signOut();
+    state = state.copyWith(isUserSignedIn: false);
   }
 
   @override

@@ -11,7 +11,7 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
     _phoneNumberSignInSubscription?.cancel();
   }
 
-  StreamSubscription<Either<AuthFailure, String>>? _phoneNumberSignInSubscription;
+  StreamSubscription<Either<AuthFailure, Tuple2<String, int?>>>? _phoneNumberSignInSubscription;
   final Duration verificationCodeTimeout = const Duration(seconds: 60);
   final Reader _read;
 
@@ -50,23 +50,33 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
         );
       },
       signInWithPhoneNumber: (signInWithPhoneNumberEvent) {
+        if (state.isInProgress) {
+          return;
+        }
         state = state.copyWith(isInProgress: true);
-
+        _phoneNumberSignInSubscription?.cancel();
         _phoneNumberSignInSubscription = _read(authRepositoryProvider)
             .signInWithPhoneNumber(
           phoneNumber: state.phoneNumber,
           timeout: verificationCodeTimeout,
+          resendToken: state.phoneNumber != state.phoneNumberAndResendTokenPair.value1
+              ? null
+              : state.phoneNumberAndResendTokenPair.value2,
         )
             .listen(
-          (Either<AuthFailure, String> failureOrVerificationId) {
+          (Either<AuthFailure, Tuple2<String, int?>> failureOrVerificationId) {
             failureOrVerificationId.fold(
               (failure) {
                 state = state.copyWith(failureMessageOption: some(failure), isInProgress: false);
               },
-              (verificationId) {
+              (Tuple2<String, int?> verificationIdResendTokenPair) {
                 state = state.copyWith(
-                  verificationIdOption: some(verificationId),
+                  verificationIdOption: some(verificationIdResendTokenPair.value1),
                   isInProgress: false,
+                  phoneNumberAndResendTokenPair: tuple2(
+                    state.phoneNumber,
+                    verificationIdResendTokenPair.value2,
+                  ),
                 );
               },
             );
@@ -74,6 +84,9 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
         );
       },
       verifySmsCode: (verifySmsCodeEvent) {
+        if (state.isInProgress) {
+          return;
+        }
         state.verificationIdOption.fold(
           () {
             // verificationId does not exist. This should not be happen.
@@ -81,7 +94,7 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
           (verificationId) async {
             state = state.copyWith(
               failureMessageOption: none(),
-              isInProgress: false,
+              isInProgress: true,
             );
             final Either<AuthFailure, Unit> failureOrSuccess = await _read(authRepositoryProvider).verifySmsCode(
               smsCode: state.smsCode,

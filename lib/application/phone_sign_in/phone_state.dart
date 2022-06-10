@@ -12,6 +12,7 @@ class PhoneSignInState with _$PhoneSignInState {
     required String phoneNumber,
     required String smsCode,
     required Option<String> verificationIdOption,
+    required Tuple2<String, int?> phoneNumberAndResendTokenPair,
     required Option<AuthFailure> failureMessageOption,
   }) = _PhoneSignInState;
 
@@ -24,5 +25,6 @@ class PhoneSignInState with _$PhoneSignInState {
         smsCode: "",
         verificationIdOption: none(),
         failureMessageOption: none(),
+        phoneNumberAndResendTokenPair: tuple2("", null),
       );
 }
