@@ -1,8 +1,10 @@
 // ignore_for_file: no_logic_in_create_state, must_be_immutable
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
@@ -26,20 +28,36 @@ class HomePageNavigator extends ConsumerWidget {
     return WillPopScope(
       onWillPop: () => Future<bool>.value(false),
       child: AutoTabsScaffold(
-        bottomNavigationBuilder: (_, tabsRouter) => AnimatedBottomNavigationBar(
-          activeIndex: tabsRouter.activeIndex,
-          inactiveColor: greyColor,
-          activeColor: customIndigoColor,
-          iconSize: 30,
-          elevation: 75,
-          notchMargin: 15,
-          gapLocation: GapLocation.end,
-          notchSmoothness: NotchSmoothness.softEdge,
-          icons: const [
-            CupertinoIcons.profile_circled,
-            CupertinoIcons.map,
+        bottomNavigationBuilder: (_, tabsRouter) => SalomonBottomBar(
+          itemPadding: const EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 20,
+          ),
+          items: [
+            SalomonBottomBarItem(
+              icon: const Icon(
+                CupertinoIcons.map,
+                size: 28,
+              ),
+              title: const Text(
+                "Map",
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(
+                CupertinoIcons.person_circle,
+                size: 30,
+              ),
+              title: const Text(
+                "Profile",
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
           ],
+          currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
+          selectedItemColor: customIndigoColor,
         ),
         routes: const [
           HomeRoute(),
