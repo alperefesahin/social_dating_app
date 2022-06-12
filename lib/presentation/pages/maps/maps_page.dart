@@ -16,16 +16,17 @@ class MapsPage extends ConsumerWidget {
 
     return currentUserLocation == UserLocationModel.empty()
         ? const Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20),
-          child:  Center(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Center(
               child: Text(
                 loadingOrPermission,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 22),
               ),
             ),
-        )
+          )
         : GoogleMap(
+            myLocationButtonEnabled: false,
             initialCameraPosition: CameraPosition(
               target: LatLng(
                 currentUserLocation.latOfCurrentLocation!,
