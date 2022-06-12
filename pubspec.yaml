@@ -43,6 +43,7 @@ dependencies:
   geolocator: ^8.2.1
   google_maps_flutter: ^2.1.7
   sizer: ^2.0.15
+  random_name_plus: ^1.0.1
 
   dartz: ^0.10.1
   flutter_riverpod: ^1.0.4

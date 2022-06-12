@@ -1,4 +1,3 @@
-// ignore_for_file: no_logic_in_create_state, must_be_immutable
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,6 +5,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
+import 'package:social_dating_app/providers/maps/maps_provider.dart';
 
 class PageNavigator extends ConsumerWidget {
   const PageNavigator({Key? key}) : super(key: key);
@@ -54,7 +54,13 @@ class PageNavigator extends ConsumerWidget {
             ),
           ],
           currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
+          onTap: (index) {
+            if (index == 0) {
+              ref.refresh(mapsStateProvider);
+              tabsRouter.setActiveIndex(index);
+            }
+            tabsRouter.setActiveIndex(index);
+          },
           selectedItemColor: customIndigoColor,
         ),
         routes: [
