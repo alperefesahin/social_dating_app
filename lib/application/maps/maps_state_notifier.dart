@@ -13,10 +13,8 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
   final Reader _read;
   final Completer<GoogleMapController> _controller = Completer();
 
-/* final currentUser = await firestore.collection("users").doc(uid).get(); */
   Future<void> getUsersMarkers() async {
     final firestore = _read(firestoreProvider);
-    /*   final uid = _read(authRepositoryProvider).getCurrentUser()!.uid; */
     final getUsersFromFirestore = await firestore.collection("users").get();
     final Set<Marker> markerList = {};
 

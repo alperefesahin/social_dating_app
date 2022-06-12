@@ -47,9 +47,7 @@ class FirebaseAuthService implements IAuthService {
 
         streamController.add(right(tuple2(verificationId, resendToken)));
       },
-      codeAutoRetrievalTimeout: (String verificationId) {
-        /* streamController.add(left(const AuthFailure.smsTimeout())); */
-      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
       verificationFailed: (FirebaseAuthException e) {
         late final Either<AuthFailure, Tuple2<String, int?>> result;
         if (e.code == 'too-many-requests') {

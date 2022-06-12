@@ -26,7 +26,7 @@ class MapsPage extends ConsumerWidget {
             ),
           )
         : GoogleMap(
-          myLocationEnabled: true,
+            myLocationEnabled: true,
             myLocationButtonEnabled: true,
             initialCameraPosition: CameraPosition(
               target: LatLng(
