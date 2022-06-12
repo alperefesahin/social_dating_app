@@ -1,16 +1,14 @@
 // ignore_for_file: no_logic_in_create_state, must_be_immutable
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
 
-class HomePageNavigator extends ConsumerWidget {
-  const HomePageNavigator({Key? key}) : super(key: key);
+class PageNavigator extends ConsumerWidget {
+  const PageNavigator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +16,7 @@ class HomePageNavigator extends ConsumerWidget {
       authStateProvider.select((value) => value.isUserSignedIn),
       (p, c) {
         if (c) {
-          AutoRouter.of(context).replace(const HomeRouteNavigator());
+          AutoRouter.of(context).replace(const RouteNavigator());
         } else if (!c) {
           AutoRouter.of(context).replace(const SignInRoute());
         }
@@ -59,9 +57,9 @@ class HomePageNavigator extends ConsumerWidget {
           onTap: tabsRouter.setActiveIndex,
           selectedItemColor: customIndigoColor,
         ),
-        routes: const [
-          HomeRoute(),
-          ProfileRoute(),
+        routes: [
+          MapsRoute(),
+          const ProfileRoute(),
         ],
       ),
     );

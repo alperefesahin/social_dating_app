@@ -13,9 +13,9 @@
 import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;
 
-import '../pages/home/home_page.dart' as _i5;
-import '../pages/home/home_page_navigator.dart' as _i2;
 import '../pages/landing/landing_page.dart' as _i1;
+import '../pages/maps/maps_page.dart' as _i5;
+import '../pages/navigator/page_navigator.dart' as _i2;
 import '../pages/profile/profile_page.dart' as _i6;
 import '../pages/sign_in/sign_in_page.dart' as _i3;
 import '../pages/verification_page/sign_in_verification_page.dart' as _i4;
@@ -30,9 +30,9 @@ class AppRouter extends _i7.RootStackRouter {
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.LandingPage());
     },
-    HomeRouteNavigator.name: (routeData) {
+    RouteNavigator.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.HomePageNavigator());
+          routeData: routeData, child: const _i2.PageNavigator());
     },
     SignInRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
@@ -42,9 +42,11 @@ class AppRouter extends _i7.RootStackRouter {
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.SignInVerificationPage());
     },
-    HomeRoute.name: (routeData) {
+    MapsRoute.name: (routeData) {
+      final args =
+          routeData.argsAs<MapsRouteArgs>(orElse: () => const MapsRouteArgs());
       return _i7.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.HomePage());
+          routeData: routeData, child: _i5.MapsPage(key: args.key));
     },
     ProfileRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
@@ -55,13 +57,13 @@ class AppRouter extends _i7.RootStackRouter {
   @override
   List<_i7.RouteConfig> get routes => [
         _i7.RouteConfig(LandingRoute.name, path: '/'),
-        _i7.RouteConfig(HomeRouteNavigator.name,
-            path: '/home-page-navigator',
+        _i7.RouteConfig(RouteNavigator.name,
+            path: '/page-navigator',
             children: [
-              _i7.RouteConfig(HomeRoute.name,
-                  path: 'home-page', parent: HomeRouteNavigator.name),
+              _i7.RouteConfig(MapsRoute.name,
+                  path: 'maps-page', parent: RouteNavigator.name),
               _i7.RouteConfig(ProfileRoute.name,
-                  path: 'profile-page', parent: HomeRouteNavigator.name)
+                  path: 'profile-page', parent: RouteNavigator.name)
             ]),
         _i7.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i7.RouteConfig(SignInVerificationRoute.name,
@@ -78,13 +80,13 @@ class LandingRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.HomePageNavigator]
-class HomeRouteNavigator extends _i7.PageRouteInfo<void> {
-  const HomeRouteNavigator({List<_i7.PageRouteInfo>? children})
-      : super(HomeRouteNavigator.name,
-            path: '/home-page-navigator', initialChildren: children);
+/// [_i2.PageNavigator]
+class RouteNavigator extends _i7.PageRouteInfo<void> {
+  const RouteNavigator({List<_i7.PageRouteInfo>? children})
+      : super(RouteNavigator.name,
+            path: '/page-navigator', initialChildren: children);
 
-  static const String name = 'HomeRouteNavigator';
+  static const String name = 'RouteNavigator';
 }
 
 /// generated route for
@@ -105,11 +107,23 @@ class SignInVerificationRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.HomePage]
-class HomeRoute extends _i7.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: 'home-page');
+/// [_i5.MapsPage]
+class MapsRoute extends _i7.PageRouteInfo<MapsRouteArgs> {
+  MapsRoute({_i8.Key? key})
+      : super(MapsRoute.name, path: 'maps-page', args: MapsRouteArgs(key: key));
 
-  static const String name = 'HomeRoute';
+  static const String name = 'MapsRoute';
+}
+
+class MapsRouteArgs {
+  const MapsRouteArgs({this.key});
+
+  final _i8.Key? key;
+
+  @override
+  String toString() {
+    return 'MapsRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
