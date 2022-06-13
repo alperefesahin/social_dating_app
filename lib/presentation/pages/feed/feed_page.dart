@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:social_dating_app/domain/location/user_location_model.dart';
+import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/pages/feed/constants/texts.dart';
 import 'package:social_dating_app/presentation/pages/feed/widgets/custom_list_tile.dart';
 import 'package:social_dating_app/presentation/pages/maps/constants/texts.dart';
 import 'package:social_dating_app/providers/maps/maps_provider.dart';
@@ -26,15 +29,32 @@ class FeedPage extends ConsumerWidget {
             ),
           )
         : Padding(
-            padding: const EdgeInsets.only(top: 55),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 20),
               itemCount: usersInFeed.length,
               itemBuilder: (context, index) {
-                return CustomListTile(
-                  userImageUrl: usersInFeed[index].imageUrl,
-                  userStatus: usersInFeed[index].status,
-                  userName: usersInFeed[index].userName,
+                return Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Slidable(
+                    endActionPane: ActionPane(
+                      motion: const ScrollMotion(),
+                      children: [
+                        SlidableAction(
+                          autoClose: true,
+                          onPressed: (context) {},
+                          backgroundColor: greenColor,
+                          foregroundColor: whiteColor,
+                          icon: Icons.message,
+                          label: messageText,
+                        ),
+                      ],
+                    ),
+                    child: CustomListTile(
+                      userImageUrl: usersInFeed[index].imageUrl,
+                      userStatus: usersInFeed[index].status,
+                      userName: usersInFeed[index].userName,
+                    ),
+                  ),
                 );
               },
             ),

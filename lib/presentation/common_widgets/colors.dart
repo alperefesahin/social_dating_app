@@ -12,3 +12,4 @@ const Color whiteColor = Colors.white;
 const Color blackColor = Colors.black;
 const Color transparentColor = Colors.transparent;
 const Color greyColor = Colors.grey;
+const Color greenColor = Colors.green;
