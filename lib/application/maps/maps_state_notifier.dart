@@ -66,7 +66,6 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
         );
       },
     );
-    print(markerList);
     state = state.copyWith(
       markerList: markerList,
       usersInFeed: usersInFeed,

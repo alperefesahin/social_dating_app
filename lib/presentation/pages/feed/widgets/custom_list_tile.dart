@@ -22,37 +22,38 @@ class CustomListTile extends StatelessWidget {
       padding: const EdgeInsets.only(
         right: 25,
         left: 25,
-        bottom: 25,
       ),
-      child: InkWell(
-        onTap: () {},
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 15, bottom: 25),
-                  child: CachedNetworkImage(
-                    placeholder: (context, url) => const CircularProgressIndicator(
-                      color: blackColor,
-                    ),
-                    imageUrl: userImageUrl,
-                    imageBuilder: (context, imageProvider) => Container(
-                      width: 75,
-                      height: 75,
-                      decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(60),
-                          ),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: imageProvider,
-                          )),
-                    ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  right: 15,
+                ),
+                child: CachedNetworkImage(
+                  placeholder: (context, url) => const CircularProgressIndicator(
+                    color: blackColor,
+                  ),
+                  imageUrl: userImageUrl,
+                  imageBuilder: (context, imageProvider) => Container(
+                    width: 75,
+                    height: 75,
+                    decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(60),
+                        ),
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: imageProvider,
+                        )),
                   ),
                 ),
-                Column(
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -71,21 +72,21 @@ class CustomListTile extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 25),
-              child: IconButton(
-                icon: const Icon(
-                  CupertinoIcons.circle_filled,
-                  color: offlineStatusRedColor,
-                ),
-                iconSize: 12,
-                onPressed: () {},
               ),
-            )
-          ],
-        ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 25),
+            child: IconButton(
+              icon: const Icon(
+                CupertinoIcons.circle_filled,
+                color: offlineStatusRedColor,
+              ),
+              iconSize: 12,
+              onPressed: () {},
+            ),
+          )
+        ],
       ),
     );
   }
