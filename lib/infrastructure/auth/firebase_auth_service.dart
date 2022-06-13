@@ -82,7 +82,9 @@ class FirebaseAuthService implements IAuthService {
           final user = userCredential.user;
           final uid = user!.uid;
           final randomUserName = RandomName.generate(NameType.male);
-
+          const imageURL =
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png";
+          const status = "Newbie";
           firestore.collection("users").doc(uid).set(
             {
               "userPhone": user.phoneNumber,
@@ -90,6 +92,8 @@ class FirebaseAuthService implements IAuthService {
               "latitude": null,
               "longitude": null,
               "userName": randomUserName,
+              "imageURL": imageURL,
+              "status": status,
             },
             SetOptions(merge: true),
           );
