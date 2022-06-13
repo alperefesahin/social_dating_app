@@ -10,8 +10,8 @@ class MapsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mapState = ref.watch(mapsStateProvider);
-    final currentUserLocation = mapState.currentUserLocation;
+    final mapsState = ref.watch(mapsStateProvider);
+    final currentUserLocation = mapsState.currentUserLocation;
     final usersMarkers = ref.read(mapsStateProvider).markerList;
 
     return currentUserLocation == UserLocationModel.empty()

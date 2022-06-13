@@ -21,6 +21,7 @@ mixin _$MapsState {
   LocationPermission get locationPermission =>
       throw _privateConstructorUsedError;
   Set<Marker> get markerList => throw _privateConstructorUsedError;
+  List<FeedUserModel> get usersInFeed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MapsStateCopyWith<MapsState> get copyWith =>
@@ -34,7 +35,8 @@ abstract class $MapsStateCopyWith<$Res> {
   $Res call(
       {UserLocationModel currentUserLocation,
       LocationPermission locationPermission,
-      Set<Marker> markerList});
+      Set<Marker> markerList,
+      List<FeedUserModel> usersInFeed});
 
   $UserLocationModelCopyWith<$Res> get currentUserLocation;
 }
@@ -52,6 +54,7 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
     Object? currentUserLocation = freezed,
     Object? locationPermission = freezed,
     Object? markerList = freezed,
+    Object? usersInFeed = freezed,
   }) {
     return _then(_value.copyWith(
       currentUserLocation: currentUserLocation == freezed
@@ -66,6 +69,10 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
           ? _value.markerList
           : markerList // ignore: cast_nullable_to_non_nullable
               as Set<Marker>,
+      usersInFeed: usersInFeed == freezed
+          ? _value.usersInFeed
+          : usersInFeed // ignore: cast_nullable_to_non_nullable
+              as List<FeedUserModel>,
     ));
   }
 
@@ -87,7 +94,8 @@ abstract class _$$_MapsStateCopyWith<$Res> implements $MapsStateCopyWith<$Res> {
   $Res call(
       {UserLocationModel currentUserLocation,
       LocationPermission locationPermission,
-      Set<Marker> markerList});
+      Set<Marker> markerList,
+      List<FeedUserModel> usersInFeed});
 
   @override
   $UserLocationModelCopyWith<$Res> get currentUserLocation;
@@ -108,6 +116,7 @@ class __$$_MapsStateCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
     Object? currentUserLocation = freezed,
     Object? locationPermission = freezed,
     Object? markerList = freezed,
+    Object? usersInFeed = freezed,
   }) {
     return _then(_$_MapsState(
       currentUserLocation: currentUserLocation == freezed
@@ -122,6 +131,10 @@ class __$$_MapsStateCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
           ? _value._markerList
           : markerList // ignore: cast_nullable_to_non_nullable
               as Set<Marker>,
+      usersInFeed: usersInFeed == freezed
+          ? _value._usersInFeed
+          : usersInFeed // ignore: cast_nullable_to_non_nullable
+              as List<FeedUserModel>,
     ));
   }
 }
@@ -132,8 +145,10 @@ class _$_MapsState extends _MapsState {
   _$_MapsState(
       {required this.currentUserLocation,
       required this.locationPermission,
-      required final Set<Marker> markerList})
+      required final Set<Marker> markerList,
+      required final List<FeedUserModel> usersInFeed})
       : _markerList = markerList,
+        _usersInFeed = usersInFeed,
         super._();
 
   @override
@@ -147,9 +162,16 @@ class _$_MapsState extends _MapsState {
     return EqualUnmodifiableSetView(_markerList);
   }
 
+  final List<FeedUserModel> _usersInFeed;
+  @override
+  List<FeedUserModel> get usersInFeed {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_usersInFeed);
+  }
+
   @override
   String toString() {
-    return 'MapsState(currentUserLocation: $currentUserLocation, locationPermission: $locationPermission, markerList: $markerList)';
+    return 'MapsState(currentUserLocation: $currentUserLocation, locationPermission: $locationPermission, markerList: $markerList, usersInFeed: $usersInFeed)';
   }
 
   @override
@@ -162,7 +184,9 @@ class _$_MapsState extends _MapsState {
             const DeepCollectionEquality()
                 .equals(other.locationPermission, locationPermission) &&
             const DeepCollectionEquality()
-                .equals(other._markerList, _markerList));
+                .equals(other._markerList, _markerList) &&
+            const DeepCollectionEquality()
+                .equals(other._usersInFeed, _usersInFeed));
   }
 
   @override
@@ -170,7 +194,8 @@ class _$_MapsState extends _MapsState {
       runtimeType,
       const DeepCollectionEquality().hash(currentUserLocation),
       const DeepCollectionEquality().hash(locationPermission),
-      const DeepCollectionEquality().hash(_markerList));
+      const DeepCollectionEquality().hash(_markerList),
+      const DeepCollectionEquality().hash(_usersInFeed));
 
   @JsonKey(ignore: true)
   @override
@@ -182,7 +207,8 @@ abstract class _MapsState extends MapsState {
   factory _MapsState(
       {required final UserLocationModel currentUserLocation,
       required final LocationPermission locationPermission,
-      required final Set<Marker> markerList}) = _$_MapsState;
+      required final Set<Marker> markerList,
+      required final List<FeedUserModel> usersInFeed}) = _$_MapsState;
   _MapsState._() : super._();
 
   @override
@@ -193,6 +219,8 @@ abstract class _MapsState extends MapsState {
       throw _privateConstructorUsedError;
   @override
   Set<Marker> get markerList => throw _privateConstructorUsedError;
+  @override
+  List<FeedUserModel> get usersInFeed => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_MapsStateCopyWith<_$_MapsState> get copyWith =>

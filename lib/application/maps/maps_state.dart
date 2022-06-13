@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:social_dating_app/domain/feed/feed_user_model.dart';
 import 'package:social_dating_app/domain/location/user_location_model.dart';
 
 part 'maps_state.freezed.dart';
@@ -11,6 +12,7 @@ class MapsState with _$MapsState {
     required UserLocationModel currentUserLocation,
     required LocationPermission locationPermission,
     required Set<Marker> markerList,
+    required List<FeedUserModel> usersInFeed,
   }) = _MapsState;
   const MapsState._();
 
@@ -18,5 +20,6 @@ class MapsState with _$MapsState {
         currentUserLocation: UserLocationModel.empty(),
         locationPermission: LocationPermission.whileInUse,
         markerList: {},
+        usersInFeed: [],
       );
 }

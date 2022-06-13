@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:social_dating_app/application/maps/maps_state.dart';
+import 'package:social_dating_app/domain/feed/feed_user_model.dart';
 import 'package:social_dating_app/domain/location/user_location_model.dart';
 import 'package:social_dating_app/providers/firebase/firebase_provider.dart';
 import 'package:geolocator/geolocator.dart';
@@ -15,13 +16,25 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
 
   Future<void> getUsersMarkers() async {
     final firestore = _read(firestoreProvider);
+    /*   using where() method, and "uid" in below, you can filter current user.
+      
+          final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
+
+          final getUsersFromFirestore = await firestore.collection("users")
+          .where("uid", isNotEqualTo: uid).get();
+    */
     final getUsersFromFirestore = await firestore.collection("users").get();
     final Set<Marker> markerList = {};
+    final List<FeedUserModel> usersInFeed = [];
 
     getUsersFromFirestore.docs.map((e) => e.data()).toList().forEach(
       (element) {
         markerList.add(
           Marker(
+            position: LatLng(
+              element["latitude"],
+              element["longitude"],
+            ),
             markerId: MarkerId(
               element["uid"],
             ),
@@ -44,9 +57,20 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
             },
           ),
         );
+        usersInFeed.add(
+          FeedUserModel(
+            imageUrl: element["imageURL"],
+            status: element["status"],
+            userName: element["userName"],
+          ),
+        );
       },
     );
-    state = state.copyWith(markerList: markerList);
+    print(markerList);
+    state = state.copyWith(
+      markerList: markerList,
+      usersInFeed: usersInFeed,
+    );
   }
 
   Future<void> getCurrentPosition() async {
