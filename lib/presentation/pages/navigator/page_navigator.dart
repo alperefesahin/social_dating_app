@@ -34,6 +34,16 @@ class PageNavigator extends ConsumerWidget {
           items: [
             SalomonBottomBarItem(
               icon: const Icon(
+                CupertinoIcons.home,
+                size: 28,
+              ),
+              title: const Text(
+                "Feed",
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(
                 CupertinoIcons.map,
                 size: 28,
               ),
@@ -63,9 +73,10 @@ class PageNavigator extends ConsumerWidget {
           },
           selectedItemColor: customIndigoColor,
         ),
-        routes: [
+        routes: const [
+          FeedRoute(),
           MapsRoute(),
-          const ProfileRoute(),
+          ProfileRoute(),
         ],
       ),
     );
