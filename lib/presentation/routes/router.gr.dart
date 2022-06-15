@@ -18,8 +18,8 @@ import '../pages/feed/feed_page.dart' as _i6;
 import '../pages/landing/landing_page.dart' as _i1;
 import '../pages/maps/maps_page.dart' as _i7;
 import '../pages/navigator/page_navigator.dart' as _i2;
-import '../pages/profile/profile_page.dart' as _i8;
-import '../pages/profile_edit/profile_edit_page.dart' as _i3;
+import '../pages/profile/profile_edit/profile_edit_page.dart' as _i3;
+import '../pages/profile/profile_page/profile_page.dart' as _i8;
 import '../pages/sign_in/sign_in_page.dart' as _i4;
 import '../pages/verification_page/sign_in_verification_page.dart' as _i5;
 

@@ -17,6 +17,13 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProfileState {
   UserProfileModel get currentUserProfile => throw _privateConstructorUsedError;
+  Status get userStatus => throw _privateConstructorUsedError;
+  About get userAbout => throw _privateConstructorUsedError;
+  FormzStatus get formStatus => throw _privateConstructorUsedError;
+  String get textFieldError => throw _privateConstructorUsedError;
+  bool get isInProgress => throw _privateConstructorUsedError;
+  bool get isSavingProcessCompletedSuccesfully =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -28,7 +35,14 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res>;
-  $Res call({UserProfileModel currentUserProfile});
+  $Res call(
+      {UserProfileModel currentUserProfile,
+      Status userStatus,
+      About userAbout,
+      FormzStatus formStatus,
+      String textFieldError,
+      bool isInProgress,
+      bool isSavingProcessCompletedSuccesfully});
 
   $UserProfileModelCopyWith<$Res> get currentUserProfile;
 }
@@ -44,12 +58,43 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   @override
   $Res call({
     Object? currentUserProfile = freezed,
+    Object? userStatus = freezed,
+    Object? userAbout = freezed,
+    Object? formStatus = freezed,
+    Object? textFieldError = freezed,
+    Object? isInProgress = freezed,
+    Object? isSavingProcessCompletedSuccesfully = freezed,
   }) {
     return _then(_value.copyWith(
       currentUserProfile: currentUserProfile == freezed
           ? _value.currentUserProfile
           : currentUserProfile // ignore: cast_nullable_to_non_nullable
               as UserProfileModel,
+      userStatus: userStatus == freezed
+          ? _value.userStatus
+          : userStatus // ignore: cast_nullable_to_non_nullable
+              as Status,
+      userAbout: userAbout == freezed
+          ? _value.userAbout
+          : userAbout // ignore: cast_nullable_to_non_nullable
+              as About,
+      formStatus: formStatus == freezed
+          ? _value.formStatus
+          : formStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      textFieldError: textFieldError == freezed
+          ? _value.textFieldError
+          : textFieldError // ignore: cast_nullable_to_non_nullable
+              as String,
+      isInProgress: isInProgress == freezed
+          ? _value.isInProgress
+          : isInProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSavingProcessCompletedSuccesfully: isSavingProcessCompletedSuccesfully ==
+              freezed
+          ? _value.isSavingProcessCompletedSuccesfully
+          : isSavingProcessCompletedSuccesfully // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -68,7 +113,14 @@ abstract class _$$_ProfileStateCopyWith<$Res>
           _$_ProfileState value, $Res Function(_$_ProfileState) then) =
       __$$_ProfileStateCopyWithImpl<$Res>;
   @override
-  $Res call({UserProfileModel currentUserProfile});
+  $Res call(
+      {UserProfileModel currentUserProfile,
+      Status userStatus,
+      About userAbout,
+      FormzStatus formStatus,
+      String textFieldError,
+      bool isInProgress,
+      bool isSavingProcessCompletedSuccesfully});
 
   @override
   $UserProfileModelCopyWith<$Res> get currentUserProfile;
@@ -88,12 +140,43 @@ class __$$_ProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentUserProfile = freezed,
+    Object? userStatus = freezed,
+    Object? userAbout = freezed,
+    Object? formStatus = freezed,
+    Object? textFieldError = freezed,
+    Object? isInProgress = freezed,
+    Object? isSavingProcessCompletedSuccesfully = freezed,
   }) {
     return _then(_$_ProfileState(
       currentUserProfile: currentUserProfile == freezed
           ? _value.currentUserProfile
           : currentUserProfile // ignore: cast_nullable_to_non_nullable
               as UserProfileModel,
+      userStatus: userStatus == freezed
+          ? _value.userStatus
+          : userStatus // ignore: cast_nullable_to_non_nullable
+              as Status,
+      userAbout: userAbout == freezed
+          ? _value.userAbout
+          : userAbout // ignore: cast_nullable_to_non_nullable
+              as About,
+      formStatus: formStatus == freezed
+          ? _value.formStatus
+          : formStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      textFieldError: textFieldError == freezed
+          ? _value.textFieldError
+          : textFieldError // ignore: cast_nullable_to_non_nullable
+              as String,
+      isInProgress: isInProgress == freezed
+          ? _value.isInProgress
+          : isInProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSavingProcessCompletedSuccesfully: isSavingProcessCompletedSuccesfully ==
+              freezed
+          ? _value.isSavingProcessCompletedSuccesfully
+          : isSavingProcessCompletedSuccesfully // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -101,14 +184,34 @@ class __$$_ProfileStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProfileState extends _ProfileState {
-  _$_ProfileState({required this.currentUserProfile}) : super._();
+  _$_ProfileState(
+      {required this.currentUserProfile,
+      required this.userStatus,
+      required this.userAbout,
+      required this.formStatus,
+      required this.textFieldError,
+      required this.isInProgress,
+      required this.isSavingProcessCompletedSuccesfully})
+      : super._();
 
   @override
   final UserProfileModel currentUserProfile;
+  @override
+  final Status userStatus;
+  @override
+  final About userAbout;
+  @override
+  final FormzStatus formStatus;
+  @override
+  final String textFieldError;
+  @override
+  final bool isInProgress;
+  @override
+  final bool isSavingProcessCompletedSuccesfully;
 
   @override
   String toString() {
-    return 'ProfileState(currentUserProfile: $currentUserProfile)';
+    return 'ProfileState(currentUserProfile: $currentUserProfile, userStatus: $userStatus, userAbout: $userAbout, formStatus: $formStatus, textFieldError: $textFieldError, isInProgress: $isInProgress, isSavingProcessCompletedSuccesfully: $isSavingProcessCompletedSuccesfully)';
   }
 
   @override
@@ -117,12 +220,31 @@ class _$_ProfileState extends _ProfileState {
         (other.runtimeType == runtimeType &&
             other is _$_ProfileState &&
             const DeepCollectionEquality()
-                .equals(other.currentUserProfile, currentUserProfile));
+                .equals(other.currentUserProfile, currentUserProfile) &&
+            const DeepCollectionEquality()
+                .equals(other.userStatus, userStatus) &&
+            const DeepCollectionEquality().equals(other.userAbout, userAbout) &&
+            const DeepCollectionEquality()
+                .equals(other.formStatus, formStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.textFieldError, textFieldError) &&
+            const DeepCollectionEquality()
+                .equals(other.isInProgress, isInProgress) &&
+            const DeepCollectionEquality().equals(
+                other.isSavingProcessCompletedSuccesfully,
+                isSavingProcessCompletedSuccesfully));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(currentUserProfile));
+      runtimeType,
+      const DeepCollectionEquality().hash(currentUserProfile),
+      const DeepCollectionEquality().hash(userStatus),
+      const DeepCollectionEquality().hash(userAbout),
+      const DeepCollectionEquality().hash(formStatus),
+      const DeepCollectionEquality().hash(textFieldError),
+      const DeepCollectionEquality().hash(isInProgress),
+      const DeepCollectionEquality().hash(isSavingProcessCompletedSuccesfully));
 
   @JsonKey(ignore: true)
   @override
@@ -131,12 +253,32 @@ class _$_ProfileState extends _ProfileState {
 }
 
 abstract class _ProfileState extends ProfileState {
-  factory _ProfileState({required final UserProfileModel currentUserProfile}) =
+  factory _ProfileState(
+          {required final UserProfileModel currentUserProfile,
+          required final Status userStatus,
+          required final About userAbout,
+          required final FormzStatus formStatus,
+          required final String textFieldError,
+          required final bool isInProgress,
+          required final bool isSavingProcessCompletedSuccesfully}) =
       _$_ProfileState;
   _ProfileState._() : super._();
 
   @override
   UserProfileModel get currentUserProfile => throw _privateConstructorUsedError;
+  @override
+  Status get userStatus => throw _privateConstructorUsedError;
+  @override
+  About get userAbout => throw _privateConstructorUsedError;
+  @override
+  FormzStatus get formStatus => throw _privateConstructorUsedError;
+  @override
+  String get textFieldError => throw _privateConstructorUsedError;
+  @override
+  bool get isInProgress => throw _privateConstructorUsedError;
+  @override
+  bool get isSavingProcessCompletedSuccesfully =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>

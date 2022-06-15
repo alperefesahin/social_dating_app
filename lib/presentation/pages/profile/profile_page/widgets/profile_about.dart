@@ -3,12 +3,12 @@ import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
-import 'package:social_dating_app/presentation/pages/profile/constants/texts.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_page/constants/texts.dart';
 
 class ProfileAbout extends StatelessWidget {
   const ProfileAbout({Key? key, required this.user}) : super(key: key);
   final UserProfileModel user;
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
