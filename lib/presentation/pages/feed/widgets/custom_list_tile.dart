@@ -75,15 +75,12 @@ class CustomListTile extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 25),
-            child: IconButton(
-              icon: const Icon(
-                CupertinoIcons.circle_filled,
-                color: offlineStatusRedColor,
-              ),
-              iconSize: 12,
-              onPressed: () {},
+          const Padding(
+            padding: EdgeInsets.only(bottom: 25),
+            child: Icon(
+              CupertinoIcons.circle_filled,
+              color: offlineStatusRedColor,
+              size: 15,
             ),
           )
         ],
