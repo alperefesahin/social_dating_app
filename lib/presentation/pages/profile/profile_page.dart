@@ -5,6 +5,7 @@ import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/pages/profile/widgets/profile_page_body.dart';
+import 'package:social_dating_app/providers/firebase/firebase_provider.dart';
 import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
 class ProfilePage extends ConsumerWidget {
@@ -34,7 +35,9 @@ class ProfilePage extends ConsumerWidget {
                   focusColor: transparentColor,
                   disabledColor: transparentColor,
                   padding: const EdgeInsets.only(right: 45),
-                  onPressed: () {},
+                  onPressed: () {
+                    ref.read(authRepositoryProvider).signOut();
+                  },
                   icon: const Icon(
                     Icons.exit_to_app,
                     color: customIndigoColor,

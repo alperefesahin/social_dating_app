@@ -1,11 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/profile/constants/texts.dart';
+import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
 class EditProfileButton extends StatelessWidget {
-  const EditProfileButton({Key? key}) : super(key: key);
+  const EditProfileButton({Key? key, required this.user}) : super(key: key);
+  final UserProfileModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,9 @@ class EditProfileButton extends StatelessWidget {
         highlightColor: transparentColor,
         splashColor: transparentColor,
         focusColor: transparentColor,
-        onTap: () {},
+        onTap: () {
+          AutoRouter.of(context).navigate(ProfileEditRoute(user: user));
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [

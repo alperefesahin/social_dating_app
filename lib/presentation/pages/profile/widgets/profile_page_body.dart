@@ -26,7 +26,7 @@ class ProfilePageBody extends StatelessWidget {
               ],
             ),
             ProfileAbout(user: user),
-            const EditProfileButton(),
+            EditProfileButton(user: user),
           ],
         ),
       ),
