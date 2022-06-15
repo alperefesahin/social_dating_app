@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
@@ -25,6 +26,7 @@ class ProfilePage extends ConsumerWidget {
               foregroundColor: transparentColor,
               surfaceTintColor: transparentColor,
               toolbarHeight: 50,
+              leadingWidth: 20.w,
               leading: const Icon(
                 CupertinoIcons.circle_filled,
                 color: offlineStatusRedColor,

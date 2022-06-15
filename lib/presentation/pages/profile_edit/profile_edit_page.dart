@@ -19,7 +19,7 @@ class ProfileEditPage extends StatelessWidget {
         foregroundColor: transparentColor,
         surfaceTintColor: transparentColor,
         toolbarHeight: 50,
-        leadingWidth: 40.w,
+        leadingWidth: 30.w,
         leading: IconButton(
           hoverColor: transparentColor,
           highlightColor: transparentColor,
