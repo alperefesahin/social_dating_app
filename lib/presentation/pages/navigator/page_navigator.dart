@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/pages/navigator/constants/texts.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
 import 'package:social_dating_app/providers/maps/maps_provider.dart';
@@ -39,7 +40,7 @@ class PageNavigator extends ConsumerWidget {
                 size: 28,
               ),
               title: const Text(
-                "Feed",
+                feedText,
                 style: TextStyle(fontSize: 17),
               ),
             ),
@@ -49,7 +50,7 @@ class PageNavigator extends ConsumerWidget {
                 size: 28,
               ),
               title: const Text(
-                "Map",
+                mapsText,
                 style: TextStyle(fontSize: 17),
               ),
             ),
@@ -59,7 +60,7 @@ class PageNavigator extends ConsumerWidget {
                 size: 30,
               ),
               title: const Text(
-                "Profile",
+                profileText,
                 style: TextStyle(fontSize: 17),
               ),
             ),
