@@ -19,6 +19,7 @@ mixin _$FeedUserModel {
   String get imageUrl => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
+  bool get isUserOnline => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FeedUserModelCopyWith<FeedUserModel> get copyWith =>
@@ -30,7 +31,8 @@ abstract class $FeedUserModelCopyWith<$Res> {
   factory $FeedUserModelCopyWith(
           FeedUserModel value, $Res Function(FeedUserModel) then) =
       _$FeedUserModelCopyWithImpl<$Res>;
-  $Res call({String imageUrl, String status, String userName});
+  $Res call(
+      {String imageUrl, String status, String userName, bool isUserOnline});
 }
 
 /// @nodoc
@@ -47,6 +49,7 @@ class _$FeedUserModelCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? status = freezed,
     Object? userName = freezed,
+    Object? isUserOnline = freezed,
   }) {
     return _then(_value.copyWith(
       imageUrl: imageUrl == freezed
@@ -61,6 +64,10 @@ class _$FeedUserModelCopyWithImpl<$Res>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
+      isUserOnline: isUserOnline == freezed
+          ? _value.isUserOnline
+          : isUserOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -72,7 +79,8 @@ abstract class _$$_FeedUserModelCopyWith<$Res>
           _$_FeedUserModel value, $Res Function(_$_FeedUserModel) then) =
       __$$_FeedUserModelCopyWithImpl<$Res>;
   @override
-  $Res call({String imageUrl, String status, String userName});
+  $Res call(
+      {String imageUrl, String status, String userName, bool isUserOnline});
 }
 
 /// @nodoc
@@ -91,6 +99,7 @@ class __$$_FeedUserModelCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? status = freezed,
     Object? userName = freezed,
+    Object? isUserOnline = freezed,
   }) {
     return _then(_$_FeedUserModel(
       imageUrl: imageUrl == freezed
@@ -105,6 +114,10 @@ class __$$_FeedUserModelCopyWithImpl<$Res>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
+      isUserOnline: isUserOnline == freezed
+          ? _value.isUserOnline
+          : isUserOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -113,7 +126,10 @@ class __$$_FeedUserModelCopyWithImpl<$Res>
 
 class _$_FeedUserModel implements _FeedUserModel {
   const _$_FeedUserModel(
-      {required this.imageUrl, required this.status, required this.userName});
+      {required this.imageUrl,
+      required this.status,
+      required this.userName,
+      required this.isUserOnline});
 
   @override
   final String imageUrl;
@@ -121,10 +137,12 @@ class _$_FeedUserModel implements _FeedUserModel {
   final String status;
   @override
   final String userName;
+  @override
+  final bool isUserOnline;
 
   @override
   String toString() {
-    return 'FeedUserModel(imageUrl: $imageUrl, status: $status, userName: $userName)';
+    return 'FeedUserModel(imageUrl: $imageUrl, status: $status, userName: $userName, isUserOnline: $isUserOnline)';
   }
 
   @override
@@ -134,7 +152,9 @@ class _$_FeedUserModel implements _FeedUserModel {
             other is _$_FeedUserModel &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.userName, userName));
+            const DeepCollectionEquality().equals(other.userName, userName) &&
+            const DeepCollectionEquality()
+                .equals(other.isUserOnline, isUserOnline));
   }
 
   @override
@@ -142,7 +162,8 @@ class _$_FeedUserModel implements _FeedUserModel {
       runtimeType,
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(userName));
+      const DeepCollectionEquality().hash(userName),
+      const DeepCollectionEquality().hash(isUserOnline));
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +175,8 @@ abstract class _FeedUserModel implements FeedUserModel {
   const factory _FeedUserModel(
       {required final String imageUrl,
       required final String status,
-      required final String userName}) = _$_FeedUserModel;
+      required final String userName,
+      required final bool isUserOnline}) = _$_FeedUserModel;
 
   @override
   String get imageUrl => throw _privateConstructorUsedError;
@@ -162,6 +184,8 @@ abstract class _FeedUserModel implements FeedUserModel {
   String get status => throw _privateConstructorUsedError;
   @override
   String get userName => throw _privateConstructorUsedError;
+  @override
+  bool get isUserOnline => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_FeedUserModelCopyWith<_$_FeedUserModel> get copyWith =>

@@ -19,7 +19,6 @@ class SaveButton extends ConsumerWidget {
         (state) => state.displaySaveButton,
       ),
     );
-    print(saveButtonStatus);
 
     return Container(
       width: 50.w,

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
 import 'package:social_dating_app/application/profile/profile_event.dart';
@@ -75,7 +74,6 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
 
     state = state.copyWith(isInProgress: true, isSavingProcessCompletedSuccesfully: false);
 
-    print("\x1B[31m ${state.currentUserProfile}");
     await currentUser.update(
       {
         "status": state.currentUserProfile.status,
@@ -100,10 +98,8 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
         status: currentUserData["status"],
         userName: currentUserData["userName"],
         about: currentUserData["about"],
-        onlineStatus: false, //! Change this
+        onlineStatus: currentUserData["onlineStatus"],
       ),
     );
-
-    print(state);
   }
 }

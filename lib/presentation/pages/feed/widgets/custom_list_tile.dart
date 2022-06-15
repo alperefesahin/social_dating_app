@@ -1,23 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 
-class CustomListTile extends StatelessWidget {
+class CustomListTile extends ConsumerWidget {
   const CustomListTile({
     Key? key,
     required this.userImageUrl,
     required this.userStatus,
     required this.userName,
+    required this.isUserOnline,
   }) : super(key: key);
 
   final String userImageUrl;
   final String userStatus;
   final String userName;
+  final bool isUserOnline;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.only(
         right: 25,
@@ -75,11 +78,11 @@ class CustomListTile extends StatelessWidget {
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(bottom: 25),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 25),
             child: Icon(
               CupertinoIcons.circle_filled,
-              color: offlineStatusRedColor,
+              color: isUserOnline ? greenColor : offlineStatusRedColor,
               size: 15,
             ),
           )

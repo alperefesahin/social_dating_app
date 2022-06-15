@@ -28,18 +28,18 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
     final List<FeedUserModel> usersInFeed = [];
 
     getUsersFromFirestore.docs.map((e) => e.data()).toList().forEach(
-      (element) {
+      (user) {
         markerList.add(
           Marker(
             position: LatLng(
-              element["latitude"],
-              element["longitude"],
+              user["latitude"],
+              user["longitude"],
             ),
             markerId: MarkerId(
-              element["uid"],
+              user["uid"],
             ),
             infoWindow: InfoWindow(
-              title: element["userName"],
+              title: user["userName"],
             ),
             onTap: () async {
               final controller = await _controller.future;
@@ -48,8 +48,8 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
                   CameraPosition(
                     zoom: 18,
                     target: LatLng(
-                      element["latitude"],
-                      element["longitude"],
+                      user["latitude"],
+                      user["longitude"],
                     ),
                   ),
                 ),
@@ -59,9 +59,10 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
         );
         usersInFeed.add(
           FeedUserModel(
-            imageUrl: element["imageURL"],
-            status: element["status"],
-            userName: element["userName"],
+            imageUrl: user["imageURL"],
+            status: user["status"],
+            userName: user["userName"],
+            isUserOnline: user["onlineStatus"],
           ),
         );
       },

@@ -94,6 +94,7 @@ class FirebaseAuthService implements IAuthService {
               "userName": randomUserName,
               "imageURL": imageURL,
               "status": status,
+              "onlineStatus": false,
             },
             SetOptions(merge: true),
           );

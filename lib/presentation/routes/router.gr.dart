@@ -11,9 +11,10 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i9;
+import 'package:flutter/cupertino.dart' as _i11;
 import 'package:flutter/material.dart' as _i10;
 
-import '../../domain/user_profile/user_profile_model.dart' as _i11;
+import '../../domain/user_profile/user_profile_model.dart' as _i12;
 import '../pages/feed/feed_page.dart' as _i6;
 import '../pages/landing/landing_page.dart' as _i1;
 import '../pages/maps/maps_page.dart' as _i7;
@@ -106,7 +107,7 @@ class RouteNavigator extends _i9.PageRouteInfo<void> {
 /// generated route for
 /// [_i3.ProfileEditPage]
 class ProfileEditRoute extends _i9.PageRouteInfo<ProfileEditRouteArgs> {
-  ProfileEditRoute({_i10.Key? key, required _i11.UserProfileModel user})
+  ProfileEditRoute({_i11.Key? key, required _i12.UserProfileModel user})
       : super(ProfileEditRoute.name,
             path: '/profile-edit-page',
             args: ProfileEditRouteArgs(key: key, user: user));
@@ -117,9 +118,9 @@ class ProfileEditRoute extends _i9.PageRouteInfo<ProfileEditRouteArgs> {
 class ProfileEditRouteArgs {
   const ProfileEditRouteArgs({this.key, required this.user});
 
-  final _i10.Key? key;
+  final _i11.Key? key;
 
-  final _i11.UserProfileModel user;
+  final _i12.UserProfileModel user;
 
   @override
   String toString() {
