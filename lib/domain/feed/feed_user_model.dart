@@ -8,11 +8,13 @@ class FeedUserModel with _$FeedUserModel {
     required String imageUrl,
     required String status,
     required String userName,
+    required bool isUserOnline,
   }) = _FeedUserModel;
 
   factory FeedUserModel.empty() => const FeedUserModel(
         imageUrl: '',
         status: '',
         userName: '',
+        isUserOnline: false,
       );
 }

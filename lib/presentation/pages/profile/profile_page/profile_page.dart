@@ -16,6 +16,7 @@ class ProfilePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(profileStateProvider);
     final user = state.currentUserProfile;
+    final isUserOnline = state.currentUserProfile.onlineStatus;
 
     return user == UserProfileModel.empty()
         ? const CustomProgressIndicator(progressIndicatorColor: blackColor)
@@ -27,9 +28,9 @@ class ProfilePage extends ConsumerWidget {
               surfaceTintColor: transparentColor,
               toolbarHeight: 50,
               leadingWidth: 20.w,
-              leading: const Icon(
+              leading: Icon(
                 CupertinoIcons.circle_filled,
-                color: offlineStatusRedColor,
+                color: isUserOnline ? greenColor : offlineStatusRedColor,
                 size: 15,
               ),
               actions: [
