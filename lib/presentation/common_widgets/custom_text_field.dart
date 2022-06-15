@@ -4,14 +4,14 @@ import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hint;
-  final ValueChanged<String> onChanged;
-  final TextInputType keyboardType;
+  final String? error;
+  final int? maxLines;
   final bool isPasswordField;
   final bool isRequiredField;
   final bool isEnabled;
-  final String? error;
+  final ValueChanged<String> onChanged;
+  final TextInputType keyboardType;
   final EdgeInsets padding;
-  final int? maxLines;
 
   const CustomTextField({
     Key? key,

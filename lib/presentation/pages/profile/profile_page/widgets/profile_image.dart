@@ -7,7 +7,7 @@ import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 class ProfileImage extends StatelessWidget {
   const ProfileImage({Key? key, required this.user}) : super(key: key);
   final UserProfileModel user;
-  
+
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(

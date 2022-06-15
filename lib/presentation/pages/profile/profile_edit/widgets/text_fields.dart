@@ -14,8 +14,17 @@ class TextFields extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userAbout = ref.watch(profileStateProvider.select((state) => state.userAbout));
-    final userStatus = ref.watch(profileStateProvider.select((state) => state.userStatus));
+    final userAbout = ref.watch(
+      profileStateProvider.select(
+        (state) => state.userAbout,
+      ),
+    );
+
+    final userStatus = ref.watch(
+      profileStateProvider.select(
+        (state) => state.userStatus,
+      ),
+    );
 
     return Padding(
       padding: EdgeInsets.only(bottom: 5.h, top: 5.h),

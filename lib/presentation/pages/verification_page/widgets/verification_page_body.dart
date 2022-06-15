@@ -22,7 +22,9 @@ class VerificationPageBody extends ConsumerWidget {
       children: [
         const CustomWaveAnimation(),
         isInProgress
-            ? const CustomProgressIndicator(progressIndicatorColor: whiteColor)
+            ? const CustomProgressIndicator(
+                progressIndicatorColor: whiteColor,
+              )
             : Padding(
                 padding: const EdgeInsets.only(top: 140),
                 child: SingleChildScrollView(

@@ -12,8 +12,8 @@ class PhoneSignInState with _$PhoneSignInState {
     required String phoneNumber,
     required String smsCode,
     required Option<String> verificationIdOption,
-    required Tuple2<String, int?> phoneNumberAndResendTokenPair,
     required Option<AuthFailure> failureMessageOption,
+    required Tuple2<String, int?> phoneNumberAndResendTokenPair,
   }) = _PhoneSignInState;
 
   const PhoneSignInState._();

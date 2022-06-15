@@ -53,7 +53,7 @@ class FeedPage extends ConsumerWidget {
                       userImageUrl: usersInFeed[index].imageUrl,
                       userStatus: usersInFeed[index].status,
                       userName: usersInFeed[index].userName,
-                      isUserOnline: usersInFeed[index].isUserOnline
+                      isUserOnline: usersInFeed[index].isUserOnline,
                     ),
                   ),
                 );

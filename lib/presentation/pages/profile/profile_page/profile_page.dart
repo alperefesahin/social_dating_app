@@ -17,7 +17,7 @@ class ProfilePage extends ConsumerWidget {
     final state = ref.watch(profileStateProvider);
     final user = state.currentUserProfile;
     final isUserOnline = state.currentUserProfile.onlineStatus;
-   
+
     return user == UserProfileModel.empty()
         ? const CustomProgressIndicator(progressIndicatorColor: blackColor)
         : Scaffold(

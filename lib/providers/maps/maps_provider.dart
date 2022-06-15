@@ -4,6 +4,8 @@ import 'package:social_dating_app/application/maps/maps_state_notifier.dart';
 
 final mapsStateProvider = StateNotifierProvider.autoDispose<MapsStateNotifier, MapsState>(
   (ref) {
-    return MapsStateNotifier(ref.read)..getUsersMarkers()..getCurrentPositionWithUserPermission();
+    return MapsStateNotifier(ref.read)
+      ..getUsersMarkers()
+      ..getCurrentPositionWithUserPermission();
   },
 );

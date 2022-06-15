@@ -21,7 +21,9 @@ class ResendCodeButton extends ConsumerWidget {
           padding: const EdgeInsets.all(10),
           child: InkWell(
             onTap: () {
-              ref.read(phoneSignInStateProvider.notifier).mapEventsToState(const SignInWithPhoneNumber());
+              ref.read(phoneSignInStateProvider.notifier).mapEventsToState(
+                    const SignInWithPhoneNumber(),
+                  );
             },
             child: Row(
               children: const [

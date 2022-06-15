@@ -19,7 +19,9 @@ class VerificationConfirmButton extends ConsumerWidget {
     return InkWell(
       onTap: () {
         if (smsCode.isNotEmpty) {
-          ref.read(phoneSignInStateProvider.notifier).mapEventsToState(const VerifySmsCode());
+          ref.read(phoneSignInStateProvider.notifier).mapEventsToState(
+                const VerifySmsCode(),
+              );
         }
       },
       splashColor: transparentColor,

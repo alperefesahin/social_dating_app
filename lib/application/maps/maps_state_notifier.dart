@@ -15,15 +15,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
   final Completer<GoogleMapController> _controller = Completer();
 
   Future<void> getUsersMarkers() async {
-    
     final firestore = _read(firestoreProvider);
-    /*   using where() method, and "uid" in below, you can filter current user.
-      
-          final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
-
-          final getUsersFromFirestore = await firestore.collection("users")
-          .where("uid", isNotEqualTo: uid).get();
-    */
     final getUsersFromFirestore = await firestore.collection("users").get();
     final Set<Marker> markerList = {};
     final List<FeedUserModel> usersInFeed = [];

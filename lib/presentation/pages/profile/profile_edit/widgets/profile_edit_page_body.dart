@@ -17,7 +17,12 @@ class ProfileEditPageBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isInProgress = ref.watch(profileStateProvider.select((state) => state.isInProgress));
+    final isInProgress = ref.watch(
+      profileStateProvider.select(
+        (state) => state.isInProgress,
+      ),
+    );
+
     ref.listen<bool>(
       profileStateProvider.select((state) => state.isSavingProcessCompletedSuccesfully),
       (previousState, currentState) {

@@ -11,6 +11,7 @@ class AppWidget extends StatelessWidget {
     final AppRouter appRouter = AppRouter();
     final botToastBuilder = BotToastInit();
     final BotToastNavigatorObserver botToastNavigatorObserver = BotToastNavigatorObserver();
+
     return Listener(
       onPointerUp: (_) {
         if (Platform.isIOS) {

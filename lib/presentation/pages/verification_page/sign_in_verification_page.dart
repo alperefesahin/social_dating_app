@@ -36,7 +36,9 @@ class SignInVerificationPage extends ConsumerWidget {
         backgroundColor: whiteColor,
         appBar: CustomAppBar(
           leadingOnPressed: () {
-            ref.read(phoneSignInStateProvider.notifier).mapEventsToState(const Reset());
+            ref.read(phoneSignInStateProvider.notifier).mapEventsToState(
+                  const Reset(),
+                );
             AutoRouter.of(context).popUntilRoot();
           },
           appBarBackgroundColor: whiteColor,
