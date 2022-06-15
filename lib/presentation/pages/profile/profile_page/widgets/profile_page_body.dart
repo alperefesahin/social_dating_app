@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
-import 'package:social_dating_app/presentation/pages/profile/widgets/edit_profile_button.dart';
-import 'package:social_dating_app/presentation/pages/profile/widgets/profile_about.dart';
-import 'package:social_dating_app/presentation/pages/profile/widgets/profile_image.dart';
-import 'package:social_dating_app/presentation/pages/profile/widgets/profile_name_and_status.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_page/widgets/edit_profile_button.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_page/widgets/profile_about.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_page/widgets/profile_image.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_page/widgets/profile_name_and_status.dart';
 
 class ProfilePageBody extends StatelessWidget {
   const ProfilePageBody({Key? key, required this.user}) : super(key: key);
