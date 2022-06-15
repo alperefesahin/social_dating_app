@@ -6,7 +6,6 @@ import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/profile/profile_edit/constants/texts.dart';
-import 'package:social_dating_app/presentation/pages/profile/profile_page/constants/texts.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 
 class SaveButton extends StatelessWidget {

@@ -17,6 +17,6 @@ class UserProfileModel with _$UserProfileModel {
         status: '',
         about: '',
         userName: '',
-        onlineStatus: false,
+        onlineStatus: true,
       );
 }
