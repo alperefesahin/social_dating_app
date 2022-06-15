@@ -9,13 +9,16 @@ class ProfileEditPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        ProfileImage(user: user),
-        TextFields(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ProfileImage(user: user),
+          TextFields(user: user),
+          Text("button"),
+        ],
+      ),
     );
   }
 }
