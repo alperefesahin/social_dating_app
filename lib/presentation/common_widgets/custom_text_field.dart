@@ -32,9 +32,7 @@ class CustomTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       borderSide: const BorderSide(width: 0, style: BorderStyle.none),
     );
-    /*  UnderlineInputBorder errorBorder =
-        const UnderlineInputBorder(borderSide: BorderSide(color: Colors.redAccent, width: 2));
-         */
+
     return Padding(
       padding: padding,
       child: TextFormField(
@@ -52,8 +50,6 @@ class CustomTextField extends StatelessWidget {
           border: border,
           disabledBorder: border,
           enabledBorder: border,
-          /* errorBorder: errorBorder,
-          focusedErrorBorder: errorBorder, */
           errorText: error,
           floatingLabelBehavior: FloatingLabelBehavior.never,
         ),
