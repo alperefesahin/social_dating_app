@@ -1,19 +1,25 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text.dart';
 import 'package:social_dating_app/presentation/pages/profile/profile_edit/constants/texts.dart';
-import 'package:social_dating_app/presentation/routes/router.gr.dart';
+import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
-class SaveButton extends StatelessWidget {
+class SaveButton extends ConsumerWidget {
   const SaveButton({Key? key, required this.user}) : super(key: key);
   final UserProfileModel user;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final saveButtonStatus = ref.watch(
+      profileStateProvider.select(
+        (state) => state.displaySaveButton,
+      ),
+    );
+
     return Container(
       width: 50.w,
       height: 6.h,
@@ -30,26 +36,26 @@ class SaveButton extends StatelessWidget {
         splashColor: transparentColor,
         focusColor: transparentColor,
         onTap: () {
-          AutoRouter.of(context).navigate(ProfileEditRoute(user: user));
+          if (saveButtonStatus) {}
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Icon(
               CupertinoIcons.check_mark_circled,
               size: 30,
-              color: customIndigoColor,
+              color: saveButtonStatus ? customIndigoColor : customIndigoColor.withOpacity(0.5),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             CustomText(
               text: saveText,
               minFontSize: 21,
               maxFontSize: 25,
               textStyle: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: customIndigoColor,
+                color: saveButtonStatus ? customIndigoColor : customIndigoColor.withOpacity(0.5),
               ),
-              textPadding: EdgeInsets.only(),
+              textPadding: const EdgeInsets.only(),
             ),
           ],
         ),
