@@ -52,6 +52,9 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
         );
       },
       changeOnlineStatus: (changeOnlineStatusEvent) {
+          if (state.isInProgress) {
+          return;
+        }
         final onlineStatus = changeOnlineStatusEvent.onlineStatus;
 
         state = state.copyWith(
@@ -68,6 +71,9 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
   }
 
   Future<void> updateProfileInformations() async {
+      if (state.isInProgress) {
+          return;
+        }
     final firestore = _read(firestoreProvider);
     final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
     final currentUser = firestore.collection("users").doc(uid);
@@ -88,6 +94,9 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
   }
 
   Future<void> getCurrentUser() async {
+      if (state.isInProgress) {
+          return;
+        }
     final firestore = _read(firestoreProvider);
     final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
     final currentUser = await firestore.collection("users").doc(uid).get();
