@@ -8,6 +8,7 @@ import 'package:social_dating_app/presentation/pages/profile/profile_edit/widget
 import 'package:social_dating_app/presentation/pages/profile/profile_edit/widgets/save_button.dart';
 import 'package:social_dating_app/presentation/pages/profile/profile_edit/widgets/switch_button.dart';
 import 'package:social_dating_app/presentation/pages/profile/profile_edit/widgets/text_fields.dart';
+import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
 class ProfileEditPageBody extends ConsumerWidget {
@@ -21,7 +22,7 @@ class ProfileEditPageBody extends ConsumerWidget {
       profileStateProvider.select((state) => state.isSavingProcessCompletedSuccesfully),
       (previousState, currentState) {
         if (currentState == true) {
-          AutoRouter.of(context).pop();
+          AutoRouter.of(context).replace(const RouteNavigator());
         }
       },
     );

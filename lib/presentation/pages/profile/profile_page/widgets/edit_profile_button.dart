@@ -29,7 +29,7 @@ class EditProfileButton extends StatelessWidget {
         splashColor: transparentColor,
         focusColor: transparentColor,
         onTap: () {
-          AutoRouter.of(context).navigate(ProfileEditRoute(user: user));
+          AutoRouter.of(context).replace(ProfileEditRoute(user: user));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
