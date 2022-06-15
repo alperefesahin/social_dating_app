@@ -24,10 +24,10 @@ class Status extends FormzInput<String, StatusError> {
 }
 
 extension Explanation on StatusError {
-  String? get status {
+  String? get name {
     switch (this) {
       case StatusError.invalid:
-        return "This is not a valid Status text";
+        return "Please enter a valid status!";
       default:
         return null;
     }

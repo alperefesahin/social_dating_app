@@ -15,7 +15,7 @@ class About extends FormzInput<String, AboutError> {
     if (value.isEmpty == true || value == "") {
       return AboutError.empty;
     }
-    return aboutRegExp.hasMatch(value) && value.length < 50
+    return aboutRegExp.hasMatch(value) && value.length < 100
         ? null
         : value.isEmpty
             ? null
@@ -24,10 +24,10 @@ class About extends FormzInput<String, AboutError> {
 }
 
 extension Explanation on AboutError {
-  String? get about {
+  String? get name {
     switch (this) {
       case AboutError.invalid:
-        return "This is not a valid About text";
+        return "Please enter a valid about text!";
       default:
         return null;
     }

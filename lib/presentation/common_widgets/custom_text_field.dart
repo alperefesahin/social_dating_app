@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintMaxLines: 5,
           fillColor: customIndigoBackgroundColor.withOpacity(0.6),
-          contentPadding: EdgeInsets.only(left: 25, top: 5.h),
+          contentPadding: EdgeInsets.only(left: 25, top: 5.h, right: 25),
           filled: true,
           hintText: isRequiredField ? '$hint*' : hint,
           hintStyle: const TextStyle(color: whiteColor, fontWeight: FontWeight.w500),
