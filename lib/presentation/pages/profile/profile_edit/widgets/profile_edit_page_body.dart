@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/pages/profile/profile_edit/widgets/profile_image.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_edit/widgets/text_fields.dart';
 
 class ProfileEditPageBody extends StatelessWidget {
   const ProfileEditPageBody({Key? key, required this.user}) : super(key: key);
@@ -9,8 +10,11 @@ class ProfileEditPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ProfileImage(user: user),
+        TextFields(),
       ],
     );
   }
