@@ -19,6 +19,7 @@ class SaveButton extends ConsumerWidget {
         (state) => state.displaySaveButton,
       ),
     );
+    print(saveButtonStatus);
 
     return Container(
       width: 50.w,
@@ -36,7 +37,9 @@ class SaveButton extends ConsumerWidget {
         splashColor: transparentColor,
         focusColor: transparentColor,
         onTap: () {
-          if (saveButtonStatus) {}
+          if (saveButtonStatus) {
+            ref.read(profileStateProvider.notifier).updateProfileInformations();
+          }
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

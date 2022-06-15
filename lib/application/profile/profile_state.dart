@@ -14,6 +14,8 @@ class ProfileState with _$ProfileState {
     required About userAbout,
     required FormzStatus formStatus,
     required String textFieldError,
+    required bool isInProgress,
+    required bool isSavingProcessCompletedSuccesfully,
   }) = _ProfileState;
   const ProfileState._();
 
@@ -23,6 +25,8 @@ class ProfileState with _$ProfileState {
         userStatus: const Status.pure(),
         formStatus: FormzStatus.pure,
         textFieldError: "",
+        isInProgress: false,
+        isSavingProcessCompletedSuccesfully: false,
       );
 
   bool get displaySaveButton => formStatus.isValidated;
