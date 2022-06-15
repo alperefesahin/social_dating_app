@@ -45,7 +45,8 @@ dependencies:
   sizer: ^2.0.15
   random_name_plus: ^1.0.1
   flutter_slidable: ^1.3.0
-
+  animated_switch: ^0.0.1
+  
   dartz: ^0.10.1
   flutter_riverpod: ^1.0.4
   freezed_annotation: ^2.0.3
