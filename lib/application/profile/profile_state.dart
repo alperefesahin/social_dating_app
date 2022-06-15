@@ -25,5 +25,5 @@ class ProfileState with _$ProfileState {
         textFieldError: "",
       );
 
-  bool get displaySaveButton => formStatus.isValidated && currentUserProfile.onlineStatus;
+  bool get displaySaveButton => formStatus.isValidated;
 }

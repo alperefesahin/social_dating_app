@@ -14,26 +14,37 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
   final Reader _read;
 
   void mapEventsToState(ProfileEvent event) {
-    event.map(
-      statusChanged: (statusChangedEvent) {
-        final userStatus = Status.dirty(statusChangedEvent.statusText);
-        state = state.copyWith(
-          userStatus: userStatus,
-          formStatus: Formz.validate(
-            [userStatus, state.userAbout],
-          ),
-        );
-      },
-      aboutChanged: (aboutChangedEvent) {
-        final userAbout = About.dirty(aboutChangedEvent.aboutText);
-        state = state.copyWith(
-          userAbout: userAbout,
-          formStatus: Formz.validate(
-            [state.userStatus, userAbout],
-          ),
-        );
-      },
-    );
+    event.map(statusChanged: (statusChangedEvent) {
+      final userStatus = Status.dirty(statusChangedEvent.statusText);
+
+      state = state.copyWith(
+        userStatus: userStatus,
+        formStatus: Formz.validate(
+          [userStatus, state.userAbout],
+        ),
+      );
+    }, aboutChanged: (aboutChangedEvent) {
+      final userAbout = About.dirty(aboutChangedEvent.aboutText);
+
+      state = state.copyWith(
+        userAbout: userAbout,
+        formStatus: Formz.validate(
+          [state.userStatus, userAbout],
+        ),
+      );
+    }, changeOnlineStatus: (changeOnlineStatusEvent) {
+      final onlineStatus = changeOnlineStatusEvent.onlineStatus;
+
+      state = state.copyWith(
+        currentUserProfile: UserProfileModel(
+          imageUrl: state.currentUserProfile.imageUrl,
+          status: state.currentUserProfile.status,
+          userName: state.currentUserProfile.userName,
+          about: state.currentUserProfile.about,
+          onlineStatus: onlineStatus,
+        ),
+      );
+    });
   }
 
   Future<void> getCurrentUser() async {

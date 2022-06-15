@@ -18,7 +18,7 @@ class TextFields extends ConsumerWidget {
     final userStatus = ref.watch(profileStateProvider.select((state) => state.userStatus));
 
     return Padding(
-      padding: EdgeInsets.only(bottom: 15.h, top: 5.h),
+      padding: EdgeInsets.only(bottom: 5.h, top: 5.h),
       child: Column(
         children: [
           CustomTextField(
