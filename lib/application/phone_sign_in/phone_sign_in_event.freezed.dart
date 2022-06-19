@@ -21,10 +21,10 @@ mixin _$PhoneSignInEvent {
     required TResult Function() reset,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
     required TResult Function() verifySmsCode,
     required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,9 +32,9 @@ mixin _$PhoneSignInEvent {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,9 +42,9 @@ mixin _$PhoneSignInEvent {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,11 +53,11 @@ mixin _$PhoneSignInEvent {
     required TResult Function(Reset value) reset,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
     required TResult Function(VerifySmsCode value) verifySmsCode,
     required TResult Function(SignInWithPhoneNumber value)
         signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,9 +65,9 @@ mixin _$PhoneSignInEvent {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,9 +75,9 @@ mixin _$PhoneSignInEvent {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,10 +141,10 @@ class _$Reset implements Reset {
     required TResult Function() reset,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
     required TResult Function() verifySmsCode,
     required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
   }) {
     return reset();
   }
@@ -155,9 +155,9 @@ class _$Reset implements Reset {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
   }) {
     return reset?.call();
   }
@@ -168,9 +168,9 @@ class _$Reset implements Reset {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (reset != null) {
@@ -185,11 +185,11 @@ class _$Reset implements Reset {
     required TResult Function(Reset value) reset,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
     required TResult Function(VerifySmsCode value) verifySmsCode,
     required TResult Function(SignInWithPhoneNumber value)
         signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
   }) {
     return reset(this);
   }
@@ -200,9 +200,9 @@ class _$Reset implements Reset {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
   }) {
     return reset?.call(this);
   }
@@ -213,9 +213,9 @@ class _$Reset implements Reset {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (reset != null) {
@@ -299,10 +299,10 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     required TResult Function() reset,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
     required TResult Function() verifySmsCode,
     required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
   }) {
     return phoneNumberChanged(phoneNumber);
   }
@@ -313,9 +313,9 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
   }) {
     return phoneNumberChanged?.call(phoneNumber);
   }
@@ -326,9 +326,9 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
@@ -343,11 +343,11 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     required TResult Function(Reset value) reset,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
     required TResult Function(VerifySmsCode value) verifySmsCode,
     required TResult Function(SignInWithPhoneNumber value)
         signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
   }) {
     return phoneNumberChanged(this);
   }
@@ -358,9 +358,9 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
   }) {
     return phoneNumberChanged?.call(this);
   }
@@ -371,9 +371,9 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
@@ -461,10 +461,10 @@ class _$SmsCodeChanged implements SmsCodeChanged {
     required TResult Function() reset,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
     required TResult Function() verifySmsCode,
     required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
   }) {
     return smsCodeChanged(smsCode);
   }
@@ -475,9 +475,9 @@ class _$SmsCodeChanged implements SmsCodeChanged {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
   }) {
     return smsCodeChanged?.call(smsCode);
   }
@@ -488,9 +488,9 @@ class _$SmsCodeChanged implements SmsCodeChanged {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (smsCodeChanged != null) {
@@ -505,11 +505,11 @@ class _$SmsCodeChanged implements SmsCodeChanged {
     required TResult Function(Reset value) reset,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
     required TResult Function(VerifySmsCode value) verifySmsCode,
     required TResult Function(SignInWithPhoneNumber value)
         signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
   }) {
     return smsCodeChanged(this);
   }
@@ -520,9 +520,9 @@ class _$SmsCodeChanged implements SmsCodeChanged {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
   }) {
     return smsCodeChanged?.call(this);
   }
@@ -533,9 +533,9 @@ class _$SmsCodeChanged implements SmsCodeChanged {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (smsCodeChanged != null) {
@@ -553,6 +553,270 @@ abstract class SmsCodeChanged implements PhoneSignInEvent {
   @JsonKey(ignore: true)
   _$$SmsCodeChangedCopyWith<_$SmsCodeChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifySmsCodeCopyWith<$Res> {
+  factory _$$VerifySmsCodeCopyWith(
+          _$VerifySmsCode value, $Res Function(_$VerifySmsCode) then) =
+      __$$VerifySmsCodeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$VerifySmsCodeCopyWithImpl<$Res>
+    extends _$PhoneSignInEventCopyWithImpl<$Res>
+    implements _$$VerifySmsCodeCopyWith<$Res> {
+  __$$VerifySmsCodeCopyWithImpl(
+      _$VerifySmsCode _value, $Res Function(_$VerifySmsCode) _then)
+      : super(_value, (v) => _then(v as _$VerifySmsCode));
+
+  @override
+  _$VerifySmsCode get _value => super._value as _$VerifySmsCode;
+}
+
+/// @nodoc
+
+class _$VerifySmsCode implements VerifySmsCode {
+  const _$VerifySmsCode();
+
+  @override
+  String toString() {
+    return 'PhoneSignInEvent.verifySmsCode()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$VerifySmsCode);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() reset,
+    required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String smsCode) smsCodeChanged,
+    required TResult Function() verifySmsCode,
+    required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
+  }) {
+    return verifySmsCode();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? reset,
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String smsCode)? smsCodeChanged,
+    TResult Function()? verifySmsCode,
+    TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
+  }) {
+    return verifySmsCode?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String smsCode)? smsCodeChanged,
+    TResult Function()? verifySmsCode,
+    TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
+    required TResult orElse(),
+  }) {
+    if (verifySmsCode != null) {
+      return verifySmsCode();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Reset value) reset,
+    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(SmsCodeChanged value) smsCodeChanged,
+    required TResult Function(VerifySmsCode value) verifySmsCode,
+    required TResult Function(SignInWithPhoneNumber value)
+        signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
+  }) {
+    return verifySmsCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Reset value)? reset,
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(SmsCodeChanged value)? smsCodeChanged,
+    TResult Function(VerifySmsCode value)? verifySmsCode,
+    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
+  }) {
+    return verifySmsCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Reset value)? reset,
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(SmsCodeChanged value)? smsCodeChanged,
+    TResult Function(VerifySmsCode value)? verifySmsCode,
+    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
+    required TResult orElse(),
+  }) {
+    if (verifySmsCode != null) {
+      return verifySmsCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifySmsCode implements PhoneSignInEvent {
+  const factory VerifySmsCode() = _$VerifySmsCode;
+}
+
+/// @nodoc
+abstract class _$$SignInWithPhoneNumberCopyWith<$Res> {
+  factory _$$SignInWithPhoneNumberCopyWith(_$SignInWithPhoneNumber value,
+          $Res Function(_$SignInWithPhoneNumber) then) =
+      __$$SignInWithPhoneNumberCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignInWithPhoneNumberCopyWithImpl<$Res>
+    extends _$PhoneSignInEventCopyWithImpl<$Res>
+    implements _$$SignInWithPhoneNumberCopyWith<$Res> {
+  __$$SignInWithPhoneNumberCopyWithImpl(_$SignInWithPhoneNumber _value,
+      $Res Function(_$SignInWithPhoneNumber) _then)
+      : super(_value, (v) => _then(v as _$SignInWithPhoneNumber));
+
+  @override
+  _$SignInWithPhoneNumber get _value => super._value as _$SignInWithPhoneNumber;
+}
+
+/// @nodoc
+
+class _$SignInWithPhoneNumber implements SignInWithPhoneNumber {
+  const _$SignInWithPhoneNumber();
+
+  @override
+  String toString() {
+    return 'PhoneSignInEvent.signInWithPhoneNumber()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignInWithPhoneNumber);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() reset,
+    required TResult Function(String phoneNumber) phoneNumberChanged,
+    required TResult Function(String smsCode) smsCodeChanged,
+    required TResult Function() verifySmsCode,
+    required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
+  }) {
+    return signInWithPhoneNumber();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? reset,
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String smsCode)? smsCodeChanged,
+    TResult Function()? verifySmsCode,
+    TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
+  }) {
+    return signInWithPhoneNumber?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
+    TResult Function(String phoneNumber)? phoneNumberChanged,
+    TResult Function(String smsCode)? smsCodeChanged,
+    TResult Function()? verifySmsCode,
+    TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
+    required TResult orElse(),
+  }) {
+    if (signInWithPhoneNumber != null) {
+      return signInWithPhoneNumber();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Reset value) reset,
+    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
+    required TResult Function(SmsCodeChanged value) smsCodeChanged,
+    required TResult Function(VerifySmsCode value) verifySmsCode,
+    required TResult Function(SignInWithPhoneNumber value)
+        signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
+  }) {
+    return signInWithPhoneNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Reset value)? reset,
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(SmsCodeChanged value)? smsCodeChanged,
+    TResult Function(VerifySmsCode value)? verifySmsCode,
+    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
+  }) {
+    return signInWithPhoneNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Reset value)? reset,
+    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
+    TResult Function(SmsCodeChanged value)? smsCodeChanged,
+    TResult Function(VerifySmsCode value)? verifySmsCode,
+    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
+    required TResult orElse(),
+  }) {
+    if (signInWithPhoneNumber != null) {
+      return signInWithPhoneNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInWithPhoneNumber implements PhoneSignInEvent {
+  const factory SignInWithPhoneNumber() = _$SignInWithPhoneNumber;
 }
 
 /// @nodoc
@@ -627,10 +891,10 @@ class _$UpdateNextButtonStatus implements UpdateNextButtonStatus {
     required TResult Function() reset,
     required TResult Function(String phoneNumber) phoneNumberChanged,
     required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
     required TResult Function() verifySmsCode,
     required TResult Function() signInWithPhoneNumber,
+    required TResult Function(bool isPhoneNumberInputValidated)
+        updateNextButtonStatus,
   }) {
     return updateNextButtonStatus(isPhoneNumberInputValidated);
   }
@@ -641,9 +905,9 @@ class _$UpdateNextButtonStatus implements UpdateNextButtonStatus {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
   }) {
     return updateNextButtonStatus?.call(isPhoneNumberInputValidated);
   }
@@ -654,9 +918,9 @@ class _$UpdateNextButtonStatus implements UpdateNextButtonStatus {
     TResult Function()? reset,
     TResult Function(String phoneNumber)? phoneNumberChanged,
     TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     TResult Function()? verifySmsCode,
     TResult Function()? signInWithPhoneNumber,
+    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (updateNextButtonStatus != null) {
@@ -671,11 +935,11 @@ class _$UpdateNextButtonStatus implements UpdateNextButtonStatus {
     required TResult Function(Reset value) reset,
     required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
     required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
     required TResult Function(VerifySmsCode value) verifySmsCode,
     required TResult Function(SignInWithPhoneNumber value)
         signInWithPhoneNumber,
+    required TResult Function(UpdateNextButtonStatus value)
+        updateNextButtonStatus,
   }) {
     return updateNextButtonStatus(this);
   }
@@ -686,9 +950,9 @@ class _$UpdateNextButtonStatus implements UpdateNextButtonStatus {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
   }) {
     return updateNextButtonStatus?.call(this);
   }
@@ -699,9 +963,9 @@ class _$UpdateNextButtonStatus implements UpdateNextButtonStatus {
     TResult Function(Reset value)? reset,
     TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
     TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     TResult Function(VerifySmsCode value)? verifySmsCode,
     TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
+    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
     required TResult orElse(),
   }) {
     if (updateNextButtonStatus != null) {
@@ -720,268 +984,4 @@ abstract class UpdateNextButtonStatus implements PhoneSignInEvent {
   @JsonKey(ignore: true)
   _$$UpdateNextButtonStatusCopyWith<_$UpdateNextButtonStatus> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$VerifySmsCodeCopyWith<$Res> {
-  factory _$$VerifySmsCodeCopyWith(
-          _$VerifySmsCode value, $Res Function(_$VerifySmsCode) then) =
-      __$$VerifySmsCodeCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$VerifySmsCodeCopyWithImpl<$Res>
-    extends _$PhoneSignInEventCopyWithImpl<$Res>
-    implements _$$VerifySmsCodeCopyWith<$Res> {
-  __$$VerifySmsCodeCopyWithImpl(
-      _$VerifySmsCode _value, $Res Function(_$VerifySmsCode) _then)
-      : super(_value, (v) => _then(v as _$VerifySmsCode));
-
-  @override
-  _$VerifySmsCode get _value => super._value as _$VerifySmsCode;
-}
-
-/// @nodoc
-
-class _$VerifySmsCode implements VerifySmsCode {
-  const _$VerifySmsCode();
-
-  @override
-  String toString() {
-    return 'PhoneSignInEvent.verifySmsCode()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$VerifySmsCode);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() reset,
-    required TResult Function(String phoneNumber) phoneNumberChanged,
-    required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
-    required TResult Function() verifySmsCode,
-    required TResult Function() signInWithPhoneNumber,
-  }) {
-    return verifySmsCode();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? reset,
-    TResult Function(String phoneNumber)? phoneNumberChanged,
-    TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
-    TResult Function()? verifySmsCode,
-    TResult Function()? signInWithPhoneNumber,
-  }) {
-    return verifySmsCode?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? reset,
-    TResult Function(String phoneNumber)? phoneNumberChanged,
-    TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
-    TResult Function()? verifySmsCode,
-    TResult Function()? signInWithPhoneNumber,
-    required TResult orElse(),
-  }) {
-    if (verifySmsCode != null) {
-      return verifySmsCode();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Reset value) reset,
-    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
-    required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
-    required TResult Function(VerifySmsCode value) verifySmsCode,
-    required TResult Function(SignInWithPhoneNumber value)
-        signInWithPhoneNumber,
-  }) {
-    return verifySmsCode(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Reset value)? reset,
-    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
-    TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
-    TResult Function(VerifySmsCode value)? verifySmsCode,
-    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
-  }) {
-    return verifySmsCode?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Reset value)? reset,
-    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
-    TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
-    TResult Function(VerifySmsCode value)? verifySmsCode,
-    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
-    required TResult orElse(),
-  }) {
-    if (verifySmsCode != null) {
-      return verifySmsCode(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class VerifySmsCode implements PhoneSignInEvent {
-  const factory VerifySmsCode() = _$VerifySmsCode;
-}
-
-/// @nodoc
-abstract class _$$SignInWithPhoneNumberCopyWith<$Res> {
-  factory _$$SignInWithPhoneNumberCopyWith(_$SignInWithPhoneNumber value,
-          $Res Function(_$SignInWithPhoneNumber) then) =
-      __$$SignInWithPhoneNumberCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SignInWithPhoneNumberCopyWithImpl<$Res>
-    extends _$PhoneSignInEventCopyWithImpl<$Res>
-    implements _$$SignInWithPhoneNumberCopyWith<$Res> {
-  __$$SignInWithPhoneNumberCopyWithImpl(_$SignInWithPhoneNumber _value,
-      $Res Function(_$SignInWithPhoneNumber) _then)
-      : super(_value, (v) => _then(v as _$SignInWithPhoneNumber));
-
-  @override
-  _$SignInWithPhoneNumber get _value => super._value as _$SignInWithPhoneNumber;
-}
-
-/// @nodoc
-
-class _$SignInWithPhoneNumber implements SignInWithPhoneNumber {
-  const _$SignInWithPhoneNumber();
-
-  @override
-  String toString() {
-    return 'PhoneSignInEvent.signInWithPhoneNumber()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignInWithPhoneNumber);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() reset,
-    required TResult Function(String phoneNumber) phoneNumberChanged,
-    required TResult Function(String smsCode) smsCodeChanged,
-    required TResult Function(bool isPhoneNumberInputValidated)
-        updateNextButtonStatus,
-    required TResult Function() verifySmsCode,
-    required TResult Function() signInWithPhoneNumber,
-  }) {
-    return signInWithPhoneNumber();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? reset,
-    TResult Function(String phoneNumber)? phoneNumberChanged,
-    TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
-    TResult Function()? verifySmsCode,
-    TResult Function()? signInWithPhoneNumber,
-  }) {
-    return signInWithPhoneNumber?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? reset,
-    TResult Function(String phoneNumber)? phoneNumberChanged,
-    TResult Function(String smsCode)? smsCodeChanged,
-    TResult Function(bool isPhoneNumberInputValidated)? updateNextButtonStatus,
-    TResult Function()? verifySmsCode,
-    TResult Function()? signInWithPhoneNumber,
-    required TResult orElse(),
-  }) {
-    if (signInWithPhoneNumber != null) {
-      return signInWithPhoneNumber();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Reset value) reset,
-    required TResult Function(PhoneNumberChanged value) phoneNumberChanged,
-    required TResult Function(SmsCodeChanged value) smsCodeChanged,
-    required TResult Function(UpdateNextButtonStatus value)
-        updateNextButtonStatus,
-    required TResult Function(VerifySmsCode value) verifySmsCode,
-    required TResult Function(SignInWithPhoneNumber value)
-        signInWithPhoneNumber,
-  }) {
-    return signInWithPhoneNumber(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Reset value)? reset,
-    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
-    TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
-    TResult Function(VerifySmsCode value)? verifySmsCode,
-    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
-  }) {
-    return signInWithPhoneNumber?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Reset value)? reset,
-    TResult Function(PhoneNumberChanged value)? phoneNumberChanged,
-    TResult Function(SmsCodeChanged value)? smsCodeChanged,
-    TResult Function(UpdateNextButtonStatus value)? updateNextButtonStatus,
-    TResult Function(VerifySmsCode value)? verifySmsCode,
-    TResult Function(SignInWithPhoneNumber value)? signInWithPhoneNumber,
-    required TResult orElse(),
-  }) {
-    if (signInWithPhoneNumber != null) {
-      return signInWithPhoneNumber(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignInWithPhoneNumber implements PhoneSignInEvent {
-  const factory SignInWithPhoneNumber() = _$SignInWithPhoneNumber;
 }

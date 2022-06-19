@@ -51,6 +51,7 @@ class CustomTextField extends StatelessWidget {
           disabledBorder: border,
           enabledBorder: border,
           errorText: error,
+          errorStyle: const TextStyle(fontSize: 15),
           floatingLabelBehavior: FloatingLabelBehavior.never,
         ),
         autocorrect: false,
