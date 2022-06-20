@@ -47,7 +47,9 @@ dependencies:
   flutter_slidable: ^1.3.0
   animated_switch: ^0.0.1
   formz: ^0.4.1
-
+  image_picker: ^0.8.5+3
+  flutter_image_compress: ^1.1.0
+  
   dartz: ^0.10.1
   flutter_riverpod: ^1.0.4
   freezed_annotation: ^2.0.3
