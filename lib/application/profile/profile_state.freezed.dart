@@ -19,6 +19,7 @@ mixin _$ProfileState {
   UserProfileModel get currentUserProfile => throw _privateConstructorUsedError;
   Status get userStatus => throw _privateConstructorUsedError;
   About get userAbout => throw _privateConstructorUsedError;
+  Username get userName => throw _privateConstructorUsedError;
   FormzStatus get formStatus => throw _privateConstructorUsedError;
   String get textFieldError => throw _privateConstructorUsedError;
   bool get isInProgress => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       {UserProfileModel currentUserProfile,
       Status userStatus,
       About userAbout,
+      Username userName,
       FormzStatus formStatus,
       String textFieldError,
       bool isInProgress,
@@ -60,6 +62,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? currentUserProfile = freezed,
     Object? userStatus = freezed,
     Object? userAbout = freezed,
+    Object? userName = freezed,
     Object? formStatus = freezed,
     Object? textFieldError = freezed,
     Object? isInProgress = freezed,
@@ -78,6 +81,10 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.userAbout
           : userAbout // ignore: cast_nullable_to_non_nullable
               as About,
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as Username,
       formStatus: formStatus == freezed
           ? _value.formStatus
           : formStatus // ignore: cast_nullable_to_non_nullable
@@ -117,6 +124,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       {UserProfileModel currentUserProfile,
       Status userStatus,
       About userAbout,
+      Username userName,
       FormzStatus formStatus,
       String textFieldError,
       bool isInProgress,
@@ -142,6 +150,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? currentUserProfile = freezed,
     Object? userStatus = freezed,
     Object? userAbout = freezed,
+    Object? userName = freezed,
     Object? formStatus = freezed,
     Object? textFieldError = freezed,
     Object? isInProgress = freezed,
@@ -160,6 +169,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.userAbout
           : userAbout // ignore: cast_nullable_to_non_nullable
               as About,
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as Username,
       formStatus: formStatus == freezed
           ? _value.formStatus
           : formStatus // ignore: cast_nullable_to_non_nullable
@@ -188,6 +201,7 @@ class _$_ProfileState extends _ProfileState {
       {required this.currentUserProfile,
       required this.userStatus,
       required this.userAbout,
+      required this.userName,
       required this.formStatus,
       required this.textFieldError,
       required this.isInProgress,
@@ -201,6 +215,8 @@ class _$_ProfileState extends _ProfileState {
   @override
   final About userAbout;
   @override
+  final Username userName;
+  @override
   final FormzStatus formStatus;
   @override
   final String textFieldError;
@@ -211,7 +227,7 @@ class _$_ProfileState extends _ProfileState {
 
   @override
   String toString() {
-    return 'ProfileState(currentUserProfile: $currentUserProfile, userStatus: $userStatus, userAbout: $userAbout, formStatus: $formStatus, textFieldError: $textFieldError, isInProgress: $isInProgress, isSavingProcessCompletedSuccesfully: $isSavingProcessCompletedSuccesfully)';
+    return 'ProfileState(currentUserProfile: $currentUserProfile, userStatus: $userStatus, userAbout: $userAbout, userName: $userName, formStatus: $formStatus, textFieldError: $textFieldError, isInProgress: $isInProgress, isSavingProcessCompletedSuccesfully: $isSavingProcessCompletedSuccesfully)';
   }
 
   @override
@@ -224,6 +240,7 @@ class _$_ProfileState extends _ProfileState {
             const DeepCollectionEquality()
                 .equals(other.userStatus, userStatus) &&
             const DeepCollectionEquality().equals(other.userAbout, userAbout) &&
+            const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality()
                 .equals(other.formStatus, formStatus) &&
             const DeepCollectionEquality()
@@ -241,6 +258,7 @@ class _$_ProfileState extends _ProfileState {
       const DeepCollectionEquality().hash(currentUserProfile),
       const DeepCollectionEquality().hash(userStatus),
       const DeepCollectionEquality().hash(userAbout),
+      const DeepCollectionEquality().hash(userName),
       const DeepCollectionEquality().hash(formStatus),
       const DeepCollectionEquality().hash(textFieldError),
       const DeepCollectionEquality().hash(isInProgress),
@@ -257,6 +275,7 @@ abstract class _ProfileState extends ProfileState {
           {required final UserProfileModel currentUserProfile,
           required final Status userStatus,
           required final About userAbout,
+          required final Username userName,
           required final FormzStatus formStatus,
           required final String textFieldError,
           required final bool isInProgress,
@@ -270,6 +289,8 @@ abstract class _ProfileState extends ProfileState {
   Status get userStatus => throw _privateConstructorUsedError;
   @override
   About get userAbout => throw _privateConstructorUsedError;
+  @override
+  Username get userName => throw _privateConstructorUsedError;
   @override
   FormzStatus get formStatus => throw _privateConstructorUsedError;
   @override

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:social_dating_app/domain/user_profile/about_model.dart';
 import 'package:social_dating_app/domain/user_profile/status_model.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
+import 'package:social_dating_app/domain/user_profile/username_model.dart';
 
 part 'profile_state.freezed.dart';
 
@@ -12,6 +13,7 @@ class ProfileState with _$ProfileState {
     required UserProfileModel currentUserProfile,
     required Status userStatus,
     required About userAbout,
+    required Username userName,
     required FormzStatus formStatus,
     required String textFieldError,
     required bool isInProgress,
@@ -23,6 +25,7 @@ class ProfileState with _$ProfileState {
         currentUserProfile: UserProfileModel.empty(),
         userAbout: const About.pure(),
         userStatus: const Status.pure(),
+        userName: const Username.pure(),
         formStatus: FormzStatus.pure,
         textFieldError: "",
         isInProgress: false,

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/application/profile/profile_event.dart';
-import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
-import 'package:social_dating_app/domain/user_profile/status_model.dart';
-import 'package:social_dating_app/domain/user_profile/about_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_text_field.dart';
+import 'package:social_dating_app/presentation/pages/about/constants/texts.dart';
+import 'package:social_dating_app/domain/user_profile/about_model.dart';
+import 'package:social_dating_app/domain/user_profile/status_model.dart';
+import 'package:social_dating_app/domain/user_profile/username_model.dart';
 import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
-class TextFields extends ConsumerWidget {
-  const TextFields({Key? key, required this.user}) : super(key: key);
-  final UserProfileModel user;
+class ProfileInformations extends ConsumerWidget {
+  const ProfileInformations({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,22 +26,34 @@ class TextFields extends ConsumerWidget {
       ),
     );
 
+    final userName = ref.watch(
+      profileStateProvider.select(
+        (state) => state.userName,
+      ),
+    );
+
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5.h),
+      padding: EdgeInsets.only(top: 3.h),
       child: Column(
         children: [
           CustomTextField(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-            hint: user.userName,
-            isEnabled: false,
+            hint: whatShouldBeYourUsernameText,
+            isEnabled: true,
+            isRequiredField: true,
             isPasswordField: false,
-            onChanged: (value) {},
+            onChanged: (value) {
+              ref.read(profileStateProvider.notifier).mapEventsToState(
+                    UsernameChanged(usernameText: value),
+                  );
+            },
             keyboardType: TextInputType.text,
+            error: userName.error?.name,
           ),
           CustomTextField(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
             isEnabled: true,
-            hint: user.status,
+            hint: howDoYouFeelText,
             isPasswordField: false,
             isRequiredField: true,
             onChanged: (value) {
@@ -55,7 +67,7 @@ class TextFields extends ConsumerWidget {
           CustomTextField(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
             isEnabled: true,
-            hint: user.about,
+            hint: tellAboutYourselfText,
             isPasswordField: false,
             isRequiredField: true,
             maxLines: 5,

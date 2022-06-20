@@ -20,6 +20,7 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String statusText) statusChanged,
     required TResult Function(String aboutText) aboutChanged,
+    required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$ProfileEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$ProfileEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(StatusChanged value) statusChanged,
     required TResult Function(AboutChanged value) aboutChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$ProfileEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$ProfileEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
     required TResult orElse(),
   }) =>
@@ -146,6 +152,7 @@ class _$StatusChanged implements StatusChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String statusText) statusChanged,
     required TResult Function(String aboutText) aboutChanged,
+    required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
   }) {
     return statusChanged(statusText);
@@ -156,6 +163,7 @@ class _$StatusChanged implements StatusChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
   }) {
     return statusChanged?.call(statusText);
@@ -166,6 +174,7 @@ class _$StatusChanged implements StatusChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
     required TResult orElse(),
   }) {
@@ -180,6 +189,7 @@ class _$StatusChanged implements StatusChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(StatusChanged value) statusChanged,
     required TResult Function(AboutChanged value) aboutChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
   }) {
     return statusChanged(this);
@@ -190,6 +200,7 @@ class _$StatusChanged implements StatusChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
   }) {
     return statusChanged?.call(this);
@@ -200,6 +211,7 @@ class _$StatusChanged implements StatusChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
     required TResult orElse(),
   }) {
@@ -287,6 +299,7 @@ class _$AboutChanged implements AboutChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String statusText) statusChanged,
     required TResult Function(String aboutText) aboutChanged,
+    required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
   }) {
     return aboutChanged(aboutText);
@@ -297,6 +310,7 @@ class _$AboutChanged implements AboutChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
   }) {
     return aboutChanged?.call(aboutText);
@@ -307,6 +321,7 @@ class _$AboutChanged implements AboutChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
     required TResult orElse(),
   }) {
@@ -321,6 +336,7 @@ class _$AboutChanged implements AboutChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(StatusChanged value) statusChanged,
     required TResult Function(AboutChanged value) aboutChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
   }) {
     return aboutChanged(this);
@@ -331,6 +347,7 @@ class _$AboutChanged implements AboutChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
   }) {
     return aboutChanged?.call(this);
@@ -341,6 +358,7 @@ class _$AboutChanged implements AboutChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
     required TResult orElse(),
   }) {
@@ -358,6 +376,154 @@ abstract class AboutChanged implements ProfileEvent {
   String get aboutText => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$AboutChangedCopyWith<_$AboutChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UsernameChangedCopyWith<$Res> {
+  factory _$$UsernameChangedCopyWith(
+          _$UsernameChanged value, $Res Function(_$UsernameChanged) then) =
+      __$$UsernameChangedCopyWithImpl<$Res>;
+  $Res call({String usernameText});
+}
+
+/// @nodoc
+class __$$UsernameChangedCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$$UsernameChangedCopyWith<$Res> {
+  __$$UsernameChangedCopyWithImpl(
+      _$UsernameChanged _value, $Res Function(_$UsernameChanged) _then)
+      : super(_value, (v) => _then(v as _$UsernameChanged));
+
+  @override
+  _$UsernameChanged get _value => super._value as _$UsernameChanged;
+
+  @override
+  $Res call({
+    Object? usernameText = freezed,
+  }) {
+    return _then(_$UsernameChanged(
+      usernameText: usernameText == freezed
+          ? _value.usernameText
+          : usernameText // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UsernameChanged implements UsernameChanged {
+  const _$UsernameChanged({required this.usernameText});
+
+  @override
+  final String usernameText;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.usernameChanged(usernameText: $usernameText)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UsernameChanged &&
+            const DeepCollectionEquality()
+                .equals(other.usernameText, usernameText));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(usernameText));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$UsernameChangedCopyWith<_$UsernameChanged> get copyWith =>
+      __$$UsernameChangedCopyWithImpl<_$UsernameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String statusText) statusChanged,
+    required TResult Function(String aboutText) aboutChanged,
+    required TResult Function(String usernameText) usernameChanged,
+    required TResult Function(bool onlineStatus) changeOnlineStatus,
+  }) {
+    return usernameChanged(usernameText);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String statusText)? statusChanged,
+    TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
+    TResult Function(bool onlineStatus)? changeOnlineStatus,
+  }) {
+    return usernameChanged?.call(usernameText);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String statusText)? statusChanged,
+    TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
+    TResult Function(bool onlineStatus)? changeOnlineStatus,
+    required TResult orElse(),
+  }) {
+    if (usernameChanged != null) {
+      return usernameChanged(usernameText);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StatusChanged value) statusChanged,
+    required TResult Function(AboutChanged value) aboutChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
+    required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+  }) {
+    return usernameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StatusChanged value)? statusChanged,
+    TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
+    TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+  }) {
+    return usernameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StatusChanged value)? statusChanged,
+    TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
+    TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    required TResult orElse(),
+  }) {
+    if (usernameChanged != null) {
+      return usernameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UsernameChanged implements ProfileEvent {
+  const factory UsernameChanged({required final String usernameText}) =
+      _$UsernameChanged;
+
+  String get usernameText => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$UsernameChangedCopyWith<_$UsernameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -430,6 +596,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
   TResult when<TResult extends Object?>({
     required TResult Function(String statusText) statusChanged,
     required TResult Function(String aboutText) aboutChanged,
+    required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
   }) {
     return changeOnlineStatus(onlineStatus);
@@ -440,6 +607,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
   }) {
     return changeOnlineStatus?.call(onlineStatus);
@@ -450,6 +618,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String statusText)? statusChanged,
     TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
     required TResult orElse(),
   }) {
@@ -464,6 +633,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
   TResult map<TResult extends Object?>({
     required TResult Function(StatusChanged value) statusChanged,
     required TResult Function(AboutChanged value) aboutChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
   }) {
     return changeOnlineStatus(this);
@@ -474,6 +644,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
   }) {
     return changeOnlineStatus?.call(this);
@@ -484,6 +655,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StatusChanged value)? statusChanged,
     TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
     required TResult orElse(),
   }) {

@@ -6,6 +6,7 @@ import 'package:social_dating_app/application/profile/profile_state.dart';
 import 'package:social_dating_app/domain/user_profile/about_model.dart';
 import 'package:social_dating_app/domain/user_profile/status_model.dart';
 import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
+import 'package:social_dating_app/domain/user_profile/username_model.dart';
 import 'package:social_dating_app/providers/firebase/firebase_provider.dart';
 
 class ProfileStateNotifier extends StateNotifier<ProfileState> {
@@ -15,6 +16,24 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
 
   void mapEventsToState(ProfileEvent event) {
     event.map(
+      usernameChanged: (usernameChangedEvent) {
+        final userName = Username.dirty(usernameChangedEvent.usernameText);
+        final usernameText = usernameChangedEvent.usernameText;
+
+        state = state.copyWith(
+          userName: userName,
+          formStatus: Formz.validate(
+            [userName, state.userStatus, state.userAbout],
+          ),
+          currentUserProfile: UserProfileModel(
+            imageUrl: state.currentUserProfile.imageUrl,
+            status: state.currentUserProfile.status,
+            userName: usernameText,
+            about: state.currentUserProfile.about,
+            onlineStatus: state.currentUserProfile.onlineStatus,
+          ),
+        );
+      },
       statusChanged: (statusChangedEvent) {
         final userStatus = Status.dirty(statusChangedEvent.statusText);
         final statusText = statusChangedEvent.statusText;
@@ -22,7 +41,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
         state = state.copyWith(
           userStatus: userStatus,
           formStatus: Formz.validate(
-            [userStatus, state.userAbout],
+            [state.userName, userStatus, state.userAbout],
           ),
           currentUserProfile: UserProfileModel(
             imageUrl: state.currentUserProfile.imageUrl,
@@ -40,7 +59,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
         state = state.copyWith(
           userAbout: userAbout,
           formStatus: Formz.validate(
-            [state.userStatus, userAbout],
+            [state.userName, state.userStatus, userAbout],
           ),
           currentUserProfile: UserProfileModel(
             imageUrl: state.currentUserProfile.imageUrl,
