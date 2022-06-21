@@ -14,7 +14,7 @@ class CreateProfileButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final createProfileButtonStatus = ref.watch(
       profileStateProvider.select(
-        (state) => state.displaySaveButton,
+        (state) => state.displayCreateProfileButton,
       ),
     );
 
@@ -34,9 +34,9 @@ class CreateProfileButton extends ConsumerWidget {
         splashColor: transparentColor,
         focusColor: transparentColor,
         onTap: () {
-          /*  if (createProfileButtonStatus) {
-            ref.read(profileStateProvider.notifier).updateProfileInformations();
-          } */
+          if (createProfileButtonStatus) {
+            ref.read(profileStateProvider.notifier).createProfile();
+          }
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

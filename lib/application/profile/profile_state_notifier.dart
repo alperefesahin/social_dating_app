@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
 import 'package:social_dating_app/application/profile/profile_event.dart';
@@ -30,6 +31,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
             status: state.currentUserProfile.status,
             userName: usernameText,
             about: state.currentUserProfile.about,
+            isUserChecked: state.currentUserProfile.isUserChecked,
             onlineStatus: state.currentUserProfile.onlineStatus,
           ),
         );
@@ -48,6 +50,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
             status: statusText,
             userName: state.currentUserProfile.userName,
             about: state.currentUserProfile.about,
+            isUserChecked: state.currentUserProfile.isUserChecked,
             onlineStatus: state.currentUserProfile.onlineStatus,
           ),
         );
@@ -66,6 +69,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
             status: state.currentUserProfile.status,
             userName: state.currentUserProfile.userName,
             about: aboutText,
+            isUserChecked: state.currentUserProfile.isUserChecked,
             onlineStatus: state.currentUserProfile.onlineStatus,
           ),
         );
@@ -82,9 +86,14 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
             status: state.currentUserProfile.status,
             userName: state.currentUserProfile.userName,
             about: state.currentUserProfile.about,
+            isUserChecked: state.currentUserProfile.isUserChecked,
             onlineStatus: onlineStatus,
           ),
         );
+      },
+      updateUserFileImg: (updateUserFileImgEvent) {
+        final userFileImg = updateUserFileImgEvent.imageFile;
+        state = state.copyWith(userFileImg: userFileImg);
       },
     );
   }
@@ -108,6 +117,60 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
     ).whenComplete(() => state = state.copyWith(isInProgress: false, isSavingProcessCompletedSuccesfully: true));
   }
 
+  Future<void> createProfile() async {
+    if (state.isInProgress) {
+      return;
+    }
+
+    final firestore = _read(firestoreProvider);
+    final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
+    final currentUser = firestore.collection("users").doc(uid);
+    final userUploadedImage = _read(firebaseStorage).ref(uid);
+    state = state.copyWith(isInProgress: true, isCreatingProfileProcessCompletedSuccesfully: false);
+
+    await userUploadedImage.putFile(state.userFileImg).then(
+      (p0) async {
+        downloadUrl().then(
+          (value) async {
+            await currentUser.set(
+              {
+                "status": state.currentUserProfile.status,
+                "about": state.currentUserProfile.about,
+                "userName": state.currentUserProfile.userName,
+                "onlineStatus": state.currentUserProfile.onlineStatus,
+                "isUserChecked": true,
+              },
+              SetOptions(merge: true),
+            ).whenComplete(
+              () => state = state.copyWith(
+                isInProgress: false,
+                isCreatingProfileProcessCompletedSuccesfully: true,
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Future<void> downloadUrl() async {
+    final firestore = _read(firestoreProvider);
+    final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
+    final currentUser = firestore.collection("users").doc(uid);
+    final userUploadedImage = _read(firebaseStorage).ref(uid);
+
+    await userUploadedImage.getDownloadURL().then(
+      (imageURL) async {
+        await currentUser.set(
+          {
+            "imageURL": imageURL,
+          },
+          SetOptions(merge: true),
+        );
+      },
+    );
+  }
+
   Future<void> getCurrentUser() async {
     if (state.isInProgress) {
       return;
@@ -123,6 +186,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
         userName: currentUserData["userName"],
         about: currentUserData["about"],
         onlineStatus: currentUserData["onlineStatus"],
+        isUserChecked: currentUserData["isUserChecked"],
       ),
     );
   }

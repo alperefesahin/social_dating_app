@@ -1,22 +1,19 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:social_dating_app/application/profile/profile_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
-class ProfileImage extends StatefulWidget {
+class ProfileImage extends ConsumerWidget {
   const ProfileImage({Key? key}) : super(key: key);
 
   @override
-  State<ProfileImage> createState() => _ProfileImageState();
-}
-
-class _ProfileImageState extends State<ProfileImage> {
-  File? newImage;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final newImage = ref.watch(profileStateProvider).userFileImg;
     return Padding(
       padding: EdgeInsets.only(top: 5.h),
       child: Row(
@@ -32,9 +29,9 @@ class _ProfileImageState extends State<ProfileImage> {
               ),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: newImage == null
+                image: newImage.path == ""
                     ? const AssetImage("assets/images/user.png") as ImageProvider
-                    : FileImage(File(newImage!.path)),
+                    : FileImage(File(newImage.path)),
               ),
             ),
           ),
@@ -44,14 +41,17 @@ class _ProfileImageState extends State<ProfileImage> {
                 source: ImageSource.gallery,
                 maxHeight: 200,
                 maxWidth: 200,
-                imageQuality: 50,
+                imageQuality: 100,
               );
               if (image == null) return;
 
-              setState(() {
-                final temporaryFile = File(image.path);
-                newImage = temporaryFile;
-              });
+              final temporaryFile = File(image.path);
+
+              ref.read(profileStateProvider.notifier).mapEventsToState(
+                    UpdateUserFileImg(
+                      imageFile: temporaryFile,
+                    ),
+                  );
             },
             icon: const Icon(
               CupertinoIcons.chevron_down_square_fill,

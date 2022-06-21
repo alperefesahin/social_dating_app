@@ -7,6 +7,7 @@ import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
+import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
 class LandingPage extends ConsumerStatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -22,9 +23,10 @@ class _LandingPageState extends ConsumerState<LandingPage> {
       (_) {
         final user = ref.read(authStateProvider.notifier).appInit();
         if (user == null) {
-          AutoRouter.of(context).replace(const AboutRoute());
-        } else {
           AutoRouter.of(context).replace(const SignInRoute());
+        } else {
+          ref.read(profileStateProvider.notifier).getCurrentUser();
+          AutoRouter.of(context).replace(const AboutRoute());
         }
       },
     );
@@ -38,6 +40,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
       authStateProvider,
       (p, c) {
         if (c.isUserSignedIn) {
+          ref.read(profileStateProvider.notifier).getCurrentUser();
           AutoRouter.of(context).replace(const AboutRoute());
         } else if (!c.isUserSignedIn) {
           AutoRouter.of(context).replace(const SignInRoute());

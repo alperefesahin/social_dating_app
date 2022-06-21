@@ -20,6 +20,7 @@ mixin _$UserProfileModel {
   String get status => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
   String get about => throw _privateConstructorUsedError;
+  bool get isUserChecked => throw _privateConstructorUsedError;
   bool get onlineStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -37,6 +38,7 @@ abstract class $UserProfileModelCopyWith<$Res> {
       String status,
       String userName,
       String about,
+      bool isUserChecked,
       bool onlineStatus});
 }
 
@@ -55,6 +57,7 @@ class _$UserProfileModelCopyWithImpl<$Res>
     Object? status = freezed,
     Object? userName = freezed,
     Object? about = freezed,
+    Object? isUserChecked = freezed,
     Object? onlineStatus = freezed,
   }) {
     return _then(_value.copyWith(
@@ -74,6 +77,10 @@ class _$UserProfileModelCopyWithImpl<$Res>
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
               as String,
+      isUserChecked: isUserChecked == freezed
+          ? _value.isUserChecked
+          : isUserChecked // ignore: cast_nullable_to_non_nullable
+              as bool,
       onlineStatus: onlineStatus == freezed
           ? _value.onlineStatus
           : onlineStatus // ignore: cast_nullable_to_non_nullable
@@ -94,6 +101,7 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       String status,
       String userName,
       String about,
+      bool isUserChecked,
       bool onlineStatus});
 }
 
@@ -114,6 +122,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? status = freezed,
     Object? userName = freezed,
     Object? about = freezed,
+    Object? isUserChecked = freezed,
     Object? onlineStatus = freezed,
   }) {
     return _then(_$_UserProfileModel(
@@ -133,6 +142,10 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
           ? _value.about
           : about // ignore: cast_nullable_to_non_nullable
               as String,
+      isUserChecked: isUserChecked == freezed
+          ? _value.isUserChecked
+          : isUserChecked // ignore: cast_nullable_to_non_nullable
+              as bool,
       onlineStatus: onlineStatus == freezed
           ? _value.onlineStatus
           : onlineStatus // ignore: cast_nullable_to_non_nullable
@@ -149,6 +162,7 @@ class _$_UserProfileModel implements _UserProfileModel {
       required this.status,
       required this.userName,
       required this.about,
+      required this.isUserChecked,
       required this.onlineStatus});
 
   @override
@@ -160,11 +174,13 @@ class _$_UserProfileModel implements _UserProfileModel {
   @override
   final String about;
   @override
+  final bool isUserChecked;
+  @override
   final bool onlineStatus;
 
   @override
   String toString() {
-    return 'UserProfileModel(imageUrl: $imageUrl, status: $status, userName: $userName, about: $about, onlineStatus: $onlineStatus)';
+    return 'UserProfileModel(imageUrl: $imageUrl, status: $status, userName: $userName, about: $about, isUserChecked: $isUserChecked, onlineStatus: $onlineStatus)';
   }
 
   @override
@@ -177,6 +193,8 @@ class _$_UserProfileModel implements _UserProfileModel {
             const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality().equals(other.about, about) &&
             const DeepCollectionEquality()
+                .equals(other.isUserChecked, isUserChecked) &&
+            const DeepCollectionEquality()
                 .equals(other.onlineStatus, onlineStatus));
   }
 
@@ -187,6 +205,7 @@ class _$_UserProfileModel implements _UserProfileModel {
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(userName),
       const DeepCollectionEquality().hash(about),
+      const DeepCollectionEquality().hash(isUserChecked),
       const DeepCollectionEquality().hash(onlineStatus));
 
   @JsonKey(ignore: true)
@@ -201,6 +220,7 @@ abstract class _UserProfileModel implements UserProfileModel {
       required final String status,
       required final String userName,
       required final String about,
+      required final bool isUserChecked,
       required final bool onlineStatus}) = _$_UserProfileModel;
 
   @override
@@ -211,6 +231,8 @@ abstract class _UserProfileModel implements UserProfileModel {
   String get userName => throw _privateConstructorUsedError;
   @override
   String get about => throw _privateConstructorUsedError;
+  @override
+  bool get isUserChecked => throw _privateConstructorUsedError;
   @override
   bool get onlineStatus => throw _privateConstructorUsedError;
   @override

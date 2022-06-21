@@ -22,6 +22,7 @@ mixin _$ProfileEvent {
     required TResult Function(String aboutText) aboutChanged,
     required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
+    required TResult Function(File imageFile) updateUserFileImg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$ProfileEvent {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$ProfileEvent {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ProfileEvent {
     required TResult Function(AboutChanged value) aboutChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+    required TResult Function(UpdateUserFileImg value) updateUserFileImg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ProfileEvent {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ProfileEvent {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$StatusChanged implements StatusChanged {
     required TResult Function(String aboutText) aboutChanged,
     required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
+    required TResult Function(File imageFile) updateUserFileImg,
   }) {
     return statusChanged(statusText);
   }
@@ -165,6 +172,7 @@ class _$StatusChanged implements StatusChanged {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
   }) {
     return statusChanged?.call(statusText);
   }
@@ -176,6 +184,7 @@ class _$StatusChanged implements StatusChanged {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (statusChanged != null) {
@@ -191,6 +200,7 @@ class _$StatusChanged implements StatusChanged {
     required TResult Function(AboutChanged value) aboutChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+    required TResult Function(UpdateUserFileImg value) updateUserFileImg,
   }) {
     return statusChanged(this);
   }
@@ -202,6 +212,7 @@ class _$StatusChanged implements StatusChanged {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
   }) {
     return statusChanged?.call(this);
   }
@@ -213,6 +224,7 @@ class _$StatusChanged implements StatusChanged {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (statusChanged != null) {
@@ -301,6 +313,7 @@ class _$AboutChanged implements AboutChanged {
     required TResult Function(String aboutText) aboutChanged,
     required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
+    required TResult Function(File imageFile) updateUserFileImg,
   }) {
     return aboutChanged(aboutText);
   }
@@ -312,6 +325,7 @@ class _$AboutChanged implements AboutChanged {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
   }) {
     return aboutChanged?.call(aboutText);
   }
@@ -323,6 +337,7 @@ class _$AboutChanged implements AboutChanged {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (aboutChanged != null) {
@@ -338,6 +353,7 @@ class _$AboutChanged implements AboutChanged {
     required TResult Function(AboutChanged value) aboutChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+    required TResult Function(UpdateUserFileImg value) updateUserFileImg,
   }) {
     return aboutChanged(this);
   }
@@ -349,6 +365,7 @@ class _$AboutChanged implements AboutChanged {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
   }) {
     return aboutChanged?.call(this);
   }
@@ -360,6 +377,7 @@ class _$AboutChanged implements AboutChanged {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (aboutChanged != null) {
@@ -449,6 +467,7 @@ class _$UsernameChanged implements UsernameChanged {
     required TResult Function(String aboutText) aboutChanged,
     required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
+    required TResult Function(File imageFile) updateUserFileImg,
   }) {
     return usernameChanged(usernameText);
   }
@@ -460,6 +479,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
   }) {
     return usernameChanged?.call(usernameText);
   }
@@ -471,6 +491,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (usernameChanged != null) {
@@ -486,6 +507,7 @@ class _$UsernameChanged implements UsernameChanged {
     required TResult Function(AboutChanged value) aboutChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+    required TResult Function(UpdateUserFileImg value) updateUserFileImg,
   }) {
     return usernameChanged(this);
   }
@@ -497,6 +519,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
   }) {
     return usernameChanged?.call(this);
   }
@@ -508,6 +531,7 @@ class _$UsernameChanged implements UsernameChanged {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (usernameChanged != null) {
@@ -598,6 +622,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
     required TResult Function(String aboutText) aboutChanged,
     required TResult Function(String usernameText) usernameChanged,
     required TResult Function(bool onlineStatus) changeOnlineStatus,
+    required TResult Function(File imageFile) updateUserFileImg,
   }) {
     return changeOnlineStatus(onlineStatus);
   }
@@ -609,6 +634,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
   }) {
     return changeOnlineStatus?.call(onlineStatus);
   }
@@ -620,6 +646,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
     TResult Function(String aboutText)? aboutChanged,
     TResult Function(String usernameText)? usernameChanged,
     TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (changeOnlineStatus != null) {
@@ -635,6 +662,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
     required TResult Function(AboutChanged value) aboutChanged,
     required TResult Function(UsernameChanged value) usernameChanged,
     required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+    required TResult Function(UpdateUserFileImg value) updateUserFileImg,
   }) {
     return changeOnlineStatus(this);
   }
@@ -646,6 +674,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
   }) {
     return changeOnlineStatus?.call(this);
   }
@@ -657,6 +686,7 @@ class _$ChangeOnlineStatus implements ChangeOnlineStatus {
     TResult Function(AboutChanged value)? aboutChanged,
     TResult Function(UsernameChanged value)? usernameChanged,
     TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
     required TResult orElse(),
   }) {
     if (changeOnlineStatus != null) {
@@ -673,5 +703,158 @@ abstract class ChangeOnlineStatus implements ProfileEvent {
   bool get onlineStatus => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$ChangeOnlineStatusCopyWith<_$ChangeOnlineStatus> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateUserFileImgCopyWith<$Res> {
+  factory _$$UpdateUserFileImgCopyWith(
+          _$UpdateUserFileImg value, $Res Function(_$UpdateUserFileImg) then) =
+      __$$UpdateUserFileImgCopyWithImpl<$Res>;
+  $Res call({File imageFile});
+}
+
+/// @nodoc
+class __$$UpdateUserFileImgCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$$UpdateUserFileImgCopyWith<$Res> {
+  __$$UpdateUserFileImgCopyWithImpl(
+      _$UpdateUserFileImg _value, $Res Function(_$UpdateUserFileImg) _then)
+      : super(_value, (v) => _then(v as _$UpdateUserFileImg));
+
+  @override
+  _$UpdateUserFileImg get _value => super._value as _$UpdateUserFileImg;
+
+  @override
+  $Res call({
+    Object? imageFile = freezed,
+  }) {
+    return _then(_$UpdateUserFileImg(
+      imageFile: imageFile == freezed
+          ? _value.imageFile
+          : imageFile // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateUserFileImg implements UpdateUserFileImg {
+  const _$UpdateUserFileImg({required this.imageFile});
+
+  @override
+  final File imageFile;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.updateUserFileImg(imageFile: $imageFile)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateUserFileImg &&
+            const DeepCollectionEquality().equals(other.imageFile, imageFile));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(imageFile));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$UpdateUserFileImgCopyWith<_$UpdateUserFileImg> get copyWith =>
+      __$$UpdateUserFileImgCopyWithImpl<_$UpdateUserFileImg>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String statusText) statusChanged,
+    required TResult Function(String aboutText) aboutChanged,
+    required TResult Function(String usernameText) usernameChanged,
+    required TResult Function(bool onlineStatus) changeOnlineStatus,
+    required TResult Function(File imageFile) updateUserFileImg,
+  }) {
+    return updateUserFileImg(imageFile);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String statusText)? statusChanged,
+    TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
+    TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
+  }) {
+    return updateUserFileImg?.call(imageFile);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String statusText)? statusChanged,
+    TResult Function(String aboutText)? aboutChanged,
+    TResult Function(String usernameText)? usernameChanged,
+    TResult Function(bool onlineStatus)? changeOnlineStatus,
+    TResult Function(File imageFile)? updateUserFileImg,
+    required TResult orElse(),
+  }) {
+    if (updateUserFileImg != null) {
+      return updateUserFileImg(imageFile);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StatusChanged value) statusChanged,
+    required TResult Function(AboutChanged value) aboutChanged,
+    required TResult Function(UsernameChanged value) usernameChanged,
+    required TResult Function(ChangeOnlineStatus value) changeOnlineStatus,
+    required TResult Function(UpdateUserFileImg value) updateUserFileImg,
+  }) {
+    return updateUserFileImg(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StatusChanged value)? statusChanged,
+    TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
+    TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
+  }) {
+    return updateUserFileImg?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StatusChanged value)? statusChanged,
+    TResult Function(AboutChanged value)? aboutChanged,
+    TResult Function(UsernameChanged value)? usernameChanged,
+    TResult Function(ChangeOnlineStatus value)? changeOnlineStatus,
+    TResult Function(UpdateUserFileImg value)? updateUserFileImg,
+    required TResult orElse(),
+  }) {
+    if (updateUserFileImg != null) {
+      return updateUserFileImg(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateUserFileImg implements ProfileEvent {
+  const factory UpdateUserFileImg({required final File imageFile}) =
+      _$UpdateUserFileImg;
+
+  File get imageFile => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$UpdateUserFileImgCopyWith<_$UpdateUserFileImg> get copyWith =>
       throw _privateConstructorUsedError;
 }
