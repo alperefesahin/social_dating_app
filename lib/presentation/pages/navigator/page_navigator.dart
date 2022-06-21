@@ -14,6 +14,8 @@ class PageNavigator extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    
+
     ref.listen<bool>(
       authStateProvider.select((value) => value.isUserSignedIn),
       (p, c) {

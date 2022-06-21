@@ -20,10 +20,13 @@ mixin _$ProfileState {
   Status get userStatus => throw _privateConstructorUsedError;
   About get userAbout => throw _privateConstructorUsedError;
   Username get userName => throw _privateConstructorUsedError;
+  File get userFileImg => throw _privateConstructorUsedError;
   FormzStatus get formStatus => throw _privateConstructorUsedError;
   String get textFieldError => throw _privateConstructorUsedError;
   bool get isInProgress => throw _privateConstructorUsedError;
   bool get isSavingProcessCompletedSuccesfully =>
+      throw _privateConstructorUsedError;
+  bool get isCreatingProfileProcessCompletedSuccesfully =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -41,10 +44,12 @@ abstract class $ProfileStateCopyWith<$Res> {
       Status userStatus,
       About userAbout,
       Username userName,
+      File userFileImg,
       FormzStatus formStatus,
       String textFieldError,
       bool isInProgress,
-      bool isSavingProcessCompletedSuccesfully});
+      bool isSavingProcessCompletedSuccesfully,
+      bool isCreatingProfileProcessCompletedSuccesfully});
 
   $UserProfileModelCopyWith<$Res> get currentUserProfile;
 }
@@ -63,10 +68,12 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? userStatus = freezed,
     Object? userAbout = freezed,
     Object? userName = freezed,
+    Object? userFileImg = freezed,
     Object? formStatus = freezed,
     Object? textFieldError = freezed,
     Object? isInProgress = freezed,
     Object? isSavingProcessCompletedSuccesfully = freezed,
+    Object? isCreatingProfileProcessCompletedSuccesfully = freezed,
   }) {
     return _then(_value.copyWith(
       currentUserProfile: currentUserProfile == freezed
@@ -85,6 +92,10 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Username,
+      userFileImg: userFileImg == freezed
+          ? _value.userFileImg
+          : userFileImg // ignore: cast_nullable_to_non_nullable
+              as File,
       formStatus: formStatus == freezed
           ? _value.formStatus
           : formStatus // ignore: cast_nullable_to_non_nullable
@@ -102,6 +113,11 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.isSavingProcessCompletedSuccesfully
           : isSavingProcessCompletedSuccesfully // ignore: cast_nullable_to_non_nullable
               as bool,
+      isCreatingProfileProcessCompletedSuccesfully:
+          isCreatingProfileProcessCompletedSuccesfully == freezed
+              ? _value.isCreatingProfileProcessCompletedSuccesfully
+              : isCreatingProfileProcessCompletedSuccesfully // ignore: cast_nullable_to_non_nullable
+                  as bool,
     ));
   }
 
@@ -125,10 +141,12 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       Status userStatus,
       About userAbout,
       Username userName,
+      File userFileImg,
       FormzStatus formStatus,
       String textFieldError,
       bool isInProgress,
-      bool isSavingProcessCompletedSuccesfully});
+      bool isSavingProcessCompletedSuccesfully,
+      bool isCreatingProfileProcessCompletedSuccesfully});
 
   @override
   $UserProfileModelCopyWith<$Res> get currentUserProfile;
@@ -151,10 +169,12 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? userStatus = freezed,
     Object? userAbout = freezed,
     Object? userName = freezed,
+    Object? userFileImg = freezed,
     Object? formStatus = freezed,
     Object? textFieldError = freezed,
     Object? isInProgress = freezed,
     Object? isSavingProcessCompletedSuccesfully = freezed,
+    Object? isCreatingProfileProcessCompletedSuccesfully = freezed,
   }) {
     return _then(_$_ProfileState(
       currentUserProfile: currentUserProfile == freezed
@@ -173,6 +193,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Username,
+      userFileImg: userFileImg == freezed
+          ? _value.userFileImg
+          : userFileImg // ignore: cast_nullable_to_non_nullable
+              as File,
       formStatus: formStatus == freezed
           ? _value.formStatus
           : formStatus // ignore: cast_nullable_to_non_nullable
@@ -190,6 +214,11 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.isSavingProcessCompletedSuccesfully
           : isSavingProcessCompletedSuccesfully // ignore: cast_nullable_to_non_nullable
               as bool,
+      isCreatingProfileProcessCompletedSuccesfully:
+          isCreatingProfileProcessCompletedSuccesfully == freezed
+              ? _value.isCreatingProfileProcessCompletedSuccesfully
+              : isCreatingProfileProcessCompletedSuccesfully // ignore: cast_nullable_to_non_nullable
+                  as bool,
     ));
   }
 }
@@ -202,10 +231,12 @@ class _$_ProfileState extends _ProfileState {
       required this.userStatus,
       required this.userAbout,
       required this.userName,
+      required this.userFileImg,
       required this.formStatus,
       required this.textFieldError,
       required this.isInProgress,
-      required this.isSavingProcessCompletedSuccesfully})
+      required this.isSavingProcessCompletedSuccesfully,
+      required this.isCreatingProfileProcessCompletedSuccesfully})
       : super._();
 
   @override
@@ -217,6 +248,8 @@ class _$_ProfileState extends _ProfileState {
   @override
   final Username userName;
   @override
+  final File userFileImg;
+  @override
   final FormzStatus formStatus;
   @override
   final String textFieldError;
@@ -224,10 +257,12 @@ class _$_ProfileState extends _ProfileState {
   final bool isInProgress;
   @override
   final bool isSavingProcessCompletedSuccesfully;
+  @override
+  final bool isCreatingProfileProcessCompletedSuccesfully;
 
   @override
   String toString() {
-    return 'ProfileState(currentUserProfile: $currentUserProfile, userStatus: $userStatus, userAbout: $userAbout, userName: $userName, formStatus: $formStatus, textFieldError: $textFieldError, isInProgress: $isInProgress, isSavingProcessCompletedSuccesfully: $isSavingProcessCompletedSuccesfully)';
+    return 'ProfileState(currentUserProfile: $currentUserProfile, userStatus: $userStatus, userAbout: $userAbout, userName: $userName, userFileImg: $userFileImg, formStatus: $formStatus, textFieldError: $textFieldError, isInProgress: $isInProgress, isSavingProcessCompletedSuccesfully: $isSavingProcessCompletedSuccesfully, isCreatingProfileProcessCompletedSuccesfully: $isCreatingProfileProcessCompletedSuccesfully)';
   }
 
   @override
@@ -242,6 +277,8 @@ class _$_ProfileState extends _ProfileState {
             const DeepCollectionEquality().equals(other.userAbout, userAbout) &&
             const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality()
+                .equals(other.userFileImg, userFileImg) &&
+            const DeepCollectionEquality()
                 .equals(other.formStatus, formStatus) &&
             const DeepCollectionEquality()
                 .equals(other.textFieldError, textFieldError) &&
@@ -249,7 +286,10 @@ class _$_ProfileState extends _ProfileState {
                 .equals(other.isInProgress, isInProgress) &&
             const DeepCollectionEquality().equals(
                 other.isSavingProcessCompletedSuccesfully,
-                isSavingProcessCompletedSuccesfully));
+                isSavingProcessCompletedSuccesfully) &&
+            const DeepCollectionEquality().equals(
+                other.isCreatingProfileProcessCompletedSuccesfully,
+                isCreatingProfileProcessCompletedSuccesfully));
   }
 
   @override
@@ -259,10 +299,13 @@ class _$_ProfileState extends _ProfileState {
       const DeepCollectionEquality().hash(userStatus),
       const DeepCollectionEquality().hash(userAbout),
       const DeepCollectionEquality().hash(userName),
+      const DeepCollectionEquality().hash(userFileImg),
       const DeepCollectionEquality().hash(formStatus),
       const DeepCollectionEquality().hash(textFieldError),
       const DeepCollectionEquality().hash(isInProgress),
-      const DeepCollectionEquality().hash(isSavingProcessCompletedSuccesfully));
+      const DeepCollectionEquality().hash(isSavingProcessCompletedSuccesfully),
+      const DeepCollectionEquality()
+          .hash(isCreatingProfileProcessCompletedSuccesfully));
 
   @JsonKey(ignore: true)
   @override
@@ -276,10 +319,12 @@ abstract class _ProfileState extends ProfileState {
           required final Status userStatus,
           required final About userAbout,
           required final Username userName,
+          required final File userFileImg,
           required final FormzStatus formStatus,
           required final String textFieldError,
           required final bool isInProgress,
-          required final bool isSavingProcessCompletedSuccesfully}) =
+          required final bool isSavingProcessCompletedSuccesfully,
+          required final bool isCreatingProfileProcessCompletedSuccesfully}) =
       _$_ProfileState;
   _ProfileState._() : super._();
 
@@ -292,6 +337,8 @@ abstract class _ProfileState extends ProfileState {
   @override
   Username get userName => throw _privateConstructorUsedError;
   @override
+  File get userFileImg => throw _privateConstructorUsedError;
+  @override
   FormzStatus get formStatus => throw _privateConstructorUsedError;
   @override
   String get textFieldError => throw _privateConstructorUsedError;
@@ -299,6 +346,9 @@ abstract class _ProfileState extends ProfileState {
   bool get isInProgress => throw _privateConstructorUsedError;
   @override
   bool get isSavingProcessCompletedSuccesfully =>
+      throw _privateConstructorUsedError;
+  @override
+  bool get isCreatingProfileProcessCompletedSuccesfully =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

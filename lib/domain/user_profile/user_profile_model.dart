@@ -9,6 +9,7 @@ class UserProfileModel with _$UserProfileModel {
     required String status,
     required String userName,
     required String about,
+    required bool isUserChecked,
     required bool onlineStatus,
   }) = _UserProfileModel;
 
@@ -17,6 +18,7 @@ class UserProfileModel with _$UserProfileModel {
         status: '',
         about: '',
         userName: '',
+        isUserChecked: false,
         onlineStatus: true,
       );
 }

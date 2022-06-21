@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:random_name_plus/random_name_plus.dart';
 import 'package:social_dating_app/domain/auth/auth_failure.dart';
 import 'package:social_dating_app/domain/auth/i_auth_service.dart';
 import 'package:social_dating_app/providers/firebase/firebase_provider.dart';
@@ -81,20 +80,15 @@ class FirebaseAuthService implements IAuthService {
         (UserCredential userCredential) {
           final user = userCredential.user;
           final uid = user!.uid;
-          final randomUserName = RandomName.generate(NameType.male);
-          const imageURL =
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png";
-          const status = "Newbie";
+
           firestore.collection("users").doc(uid).set(
             {
               "userPhone": user.phoneNumber,
               "uid": user.uid,
               "latitude": null,
               "longitude": null,
-              "userName": randomUserName,
-              "imageURL": imageURL,
-              "status": status,
               "onlineStatus": false,
+              "isUserChecked": false,
             },
             SetOptions(merge: true),
           );
