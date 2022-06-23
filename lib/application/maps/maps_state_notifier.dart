@@ -25,8 +25,8 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
         markerList.add(
           Marker(
             position: LatLng(
-              user["latitude"],
-              user["longitude"],
+              user["latitude"] ?? 0,
+              user["longitude"] ?? 0,
             ),
             markerId: MarkerId(
               user["uid"],
