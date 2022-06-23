@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:social_dating_app/domain/location/user_location_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/pages/feed/constants/texts.dart';
 import 'package:social_dating_app/presentation/pages/feed/widgets/custom_list_tile.dart';
@@ -15,9 +14,9 @@ class FeedPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final mapsState = ref.watch(mapsStateProvider);
     final usersInFeed = mapsState.usersInFeed;
-    final currentUserLocation = mapsState.currentUserLocation;
+    final showLoadingIndicatorOrText = mapsState.showLoadingIndicatorOrText;
 
-    return currentUserLocation == UserLocationModel.empty()
+    return showLoadingIndicatorOrText
         ? const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Center(

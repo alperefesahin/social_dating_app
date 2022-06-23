@@ -40,4 +40,5 @@ class ProfileState with _$ProfileState {
 
   bool get displaySaveButton => formStatus.isValidated;
   bool get displayCreateProfileButton => formStatus.isValidated && userFileImg.path != "";
+  bool get showLoadingIndicator => isInProgress || currentUserProfile == UserProfileModel.empty();
 }

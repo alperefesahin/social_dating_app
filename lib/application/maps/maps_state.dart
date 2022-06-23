@@ -13,6 +13,7 @@ class MapsState with _$MapsState {
     required LocationPermission locationPermission,
     required Set<Marker> markerList,
     required List<FeedUserModel> usersInFeed,
+    required bool isInProgress,
   }) = _MapsState;
   const MapsState._();
 
@@ -21,5 +22,8 @@ class MapsState with _$MapsState {
         locationPermission: LocationPermission.whileInUse,
         markerList: {},
         usersInFeed: [],
+        isInProgress: false,
       );
+
+  bool get showLoadingIndicatorOrText => currentUserLocation.latOfCurrentLocation == null || isInProgress;
 }

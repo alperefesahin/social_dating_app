@@ -102,11 +102,11 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
     if (state.isInProgress) {
       return;
     }
+    state = state.copyWith(isInProgress: true, isSavingProcessCompletedSuccesfully: false);
+
     final firestore = _read(firestoreProvider);
     final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
     final currentUser = firestore.collection("users").doc(uid);
-
-    state = state.copyWith(isInProgress: true, isSavingProcessCompletedSuccesfully: false);
 
     await currentUser.update(
       {
@@ -121,12 +121,12 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
     if (state.isInProgress) {
       return;
     }
+    state = state.copyWith(isInProgress: true, isCreatingProfileProcessCompletedSuccesfully: false);
 
     final firestore = _read(firestoreProvider);
     final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
     final currentUser = firestore.collection("users").doc(uid);
     final userUploadedImage = _read(firebaseStorage).ref(uid);
-    state = state.copyWith(isInProgress: true, isCreatingProfileProcessCompletedSuccesfully: false);
 
     await userUploadedImage.putFile(state.userFileImg).then(
       (p0) async {
@@ -175,10 +175,13 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
     if (state.isInProgress) {
       return;
     }
+    state = state.copyWith(isInProgress: true);
+    
     final firestore = _read(firestoreProvider);
     final uid = _read(authRepositoryProvider).getCurrentUser()!.uid;
     final currentUser = await firestore.collection("users").doc(uid).get();
     final currentUserData = currentUser.data()!;
+
     state = state.copyWith(
       currentUserProfile: UserProfileModel(
         imageUrl: currentUserData["imageURL"],
@@ -188,6 +191,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
         onlineStatus: currentUserData["onlineStatus"],
         isUserChecked: currentUserData["isUserChecked"],
       ),
+      isInProgress: false,
     );
   }
 }
