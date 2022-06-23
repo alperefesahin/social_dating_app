@@ -26,7 +26,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
           AutoRouter.of(context).replace(const SignInRoute());
         } else {
           ref.read(profileStateProvider.notifier).getCurrentUser();
-          AutoRouter.of(context).replace(const AboutRoute());
+          AutoRouter.of(context).replace(const HomeLandingRoute());
         }
       },
     );
@@ -41,7 +41,7 @@ class _LandingPageState extends ConsumerState<LandingPage> {
       (p, c) {
         if (c.isUserSignedIn) {
           ref.read(profileStateProvider.notifier).getCurrentUser();
-          AutoRouter.of(context).replace(const AboutRoute());
+          AutoRouter.of(context).replace(const HomeLandingRoute());
         } else if (!c.isUserSignedIn) {
           AutoRouter.of(context).replace(const SignInRoute());
         }
