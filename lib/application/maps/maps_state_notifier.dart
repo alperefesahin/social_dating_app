@@ -15,11 +15,16 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
   final Completer<GoogleMapController> _controller = Completer();
 
   Future<void> getUsersMarkers() async {
+    if (state.isInProgress) {
+      return;
+    }
+
     final firestore = _read(firestoreProvider);
     final getUsersFromFirestore = await firestore.collection("users").get();
     final Set<Marker> markerList = {};
     final List<FeedUserModel> usersInFeed = [];
 
+    state = state.copyWith(isInProgress: true);
     getUsersFromFirestore.docs.map((e) => e.data()).toList().forEach(
       (user) {
         markerList.add(
@@ -63,10 +68,16 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
     state = state.copyWith(
       markerList: markerList,
       usersInFeed: usersInFeed,
+      isInProgress: false,
     );
   }
 
   Future<void> getCurrentPosition() async {
+    if (state.isInProgress) {
+      return;
+    }
+
+    state = state.copyWith(isInProgress: true);
     await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high).then(
       (Position currentPosition) {
         final latValueOfTheCurrentPosition = currentPosition.latitude;
@@ -83,6 +94,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
         );
 
         state = state.copyWith(
+          isInProgress: false,
           currentUserLocation: UserLocationModel(
             latOfCurrentLocation: latValueOfTheCurrentPosition,
             longOfCurrentLocation: longValueOfTheCurrentPosition,
@@ -93,6 +105,11 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
   }
 
   Future<void> getCurrentPositionWithUserPermission() async {
+    if (state.isInProgress) {
+      return;
+    }
+
+    state = state.copyWith(isInProgress: true);
     await Geolocator.checkPermission().then(
       (LocationPermission locationPermission) async {
         if (locationPermission == LocationPermission.denied ||
@@ -109,6 +126,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
               } else {
                 state = state.copyWith(
                   locationPermission: requestPermission,
+                  isInProgress: false,
                 );
 
                 getCurrentPosition();
@@ -118,6 +136,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
         } else {
           state = state.copyWith(
             locationPermission: locationPermission,
+            isInProgress: false,
           );
 
           getCurrentPosition();

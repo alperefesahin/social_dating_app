@@ -33,9 +33,16 @@ class TextFields extends ConsumerWidget {
           CustomTextField(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
             hint: user.userName,
-            isEnabled: false,
+            isEnabled: true,
             isPasswordField: false,
-            onChanged: (value) {},
+            isRequiredField: true,
+            onChanged: (value) {
+              ref.read(profileStateProvider.notifier).mapEventsToState(
+                    UsernameChanged(
+                      usernameText: value,
+                    ),
+                  );
+            },
             keyboardType: TextInputType.text,
           ),
           CustomTextField(

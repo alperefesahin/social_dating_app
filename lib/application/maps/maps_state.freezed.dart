@@ -22,6 +22,7 @@ mixin _$MapsState {
       throw _privateConstructorUsedError;
   Set<Marker> get markerList => throw _privateConstructorUsedError;
   List<FeedUserModel> get usersInFeed => throw _privateConstructorUsedError;
+  bool get isInProgress => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MapsStateCopyWith<MapsState> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $MapsStateCopyWith<$Res> {
       {UserLocationModel currentUserLocation,
       LocationPermission locationPermission,
       Set<Marker> markerList,
-      List<FeedUserModel> usersInFeed});
+      List<FeedUserModel> usersInFeed,
+      bool isInProgress});
 
   $UserLocationModelCopyWith<$Res> get currentUserLocation;
 }
@@ -55,6 +57,7 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
     Object? locationPermission = freezed,
     Object? markerList = freezed,
     Object? usersInFeed = freezed,
+    Object? isInProgress = freezed,
   }) {
     return _then(_value.copyWith(
       currentUserLocation: currentUserLocation == freezed
@@ -73,6 +76,10 @@ class _$MapsStateCopyWithImpl<$Res> implements $MapsStateCopyWith<$Res> {
           ? _value.usersInFeed
           : usersInFeed // ignore: cast_nullable_to_non_nullable
               as List<FeedUserModel>,
+      isInProgress: isInProgress == freezed
+          ? _value.isInProgress
+          : isInProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -95,7 +102,8 @@ abstract class _$$_MapsStateCopyWith<$Res> implements $MapsStateCopyWith<$Res> {
       {UserLocationModel currentUserLocation,
       LocationPermission locationPermission,
       Set<Marker> markerList,
-      List<FeedUserModel> usersInFeed});
+      List<FeedUserModel> usersInFeed,
+      bool isInProgress});
 
   @override
   $UserLocationModelCopyWith<$Res> get currentUserLocation;
@@ -117,6 +125,7 @@ class __$$_MapsStateCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
     Object? locationPermission = freezed,
     Object? markerList = freezed,
     Object? usersInFeed = freezed,
+    Object? isInProgress = freezed,
   }) {
     return _then(_$_MapsState(
       currentUserLocation: currentUserLocation == freezed
@@ -135,6 +144,10 @@ class __$$_MapsStateCopyWithImpl<$Res> extends _$MapsStateCopyWithImpl<$Res>
           ? _value._usersInFeed
           : usersInFeed // ignore: cast_nullable_to_non_nullable
               as List<FeedUserModel>,
+      isInProgress: isInProgress == freezed
+          ? _value.isInProgress
+          : isInProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -146,7 +159,8 @@ class _$_MapsState extends _MapsState {
       {required this.currentUserLocation,
       required this.locationPermission,
       required final Set<Marker> markerList,
-      required final List<FeedUserModel> usersInFeed})
+      required final List<FeedUserModel> usersInFeed,
+      required this.isInProgress})
       : _markerList = markerList,
         _usersInFeed = usersInFeed,
         super._();
@@ -170,8 +184,11 @@ class _$_MapsState extends _MapsState {
   }
 
   @override
+  final bool isInProgress;
+
+  @override
   String toString() {
-    return 'MapsState(currentUserLocation: $currentUserLocation, locationPermission: $locationPermission, markerList: $markerList, usersInFeed: $usersInFeed)';
+    return 'MapsState(currentUserLocation: $currentUserLocation, locationPermission: $locationPermission, markerList: $markerList, usersInFeed: $usersInFeed, isInProgress: $isInProgress)';
   }
 
   @override
@@ -186,7 +203,9 @@ class _$_MapsState extends _MapsState {
             const DeepCollectionEquality()
                 .equals(other._markerList, _markerList) &&
             const DeepCollectionEquality()
-                .equals(other._usersInFeed, _usersInFeed));
+                .equals(other._usersInFeed, _usersInFeed) &&
+            const DeepCollectionEquality()
+                .equals(other.isInProgress, isInProgress));
   }
 
   @override
@@ -195,7 +214,8 @@ class _$_MapsState extends _MapsState {
       const DeepCollectionEquality().hash(currentUserLocation),
       const DeepCollectionEquality().hash(locationPermission),
       const DeepCollectionEquality().hash(_markerList),
-      const DeepCollectionEquality().hash(_usersInFeed));
+      const DeepCollectionEquality().hash(_usersInFeed),
+      const DeepCollectionEquality().hash(isInProgress));
 
   @JsonKey(ignore: true)
   @override
@@ -208,7 +228,8 @@ abstract class _MapsState extends MapsState {
       {required final UserLocationModel currentUserLocation,
       required final LocationPermission locationPermission,
       required final Set<Marker> markerList,
-      required final List<FeedUserModel> usersInFeed}) = _$_MapsState;
+      required final List<FeedUserModel> usersInFeed,
+      required final bool isInProgress}) = _$_MapsState;
   _MapsState._() : super._();
 
   @override
@@ -221,6 +242,8 @@ abstract class _MapsState extends MapsState {
   Set<Marker> get markerList => throw _privateConstructorUsedError;
   @override
   List<FeedUserModel> get usersInFeed => throw _privateConstructorUsedError;
+  @override
+  bool get isInProgress => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_MapsStateCopyWith<_$_MapsState> get copyWith =>

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
-import 'package:social_dating_app/domain/user_profile/user_profile_model.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
 import 'package:social_dating_app/presentation/common_widgets/custom_progress_indicator.dart';
 import 'package:social_dating_app/presentation/pages/profile/profile_page/widgets/profile_page_body.dart';
@@ -17,8 +16,9 @@ class ProfilePage extends ConsumerWidget {
     final state = ref.watch(profileStateProvider);
     final user = state.currentUserProfile;
     final isUserOnline = state.currentUserProfile.onlineStatus;
+    final showLoadingIndicator = state.showLoadingIndicator;
 
-    return user == UserProfileModel.empty()
+    return showLoadingIndicator
         ? const CustomProgressIndicator(progressIndicatorColor: blackColor)
         : Scaffold(
             appBar: AppBar(

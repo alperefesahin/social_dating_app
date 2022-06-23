@@ -7,7 +7,6 @@ import 'package:social_dating_app/presentation/pages/navigator/constants/texts.d
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/auth/auth_state_provider.dart';
 import 'package:social_dating_app/providers/maps/maps_provider.dart';
-import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
 class PageNavigator extends ConsumerWidget {
   const PageNavigator({Key? key}) : super(key: key);
@@ -70,10 +69,11 @@ class PageNavigator extends ConsumerWidget {
             if (index == 0 || index == 1) {
               ref.refresh(mapsStateProvider);
               tabsRouter.setActiveIndex(index);
-            } else if (index == 2) {
+            } /* else if (index == 2) {
               ref.refresh(profileStateProvider);
               tabsRouter.setActiveIndex(index);
-            }
+            } */
+              tabsRouter.setActiveIndex(index);
           },
           selectedItemColor: customIndigoColor,
         ),
