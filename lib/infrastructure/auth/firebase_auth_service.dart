@@ -77,21 +77,33 @@ class FirebaseAuthService implements IAuthService {
       );
 
       await firebaseAuth.signInWithCredential(phoneAuthCredential).then(
-        (UserCredential userCredential) {
+        (UserCredential userCredential) async {
           final user = userCredential.user;
           final uid = user!.uid;
 
-          firestore.collection("users").doc(uid).set(
-            {
-              "userPhone": user.phoneNumber,
-              "uid": user.uid,
-              "latitude": null,
-              "longitude": null,
-              "onlineStatus": false,
-              "isUserChecked": false,
-            },
-            SetOptions(merge: true),
-          );
+          final currentUser = await firestore.collection("users").doc(uid).get();
+          final currentUserData = currentUser.data()!;
+          final bool isUserChecked = currentUserData["isUserChecked"];
+
+          if (isUserChecked) {
+            return;
+          } else {
+            firestore.collection("users").doc(uid).set(
+              {
+                "userPhone": user.phoneNumber,
+                "uid": user.uid,
+                "latitude": null,
+                "longitude": null,
+                "onlineStatus": false,
+                "isUserChecked": false,
+                "about": "",
+                "userName": "",
+                "status": "",
+                "imageURL": "",
+              },
+              SetOptions(merge: true),
+            );
+          }
         },
       );
       return right(unit);

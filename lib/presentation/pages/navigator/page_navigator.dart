@@ -14,8 +14,6 @@ class PageNavigator extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    
-
     ref.listen<bool>(
       authStateProvider.select((value) => value.isUserSignedIn),
       (p, c) {
@@ -69,14 +67,13 @@ class PageNavigator extends ConsumerWidget {
           ],
           currentIndex: tabsRouter.activeIndex,
           onTap: (index) {
-            if (index == 0) {
+            if (index == 0 || index == 1) {
               ref.refresh(mapsStateProvider);
               tabsRouter.setActiveIndex(index);
             } else if (index == 2) {
               ref.refresh(profileStateProvider);
               tabsRouter.setActiveIndex(index);
             }
-            tabsRouter.setActiveIndex(index);
           },
           selectedItemColor: customIndigoColor,
         ),
