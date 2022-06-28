@@ -3,7 +3,5 @@ import 'package:social_dating_app/application/phone_sign_in/phone_state.dart';
 import 'package:social_dating_app/application/phone_sign_in/phone_state_notifier.dart';
 
 final phoneSignInStateProvider = StateNotifierProvider.autoDispose<PhoneSignInStateNotifier, PhoneSignInState>(
-  (ref) {
-    return PhoneSignInStateNotifier(ref.read);
-  },
+  (ref) => PhoneSignInStateNotifier(ref.read),
 );
