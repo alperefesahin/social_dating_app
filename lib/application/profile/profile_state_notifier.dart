@@ -114,6 +114,7 @@ class ProfileStateNotifier extends StateNotifier<ProfileState> {
       {
         "status": state.currentUserProfile.status,
         "about": state.currentUserProfile.about,
+        "userName": state.currentUserProfile.userName,
         "onlineStatus": state.currentUserProfile.onlineStatus,
       },
     ).whenComplete(() => state = state.copyWith(isInProgress: false, isSavingProcessCompletedSuccesfully: true));
