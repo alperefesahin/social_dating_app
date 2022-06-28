@@ -8,6 +8,7 @@ class UserLocationModel with _$UserLocationModel {
     required double? latOfCurrentLocation,
     required double? longOfCurrentLocation,
   }) = _UserLocationModel;
+  
   const UserLocationModel._();
 
   factory UserLocationModel.empty() => const UserLocationModel(
