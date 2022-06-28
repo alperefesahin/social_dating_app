@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:social_dating_app/application/profile/profile_event.dart';
 import 'package:social_dating_app/presentation/common_widgets/colors.dart';
+import 'package:social_dating_app/presentation/pages/profile/profile_edit/constants/texts.dart';
 import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
 class SwitchButton extends ConsumerWidget {
@@ -11,15 +12,17 @@ class SwitchButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final onlineStatus = ref.watch(profileStateProvider.select(
-      (state) => state.currentUserProfile.onlineStatus,
-    ));
+    final onlineStatus = ref.watch(
+      profileStateProvider.select(
+        (state) => state.currentUserProfile.onlineStatus,
+      ),
+    );
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: AnimatedSwitch(
-        textOn: "Online",
-        textOff: "Offline",
+        textOn: onlineText,
+        textOff: offlineText,
         textStyle: const TextStyle(
           color: whiteColor,
           fontWeight: FontWeight.w600,

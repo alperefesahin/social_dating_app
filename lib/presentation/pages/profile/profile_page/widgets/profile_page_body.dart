@@ -8,8 +8,8 @@ import 'package:social_dating_app/presentation/pages/profile/profile_page/widget
 
 class ProfilePageBody extends StatelessWidget {
   const ProfilePageBody({Key? key, required this.user}) : super(key: key);
-
   final UserProfileModel user;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

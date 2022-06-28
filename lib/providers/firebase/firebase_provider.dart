@@ -17,7 +17,5 @@ final firebaseStorage = Provider<FirebaseStorage>(
 );
 
 final authRepositoryProvider = Provider<FirebaseAuthService>(
-  (ref) => FirebaseAuthService(
-    ref.read,
-  ),
+  (ref) => FirebaseAuthService(ref.read),
 );

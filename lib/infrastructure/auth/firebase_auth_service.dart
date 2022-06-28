@@ -16,9 +16,7 @@ class FirebaseAuthService implements IAuthService {
   Stream<User?> get authStateChanges => _read(firebaseAuthProvider).authStateChanges();
 
   @override
-  Future<void> signOut() async {
-    await _read(firebaseAuthProvider).signOut();
-  }
+  Future<void> signOut() async => await _read(firebaseAuthProvider).signOut();
 
   @override
   User? getCurrentUser() => _read(firebaseAuthProvider).currentUser;
@@ -31,6 +29,7 @@ class FirebaseAuthService implements IAuthService {
   }) async* {
     final StreamController<Either<AuthFailure, Tuple2<String, int?>>> streamController =
         StreamController<Either<AuthFailure, Tuple2<String, int?>>>();
+
     final firebaseAuth = _read(firebaseAuthProvider);
 
     await firebaseAuth.verifyPhoneNumber(
@@ -43,12 +42,12 @@ class FirebaseAuthService implements IAuthService {
       },
       codeSent: (String verificationId, int? resendToken) async {
         // Wait for the user to enter the SMS code
-
         streamController.add(right(tuple2(verificationId, resendToken)));
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
       verificationFailed: (FirebaseAuthException e) {
         late final Either<AuthFailure, Tuple2<String, int?>> result;
+
         if (e.code == 'too-many-requests') {
           result = left(const AuthFailure.tooManyRequests());
         } else if (e.code == 'app-not-authorized') {
@@ -71,6 +70,7 @@ class FirebaseAuthService implements IAuthService {
     try {
       final firebaseAuth = _read(firebaseAuthProvider);
       final firestore = _read(firestoreProvider);
+      
       final PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
         verificationId: verificationId,
         smsCode: smsCode,

@@ -25,6 +25,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
     final List<FeedUserModel> usersInFeed = [];
 
     state = state.copyWith(isInProgress: true);
+
     getUsersFromFirestore.docs.map((e) => e.data()).toList().forEach(
       (user) {
         markerList.add(
@@ -55,6 +56,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
             },
           ),
         );
+
         usersInFeed.add(
           FeedUserModel(
             imageUrl: user["imageURL"],
@@ -78,6 +80,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
     }
 
     state = state.copyWith(isInProgress: true);
+
     await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high).then(
       (Position currentPosition) {
         final latValueOfTheCurrentPosition = currentPosition.latitude;
@@ -110,6 +113,7 @@ class MapsStateNotifier extends StateNotifier<MapsState> {
     }
 
     state = state.copyWith(isInProgress: true);
+    
     await Geolocator.checkPermission().then(
       (LocationPermission locationPermission) async {
         if (locationPermission == LocationPermission.denied ||

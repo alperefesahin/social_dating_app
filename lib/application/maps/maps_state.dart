@@ -15,6 +15,7 @@ class MapsState with _$MapsState {
     required List<FeedUserModel> usersInFeed,
     required bool isInProgress,
   }) = _MapsState;
+  
   const MapsState._();
 
   factory MapsState.empty() => MapsState(

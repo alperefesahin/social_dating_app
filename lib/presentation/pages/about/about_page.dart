@@ -44,7 +44,12 @@ class AboutPage extends ConsumerWidget {
     return isInProgress
         ? WillPopScope(
             onWillPop: () => Future<bool>.value(false),
-            child: const Scaffold(body: CustomProgressIndicator(progressIndicatorColor: blackColor)))
+            child: const Scaffold(
+              body: CustomProgressIndicator(
+                progressIndicatorColor: blackColor,
+              ),
+            ),
+          )
         : WillPopScope(
             onWillPop: () => Future<bool>.value(false),
             child: Scaffold(
