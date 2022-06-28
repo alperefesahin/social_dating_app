@@ -8,6 +8,7 @@ import 'package:social_dating_app/providers/firebase/firebase_provider.dart';
 class AuthStateNotifier extends StateNotifier<AuthState> {
   AuthStateNotifier(this._read) : super(AuthState.empty()) {
     _authStateChangesSubscription?.cancel();
+
     _authStateChangesSubscription = _read(authRepositoryProvider).authStateChanges.listen(
       (User? user) {
         if (user == null) {
@@ -31,6 +32,12 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
   final Reader _read;
   StreamSubscription<User?>? _authStateChangesSubscription;
 
+  @override
+  void dispose() {
+    _authStateChangesSubscription?.cancel();
+    super.dispose();
+  }
+
   User? appInit() {
     final user = _read(authRepositoryProvider).getCurrentUser();
     return user;
@@ -40,13 +47,8 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     if (state.isInProgress) {
       return;
     }
+
     await _read(authRepositoryProvider).signOut();
     state = state.copyWith(isUserSignedIn: false);
-  }
-
-  @override
-  void dispose() {
-    _authStateChangesSubscription?.cancel();
-    super.dispose();
   }
 }

@@ -53,7 +53,9 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
         if (state.isInProgress) {
           return;
         }
+
         state = state.copyWith(isInProgress: true);
+
         _phoneNumberSignInSubscription?.cancel();
         _phoneNumberSignInSubscription = _read(authRepositoryProvider)
             .signInWithPhoneNumber(
@@ -67,7 +69,10 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
           (Either<AuthFailure, Tuple2<String, int?>> failureOrVerificationId) {
             failureOrVerificationId.fold(
               (failure) {
-                state = state.copyWith(failureMessageOption: some(failure), isInProgress: false);
+                state = state.copyWith(
+                  failureMessageOption: some(failure),
+                  isInProgress: false,
+                );
               },
               (Tuple2<String, int?> verificationIdResendTokenPair) {
                 state = state.copyWith(
@@ -96,6 +101,7 @@ class PhoneSignInStateNotifier extends StateNotifier<PhoneSignInState> {
               failureMessageOption: none(),
               isInProgress: true,
             );
+            
             final Either<AuthFailure, Unit> failureOrSuccess = await _read(authRepositoryProvider).verifySmsCode(
               smsCode: state.smsCode,
               verificationId: verificationId,
