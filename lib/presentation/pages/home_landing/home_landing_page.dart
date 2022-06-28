@@ -7,12 +7,27 @@ import 'package:social_dating_app/presentation/common_widgets/custom_progress_in
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
-class HomeLandingPage extends ConsumerWidget {
+class HomeLandingPage extends ConsumerStatefulWidget {
   const HomeLandingPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(profileStateProvider.notifier).getCurrentUser();
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomeLandingPageState();
+}
+
+class _HomeLandingPageState extends ConsumerState<HomeLandingPage> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        ref.read(profileStateProvider.notifier).getCurrentUser();
+      },
+    );
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     ref.listen<ProfileState>(
       profileStateProvider,
       (p, c) {
