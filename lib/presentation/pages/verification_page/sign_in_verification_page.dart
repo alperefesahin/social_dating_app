@@ -17,6 +17,8 @@ class SignInVerificationPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final phoneNumber = ref.read(phoneSignInStateProvider).phoneNumber;
+
     ref.listen<bool>(
       authStateProvider.select((value) => value.isUserSignedIn),
       (p, c) {
@@ -27,8 +29,6 @@ class SignInVerificationPage extends ConsumerWidget {
         }
       },
     );
-
-    final phoneNumber = ref.read(phoneSignInStateProvider).phoneNumber;
 
     return WillPopScope(
       onWillPop: () => Future<bool>.value(false),

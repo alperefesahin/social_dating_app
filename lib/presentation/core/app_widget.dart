@@ -26,13 +26,9 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routeInformationParser: appRouter.defaultRouteParser(),
         routerDelegate: appRouter.delegate(
-          navigatorObservers: () => [
-            botToastNavigatorObserver,
-          ],
+          navigatorObservers: () => [botToastNavigatorObserver],
         ),
-        builder: (context, child) {
-          return botToastBuilder(context, child);
-        },
+        builder: (context, child) => botToastBuilder(context, child),
       ),
     );
   }

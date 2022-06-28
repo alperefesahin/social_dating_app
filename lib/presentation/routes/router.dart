@@ -1,4 +1,3 @@
-// ignore: depend_on_referenced_packages
 import 'package:auto_route/auto_route.dart';
 import 'package:social_dating_app/presentation/pages/about/about_page.dart';
 import 'package:social_dating_app/presentation/pages/feed/feed_page.dart';
@@ -14,39 +13,20 @@ import 'package:social_dating_app/presentation/pages/verification_page/sign_in_v
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(
-      page: LandingPage,
-      initial: true,
-    ),
+    AutoRoute(page: LandingPage, initial: true),
     AutoRoute(
       page: PageNavigator,
       children: [
-        AutoRoute(
-          page: FeedPage,
-        ),
-        AutoRoute(
-          page: MapsPage,
-        ),
-        AutoRoute(
-          page: ProfilePage,
-        ),
+        AutoRoute(page: FeedPage),
+        AutoRoute(page: MapsPage),
+        AutoRoute(page: ProfilePage),
       ],
     ),
-    AutoRoute(
-      page: HomeLandingPage,
-    ),
-    AutoRoute(
-      page: AboutPage,
-    ),
-    AutoRoute(
-      page: ProfileEditPage,
-    ),
-    AutoRoute(
-      page: SignInPage,
-    ),
-    AutoRoute(
-      page: SignInVerificationPage,
-    ),
+    AutoRoute(page: HomeLandingPage),
+    AutoRoute(page: AboutPage),
+    AutoRoute(page: ProfileEditPage),
+    AutoRoute(page: SignInPage),
+    AutoRoute(page: SignInVerificationPage),
   ],
 )
 class $AppRouter {}

@@ -48,7 +48,9 @@ class _LandingPageState extends ConsumerState<LandingPage> {
       },
     );
     return const Scaffold(
-      body: CustomProgressIndicator(progressIndicatorColor: blackColor),
+      body: CustomProgressIndicator(
+        progressIndicatorColor: blackColor,
+      ),
     );
   }
 }

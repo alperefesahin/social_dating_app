@@ -10,9 +10,9 @@ class MapsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mapsState = ref.watch(mapsStateProvider);
+    final usersMarkers = ref.read(mapsStateProvider).markerList;
     final currentUserLocation = mapsState.currentUserLocation;
     final showLoadingIndicatorOrText = mapsState.showLoadingIndicatorOrText;
-    final usersMarkers = ref.read(mapsStateProvider).markerList;
 
     return showLoadingIndicatorOrText
         ? const Padding(

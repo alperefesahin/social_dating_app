@@ -14,6 +14,7 @@ class ProfileImage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final newImage = ref.watch(profileStateProvider).userFileImg;
+
     return Padding(
       padding: EdgeInsets.only(top: 5.h),
       child: Row(

@@ -7,6 +7,8 @@ import 'package:social_dating_app/presentation/common_widgets/custom_progress_in
 import 'package:social_dating_app/presentation/routes/router.gr.dart';
 import 'package:social_dating_app/providers/profile/profile_provider.dart';
 
+// If user logged in first time, user should go about page for the first time.
+
 class HomeLandingPage extends ConsumerStatefulWidget {
   const HomeLandingPage({Key? key}) : super(key: key);
 
@@ -39,7 +41,9 @@ class _HomeLandingPageState extends ConsumerState<HomeLandingPage> {
       },
     );
     return const Scaffold(
-      body: CustomProgressIndicator(progressIndicatorColor: blackColor),
+      body: CustomProgressIndicator(
+        progressIndicatorColor: blackColor,
+      ),
     );
   }
 }

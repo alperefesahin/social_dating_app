@@ -21,13 +21,14 @@ class ProfileImage extends StatelessWidget {
           width: 37.5.w,
           height: 17.h,
           decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(80),
-              ),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: imageProvider,
-              )),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(80),
+            ),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: imageProvider,
+            ),
+          ),
         ),
       ),
     );
